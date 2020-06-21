@@ -1,0 +1,177 @@
+*{
+    padding: 0;
+    margin: 0;
+    font-family: sans-serif;
+}
+
+.conteudo{
+    width: 100%;
+}
+
+.txt1{
+    text-align: center;
+    color: white;
+    font-size: 18px;
+}
+
+body{
+    width: 100%;
+    height: 100%;
+    background-image: url(../img/bg7.jpg);
+}
+
+form{
+    margin-top: 50px;
+}
+
+.cadastro{
+    border-radius: 60px 5px 60px 5px;
+    top: 50%;
+    left: 50%;
+    position: absolute;
+    transform: translate(-50%,-50%);
+    font-size: 16px;
+    background-image: linear-gradient(rgb(81, 182, 233), rgb(46, 107, 138));
+    box-shadow: 0 10px 50px black;
+    width: 1000px;
+    height: 550px;
+    padding: 20px;
+}
+
+.user{
+    width: 100px;
+    height: 100px;
+    position: absolute;
+    top: -50px;
+    left: calc(50% - 50px);
+}
+
+input, textarea{
+    margin-bottom: -5px;
+    width: 200px;
+    padding: 10px;
+    margin-left: 150px;
+    margin-top: 20px;
+    transform: translate(-50%,-50%);
+}
+
+label{
+    margin-left: 40px;
+    color: white;
+}
+
+.dados{
+    margin-top: 30px;
+    width: 300px;
+    height: 250px;
+    display: flex;
+}
+
+.dp{
+    margin-left: 50px;
+    width: 250px;
+}
+
+.dp2{
+    margin-left: 50px;
+    width: 250px;
+}
+
+.dp3{
+    margin-left: 50px;
+    width: 250px;
+    border-left: 1px solid white;
+}
+
+.iniciante{
+    margin: 0;
+    color: white;
+}
+
+.intermedio{
+    margin: 0;
+    color: white;
+}
+
+.experiente{
+    margin: 0;
+    color: white;
+}
+
+.links{
+    margin-top: 5px;
+    text-align: center;
+}
+
+.links a{
+    padding: 20px;
+    margin-left: 50%;
+    transform: translate(-50%,-50%);
+    text-align: center;
+    margin: -10px;
+    color: white;
+    text-decoration: none;
+    transition: .5s;
+}
+
+.links a:hover{
+    text-decoration: underline;
+}
+
+.enviar{
+    margin-left: 50%;
+    margin-top: 60px;
+    transform: translate(-50%,-50%);
+    width: 300px;
+    height: 40px;
+    background-color: rgba(77, 180, 232, 0);
+    border:solid 2px #fff;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: 1s;
+    color: white;
+}
+
+.enviar:hover{
+    width: 300px;
+    height: 40px;
+    background-color: white;
+    border: none;
+    cursor: pointer;
+    transition: 1s;
+    color: #4DB5E8;
+}
+
+.nasc{
+    border-radius: 25px;
+    border: none;
+}
+
+.nc{
+    border-radius: 25px;
+    border: none;
+}
+
+.em{
+    border-radius: 25px;
+    border: none;
+}
+
+.cpf{
+    border-radius: 25px;
+    border: none;
+}
+
+.tel{
+    border-radius: 25px;
+    border: none;
+}
+
+.nome_completo{
+    margin-top: 20px;
+}
+
+.cpf{
+    margin-top: 30px;
+}
+

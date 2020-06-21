@@ -1,0 +1,262 @@
+*{
+  padding: 0;
+  margin: 0;
+  font-family: sans-serif;
+}
+
+/*mexendo no header*/
+.topo{
+  width: 100%;
+  height: 500px;
+  background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url(../img/bg2b.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+/*logo do header*/
+.topo img{
+  top: 30px;
+  margin-left: 45%;
+  position: absolute;
+  width: 128px;
+  height: auto;
+}
+
+/*unnorderlist (navbar)*/
+.menu ul{
+  list-style: none;
+  padding: 15px 30px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/*itens da lista*/
+.menu ul li{
+  display: inline;
+}
+
+/*texto dos itens*/
+.menu ul li a{
+  display: inline-block;
+  padding: 10px 20px;
+  text-decoration: none;
+  color: white;
+  font-size: 15px;
+  border-radius: 25px;
+  transition: .5s;
+}
+
+/*quando passar o mouse por cima*/
+.menu ul li a:hover {
+  background-color:white;
+  color: black;
+  transition: .5s;
+}
+
+/*icones do facebook e twitter*/
+.icones{
+  float: right;
+  width: 500px;
+  padding: 10px 30px;
+}
+
+/*icone twitter*/
+.fa-twitter-square{
+  float: right;
+  color: white;
+  padding: 20px;
+}
+
+/*icone facebook*/
+.fa-facebook-square{
+  float: right;
+  color: white;
+  padding: 20px;
+}
+
+/*icone twitter dentro do h1*/
+.twitter{
+  font-size: 28px;
+  transition: .5s;
+}
+
+/*quando passa o mouse por cima*/
+.twitter:hover{
+  opacity: 0.8;
+  transition: .5s;
+}
+
+/*icone facebook dentro do h1*/
+.facebook{
+  font-size: 28px;
+  transition: .5s;
+}
+
+/*quando passa por cima*/
+.facebook:hover{
+  opacity: 0.8;
+  transition: .5s;
+}
+
+/*texto header e botões do header (posicionamento)*/
+.enjoy{
+  margin-top: 0;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/*configurando texto*/
+.enjoy h1{
+  color: white;
+  text-transform: uppercase;
+  font-size: 50px;
+  text-align: center;
+  margin-top: 250px;
+}
+
+.enjoy p{
+  color: white;
+  font-size: 20px;
+  text-align: center;
+  margin-top: 10px;
+}
+
+/*configurando botões (posição)*/
+.button{
+  margin-top: 30px;
+  margin-left: 43%;
+}
+
+/*estilo botões*/
+.btn{
+  border: 1px solid white;
+  border-radius: 25px;
+  padding: 10px 30px;
+  color: white;
+  text-decoration: none;
+  transition: .5s;
+}
+
+/*quando passa por cima*/
+.btn:hover{
+  background-color: white;
+  color: black;
+  transition: .5s;
+}
+
+/*configurando botões (posição)*/
+.button-p{
+  margin-top: 30px;
+}
+
+/*estilo botões*/
+.btn-p{
+  border: 1px solid #191d23;
+  border-radius: 25px;
+  padding: 10px 30px;
+  color: #191d23;
+  text-decoration: none;
+  transition: .5s;
+  font-size: 14px;
+}
+
+/*quando passa por cima*/
+.btn-p:hover{
+  background-color: #191d23;
+  color: white;
+  transition: .5s;
+}
+
+/*div dos projetos*/
+.projetos{
+  display: flex;
+  padding: 20px;
+  justify-content: center;
+}
+
+/*configurando o projeto*/
+.projeto {
+  width: 350px;
+  height: 200px;
+  border-radius: 10px;
+  margin: 20px;
+  display: flex;
+  transition: .5s;
+}
+
+/*quando passa o mouse por cima do projeto*/
+.projeto:hover {
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.3);
+  transition: 0.5s;
+}
+
+/*configurando imagem do projeto*/
+.projeto img {
+  border-radius: 10px;
+  transition: 0.3s;
+  float: left;
+  width: 64px;
+  height: 64px;
+  padding: 20px;
+}
+
+/*espaçamento dentro dos cards*/
+.container-p {
+  padding: 10px 16px;
+}
+
+/*configurando o nome no card*/
+.container-p h4{
+  font-weight: bold;
+  color: #191d23;
+  font-size: 20px;
+  text-align: left;
+}
+
+/*configurando linguagem, valor e descricao*/
+.container-p p{
+  color: #191d23;
+  font-size: 14px;
+  text-align: left;
+}
+
+@media (max-width: 1100px){
+  /*logo do header*/
+  .topo img{
+      top: 80px;
+      margin-left: 45%;
+      position: absolute;
+      width: 128px;
+      height: auto;
+  }
+
+  /*unnorderlist (navbar)*/
+  .menu ul{
+      list-style: none;
+      padding: 15px 30px;
+      left: 50%;
+  }
+
+  /*itens da lista*/
+  .menu ul li{
+      display: inline;
+  }
+
+  /*texto dos itens*/
+  .menu ul li a{
+      display: inline-block;
+      padding: 10px 20px;
+      text-decoration: none;
+      color: white;
+      font-size: 18px;
+      border-radius: 25px;
+      transition: .5s;
+  }
+
+  /*quando passar o mouse por cima*/
+  .menu ul li a:hover {
+      background-color:white;
+      color: black;
+      transition: .5s;
+  }
+}
