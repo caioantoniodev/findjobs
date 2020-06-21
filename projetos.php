@@ -45,42 +45,34 @@
     </header>
     <section>
         <div class="projetos">
-            <div class="projeto">
-                <img src="img/projeto.png" alt="Avatar">
-                <div class="container-p">
-                    <h4>Dono</h4>
-                    <p>Linguagem</p>
-                    <p>Valor</p>
-                    <br><p>Preciso de uma calculadora de imc</p>
-                    <div class="button-p">
-                        <a href="" class="btn-p btn-one">Tenho Interesse</a>
+            <?php
+                $cpf = $_SESSION['cpf'];
+
+                $consulta = "SELECT * FROM usuarios, projetos WHERE usuarios.cpf = projetos.cliente_cpf;";
+
+                $resultado = mysqli_query($conexao, $consulta);
+
+                while($dados = mysqli_fetch_assoc($resultado)) {
+            ?>
+                <div class="projeto">
+                    <img src="<?=$dados['imgUrl']?>" alt="Avatar">
+                    <div class="container-p">
+                        <h4><?=$dados['nome']?></h4>
+                        <p><?=$dados['linguagem']?></p>
+                        <p><?=$dados['salario']?></p>
+                        <p><?=$dados['titulo']?></p>
+                        <br><p><p><?=$dados['descricao']?></p></p>
+                        <?php 
+                            // Verifico se o projeto é meu
+                            if ($dados['cliente_cpf'] != $cpf) {
+                        ?>
+                            <div class="button-p">
+                                <a href="" class="btn-p btn-one">Tenho Interesse</a>
+                            </div>
+                        <?php } ?>
                     </div>
-                </div>
-            </div>
-            <div class="projeto">
-                <img src="img/projeto2.png" alt="Avatar">
-                <div class="container-p">
-                    <h4>Dono</h4>
-                    <p>Linguagem</p>
-                    <p>Valor</p>
-                    <br><p>Preciso de uma calculadora de imc</p>
-                    <div class="button-p">
-                        <a href="" class="btn-p btn-one">Tenho Interesse</a>
-                    </div>
-                </div>
-            </div>
-            <div class="projeto">
-                <img src="img/projeto3.png" alt="Avatar">
-                <div class="container-p">
-                    <h4>Dono</h4>
-                    <p>Linguagem</p>
-                    <p>Valor</p>
-                    <br><p>Preciso de uma calculadora de imc</p>
-                    <div class="button-p">
-                        <a href="" class="btn-p btn-one">Tenho Interesse</a>
-                    </div>
-                </div>
-            </div>
+                </div> 
+            <?php } ?>
         </div>
     </section>
 

@@ -67,33 +67,24 @@
                         Na Find Jobs você encontra projetos para ingressar no mundo freelancer!
                     </p>
                     <div class="projetos">
-                        <div class="projeto">
-                            <img src="img/projeto.png" alt="Avatar">
-                            <div class="container-p">
-                                <h4>Dono</h4>
-                                <p>Linguagem</p>
-                                <p>Valor</p>
-                                <br><p>Preciso de uma calculadora de imc</p>
-                            </div>
-                        </div>
-                        <div class="projeto">
-                            <img src="img/projeto2.png" alt="Avatar">
-                            <div class="container-p">
-                                <h4>Dono</h4>
-                                <p>Linguagem</p>
-                                <p>Valor</p>
-                                <br><p>Preciso de uma calculadora de imc</p>
-                            </div>
-                        </div>
-                        <div class="projeto">
-                            <img src="img/projeto3.png" alt="Avatar">
-                            <div class="container-p">
-                                <h4>Dono</h4>
-                                <p>Linguagem</p>
-                                <p>Valor</p>
-                                <br><p>Preciso de uma calculadora de imc</p>
-                            </div>
-                        </div>
+                        <?php
+                            $consulta = "SELECT * FROM usuarios, projetos WHERE usuarios.cpf = projetos.cliente_cpf LIMIT 3;";
+
+                            $resultado = mysqli_query($conexao, $consulta);
+
+                            while($dados = mysqli_fetch_assoc($resultado)) {
+                        ?>
+                            <div class="projeto">
+                                <img src="<?=$dados['imgUrl']?>" alt="Avatar">
+                                <div class="container-p">
+                                    <h4><?=$dados['nome']?></h4>
+                                    <p><?=$dados['linguagem']?></p>
+                                    <p><?=$dados['salario']?></p>
+                                    <p><?=$dados['titulo']?></p>
+                                    <br><p><p><?=$dados['descricao']?></p></p>
+                                </div>
+                            </div> 
+                        <?php } ?>
                     </div>
                     <div class="button-info1">
                         <a 
