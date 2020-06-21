@@ -34,5 +34,12 @@
             </div>
         </div>
     </section>
+    <?php
+		// if(isset($_SESSION['nao_autenticado'])) {
+        //     // ALERT dentro no echo
+        //     echo "";
+		// }
+		// unset(isset($_SESSION['nao_autenticado']));
+	?>
 </body>
 </html>

@@ -26,12 +26,14 @@
                     <li><a href="projetos.php">Projetos</a></li>
                     <li><a href="contato.php">Contato</a></li>
                     
-
+                    <!--https://celke.com.br/artigo/como-usar-funcao-empty-e-isset-no-php#:~:text=Ela%20serve%20para%20saber%20se,uma%20vari%C3%A1vel%20n%C3%A3o%20for%20vazia.&text=Exemplo%20de%20isset%20e%20empty%20usado%20para%20validar%20um%20formul%C3%A1rio.-->
+                    <!-- Verifica se NÂO tem um usuario na sessao -->
                     <?php if(!isset($_SESSION['nome'])) { ?>
                         <li><a href="login.php">Login</a></li>
                          <li><a href="cadastro.php">Cadastro</a></li>
                     <?php } ?>
-
+                    
+                    <!-- Verifica se tem um usuario na sessao -->
                     <?php if(isset($_SESSION['nome'])) { ?>
                         <li><a href="sair.php">Sair</a></li>
                     <?php } ?>
@@ -39,6 +41,7 @@
                 </ul>
             </nav>
             <div class="enjoy">
+                <!-- Verifica se tem um usuario na sessao -->
                 <?php if(isset($_SESSION['nome'])) { ?>
                     <h1>Bem vindo, <?php echo  $_SESSION['nome'];?>
                 <?php } else {?>
@@ -48,8 +51,6 @@
                         <a href="cadastro.php" class="btn btn-two">Cadastro</a>
                     </div>
                 <?php } ?>
-
-
             </div>
         </header>
         <section class="conteudo">
