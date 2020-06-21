@@ -1,3 +1,8 @@
+<?php
+    session_start();
+    include('conexao.php');
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -20,9 +25,15 @@
                 <li><a href="index.php">Inicio</a></li>
                 <li><a href="">Aulas</a></li>
                 <li><a href="projetos.php">Projetos</a></li>
-                <li><a href="login.php">Login</a></li>
-                <li><a href="cadastro.php">Cadastro</a></li>
                 <li><a href="contato.php">Contato</a></li>
+                
+                <!-- Verifica se NÂO tem um usuario na sessao -->
+                <?php if(!isset($_SESSION['logado'])) { ?>
+                    <li><a href="login.php">Login</a></li>
+                        <li><a href="cadastro.php">Cadastro</a></li>
+                <?php } else { ?>
+                    <li><a href="sair.php">Sair</a></li>
+                <?php } ?>
             </ul>
         </nav>
         <div class="enjoy">
