@@ -28,13 +28,13 @@
                     
                     <!--https://celke.com.br/artigo/como-usar-funcao-empty-e-isset-no-php#:~:text=Ela%20serve%20para%20saber%20se,uma%20vari%C3%A1vel%20n%C3%A3o%20for%20vazia.&text=Exemplo%20de%20isset%20e%20empty%20usado%20para%20validar%20um%20formul%C3%A1rio.-->
                     <!-- Verifica se NÂO tem um usuario na sessao -->
-                    <?php if(!isset($_SESSION['nome'])) { ?>
+                    <?php if(!isset($_SESSION['logado'])) { ?>
                         <li><a href="login.php">Login</a></li>
                          <li><a href="cadastro.php">Cadastro</a></li>
                     <?php } ?>
                     
                     <!-- Verifica se tem um usuario na sessao -->
-                    <?php if(isset($_SESSION['nome'])) { ?>
+                    <?php if(isset($_SESSION['logado'])) { ?>
                         <li><a href="sair.php">Sair</a></li>
                     <?php } ?>
 
@@ -42,8 +42,14 @@
             </nav>
             <div class="enjoy">
                 <!-- Verifica se tem um usuario na sessao -->
-                <?php if(isset($_SESSION['nome'])) { ?>
-                    <h1>Bem vindo, <?php echo  $_SESSION['nome'];?>
+                <?php if(isset($_SESSION['logado'])) { 
+                    // pegando dados do usuário no BD    
+                    $cpf = $_SESSION['cpf'];
+                    $consulta = "SELECT * FROM usuarios WHERE cpf = '$cpf'";
+                    $resultado = mysqli_query($conexao, $consulta);
+                    $dados = mysqli_fetch_array($resultado);    
+                ?>
+                    <h1>Bem vindo, <?php echo  $dados['nome'];?>
                 <?php } else {?>
                     <h1>Ainda Não Tem Uma Conta?</h1>
                     <div class="button">
@@ -90,7 +96,13 @@
                         </div>
                     </div>
                     <div class="button-info1">
-                        <a href="projetos.php" class="btn2 btn-three">Veja Projetos</a>
+                        <a 
+                            <?php if(isset($_SESSION['logado'])) { ?>
+                                href="projetos.php" 
+                            <?php } else { ?>
+                                href="login.php" 
+                            <?php } ?>
+                            class="btn2 btn-three">Veja Projetos</a>
                         <a href="" class="btn2 btn-four">Crie Projetos</a>
                     </div>
                 </div>

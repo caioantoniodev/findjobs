@@ -15,7 +15,7 @@
   $senha = mysqli_real_escape_string($conexao, $_POST['senha']);
 
   // faz a consulta no banco de dados
-  $consulta = "SELECT nome FROM usuarios WHERE email = '{$email}' AND senha = md5('{$senha}');";
+  $consulta = "SELECT cpf FROM usuarios WHERE email = '{$email}' AND senha = md5('{$senha}');";
 
   // verifica o resultado da query
   $resultado = mysqli_query($conexao, $consulta);
@@ -24,8 +24,10 @@
   $linha = mysqli_num_rows($resultado);
 
   if ($linha === 1) {
-    $usuario =  mysqli_fetch_assoc($resultado);
-    $_SESSION['nome'] = $usuario['nome'];
+    $cpf =  mysqli_fetch_array($resultado);
+    // inicio 2 sessoes contendo cpf o status de logado;
+    $_SESSION['cpf'] = $cpf['cpf'];
+    $_SESSION['logado'] = True;
     header('Location: index.php');
   } else {
     $_SESSION['nao_autenticado'] = true;
