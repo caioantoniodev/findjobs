@@ -121,30 +121,22 @@
                         Veja a opinião das pessoas que utilizam a plataforma
                     </p>
                     <div class="opinioes">
-                        <div class="card">
-                            <img src="img/avatar.jpg" alt="Avatar">
-                            <div class="container">
-                                <h4>Nome</h4>
-                                <p>Profissão</p>
-                                <br><p>Me ajudou muito como freela, facilitou a procura por projetos.</p>
+                        <?php
+                            $consulta = "SELECT * FROM usuarios, reclamacoes WHERE usuarios.cpf = reclamacoes.usuario_cpf LIMIT 3;";
+
+                            $resultado = mysqli_query($conexao, $consulta);
+
+                            while($dados = mysqli_fetch_assoc($resultado)) {
+                        ?>
+                            <div class="card">
+                                <img src="<?=$dados['avatarUrl']?>" alt="Avatar">
+                                <div class="container">
+                                    <h4><?=$dados['nome']?></h4>
+                                    <p><?=$dados['profissao']?></p>
+                                    <br><p><?=$dados['conteudo']?></p>
+                                </div>
                             </div>
-                        </div>
-                        <div class="card">
-                            <img src="img/avatar2.jpg" alt="Avatar">
-                            <div class="container">
-                                <h4>Nome</h4>
-                                <p>Profissão</p>
-                                <br><p>Me ajudou muito como freela, facilitou a procura por projetos.</p>
-                            </div>
-                        </div>
-                        <div class="card">
-                            <img src="img/avatar3.jpg" alt="Avatar">
-                            <div class="container">
-                                <h4>Nome</h4>
-                                <p>Profissão</p>
-                                <br><p>Me ajudou muito como freela, facilitou a procura por projetos.</p>
-                            </div>
-                        </div>
+                        <?php } ?>
                     </div>
                     <div class="button-info3">
                         <a href="" class="btn btn-six">Deixe sua avaliação</a>
