@@ -68,6 +68,7 @@
                     </p>
                     <div class="projetos">
                         <?php
+                            // Lista os ultimos criados
                             $consulta = "SELECT * FROM usuarios, projetos WHERE usuarios.cpf = projetos.cliente_cpf LIMIT 3;";
 
                             $resultado = mysqli_query($conexao, $consulta);

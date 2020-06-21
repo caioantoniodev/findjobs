@@ -63,7 +63,7 @@
                         <p><?=$dados['titulo']?></p>
                         <br><p><p><?=$dados['descricao']?></p></p>
                         <?php 
-                            // Verifico se o projeto é meu
+                            // Verifico se o projeto é não é o do usuario logado
                             if ($dados['cliente_cpf'] != $cpf) {
                         ?>
                             <div class="button-p">
