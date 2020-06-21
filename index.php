@@ -118,9 +118,7 @@
                         <iframe class="video3" width="280" height="157" src="https://www.youtube.com/embed/HV7DtH3J2PU" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                     </div>
                     <div class="button-info2">
-                        
-                            <a href="" class="btn btn-five">Acesse todo o conteúdo</a>
-                        
+                        <a href="" class="btn btn-five">Acesse todo o conteúdo</a>
                     </div>
                 </div>
 
