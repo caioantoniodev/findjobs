@@ -17,7 +17,7 @@
         <div class="conteudo" id="conteudo">
             <div class="login">
                 <img class ="user" src="img/user.png">
-                <form>
+                <form action="entrar.php" method="POST">
                     <p>
                         <h1 class="txt1">Entre em sua conta</h1>
                     </p>
@@ -33,8 +33,8 @@
                 </form>
                 <div class="links">
                     <a class="fgt "href="#">Esqueceu sua senha?</a><br>
-                    <br><a class="st" href="index.html">Inicio</a>
-                    <a class="cdst" href="cadastro.html">Cadastrar</a>
+                    <br><a class="st" href="index.php">Inicio</a>
+                    <a class="cdst" href="cadastro.php">Cadastrar</a>
                 </div>
             </div>
         </div>
