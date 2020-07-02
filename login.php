@@ -4,15 +4,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="css/login.css" type="text/css" rel="stylesheet">
-    <link rel="shortcut icon" href="_img/_icones/LogoAzul32.png"/>
+    <link type="text/css" href="css/loading.css" rel="stylesheet">
+    <link type="text/css" href="css/topo.css" rel="stylesheet">
+    <link rel="shortcut icon" href="img/LogoBranca32.png"/>
     <title>Login</title>
 </head>
 <body>
     <section>
-        <div class="conteudo">
+        <div id="content">
+            <div id="spinner"></div>
+        </div>
+        <div class="conteudo" id="conteudo">
             <div class="login">
                 <img class ="user" src="img/user.png">
-                <form action="entrar.php" method="post">
+                <form>
                     <p>
                         <h1 class="txt1">Entre em sua conta</h1>
                     </p>
@@ -28,18 +33,16 @@
                 </form>
                 <div class="links">
                     <a class="fgt "href="#">Esqueceu sua senha?</a><br>
-                    <br><a class="st" href="index.php">Inicio</a>
-                    <a class="cdst" href="cadastro.php">Cadastrar</a>
+                    <br><a class="st" href="index.html">Inicio</a>
+                    <a class="cdst" href="cadastro.html">Cadastrar</a>
                 </div>
             </div>
         </div>
     </section>
-    <?php
-		// if(isset($_SESSION['nao_autenticado'])) {
-        //     // ALERT dentro no echo
-        //     echo "";
-		// }
-		// unset(isset($_SESSION['nao_autenticado']));
-	?>
+
+    <button onclick="backToTop()" id="btnTop"><i class="fas fa-arrow-up"></i></button>
+
+    <script type="text/JavaScript" src="js/loading.js"></script>
+    <script type="text/JavaScript" src="js/topo.js"></script>
 </body>
 </html>

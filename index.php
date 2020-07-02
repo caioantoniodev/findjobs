@@ -1,62 +1,40 @@
-<?php
-    session_start();
-    include('conexao.php');
-?>
-
 <!DOCTYPE html>
 <html lang="pt-br">
     <head>
         <meta charset="UTF-8">
         <title>Find Jobs</title>
         <link type="text/css" href="css/style.css" rel="stylesheet">
+        <link type="text/css" href="css/loading.css" rel="stylesheet">
+        <link type="text/css" href="css/topo.css" rel="stylesheet">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
         <link rel="shortcut icon" href="img/LogoBranca32.png"/>
     </head>
     <body>
-        <header class="topo">
+        <div id="content">
+            <div id="spinner"></div>
+        </div>
+        <header class="topo" id="conteudo">
             <img src="img/LogoAzul.png">
             <nav class="menu">
                 <div class="icones">
-                    <h1 class="twitter"><a href="https://twitter.com/" target="_blank"><i class="fab fa-twitter-square"></i></a></h1>
-                    <h1 class="facebook"><a href="https://pt-br.facebook.com/" target="_blank"><i class="fab fa-facebook-square"></i></a></h1>
+                    <h1 class="twitter"><a href="https://twitter.com/FindJobsTCC" target="_blank"><i class="fab fa-twitter-square"></i></a></h1>
+                    <h1 class="facebook"><a href="https://www.facebook.com/Find-Jobs-111396177288447/" target="_blank"><i class="fab fa-facebook-square"></i></a></h1>
                 </div>
                 <ul>
-                    <li><a href="index.php">Inicio</a></li>
-                    <li><a href="">Aulas</a></li>
-                    <li><a href="projetos.php">Projetos</a></li>
-                    <li><a href="contato.php">Contato</a></li>
-                    
-                    <!--https://celke.com.br/artigo/como-usar-funcao-empty-e-isset-no-php#:~:text=Ela%20serve%20para%20saber%20se,uma%20vari%C3%A1vel%20n%C3%A3o%20for%20vazia.&text=Exemplo%20de%20isset%20e%20empty%20usado%20para%20validar%20um%20formul%C3%A1rio.-->
-                    <!-- Verifica se NÂO tem um usuario na sessao -->
-                    <?php if(!isset($_SESSION['logado'])) { ?>
-                        <li><a href="login.php">Login</a></li>
-                         <li><a href="cadastro.php">Cadastro</a></li>
-                    <?php } ?>
-                    
-                    <!-- Verifica se tem um usuario na sessao -->
-                    <?php if(isset($_SESSION['logado'])) { ?>
-                        <li><a href="sair.php">Sair</a></li>
-                    <?php } ?>
-
+                    <li><a href="index.html">Inicio</a></li>
+                    <li><a href="aulas.html">Aulas</a></li>
+                    <li><a href="projetos.html">Projetos</a></li>
+                    <li><a href="login.html">Login</a></li>
+                    <li><a href="cadastro.html">Cadastro</a></li>
+                    <li><a href="contato.html">Contato</a></li>
                 </ul>
             </nav>
             <div class="enjoy">
-                <!-- Verifica se tem um usuario na sessao -->
-                <?php if(isset($_SESSION['logado'])) { 
-                    // pegando dados do usuário no BD    
-                    $cpf = $_SESSION['cpf'];
-                    $consulta = "SELECT * FROM usuarios WHERE cpf = '$cpf'";
-                    $resultado = mysqli_query($conexao, $consulta);
-                    $dados = mysqli_fetch_array($resultado);    
-                ?>
-                    <h1>Bem vindo, <?php echo  $dados['nome'];?>
-                <?php } else {?>
-                    <h1>Ainda Não Tem Uma Conta?</h1>
-                    <div class="button">
-                        <a href="login.php" class="btn btn-one">Login</a>
-                        <a href="cadastro.php" class="btn btn-two">Cadastro</a>
-                    </div>
-                <?php } ?>
+                <h1>Ainda Não Tem Uma Conta?</h1>
+                <div class="button">
+                    <a href="login.html" class="btn btn-one">Login</a>
+                    <a href="cadastro.html" class="btn btn-two">Cadastro</a>
+                </div>
             </div>
         </header>
         <section class="conteudo">
@@ -67,35 +45,36 @@
                         Na Find Jobs você encontra projetos para ingressar no mundo freelancer!
                     </p>
                     <div class="projetos">
-                        <?php
-                            // Lista os ultimos criados
-                            $consulta = "SELECT * FROM usuarios, projetos WHERE usuarios.cpf = projetos.cliente_cpf LIMIT 3;";
-
-                            $resultado = mysqli_query($conexao, $consulta);
-
-                            while($dados = mysqli_fetch_assoc($resultado)) {
-                        ?>
-                            <div class="projeto">
-                                <img src="<?=$dados['imgUrl']?>" alt="Avatar">
-                                <div class="container-p">
-                                    <h4><?=$dados['nome']?></h4>
-                                    <p><?=$dados['linguagem']?></p>
-                                    <p><?=$dados['salario']?></p>
-                                    <p><?=$dados['titulo']?></p>
-                                    <br><p><p><?=$dados['descricao']?></p></p>
-                                </div>
-                            </div> 
-                        <?php } ?>
+                        <div class="projeto">
+                            <img src="img/projeto.png" alt="Avatar">
+                            <div class="container-p">
+                                <h4>Dono</h4>
+                                <p>Linguagem</p>
+                                <p>Valor</p>
+                                <br><p>Preciso de uma calculadora de imc</p>
+                            </div>
+                        </div>
+                        <div class="projeto">
+                            <img src="img/projeto2.png" alt="Avatar">
+                            <div class="container-p">
+                                <h4>Dono</h4>
+                                <p>Linguagem</p>
+                                <p>Valor</p>
+                                <br><p>Preciso de uma calculadora de imc</p>
+                            </div>
+                        </div>
+                        <div class="projeto">
+                            <img src="img/projeto3.png" alt="Avatar">
+                            <div class="container-p">
+                                <h4>Dono</h4>
+                                <p>Linguagem</p>
+                                <p>Valor</p>
+                                <br><p>Preciso de uma calculadora de imc</p>
+                            </div>
+                        </div>
                     </div>
                     <div class="button-info1">
-                        <a 
-                            <?php if(isset($_SESSION['logado'])) { ?>
-                                href="projetos.php" 
-                            <?php } else { ?>
-                                href="login.php" 
-                            <?php } ?>
-                            class="btn2 btn-three">Veja Projetos</a>
-                        <a href="" class="btn2 btn-four">Crie Projetos</a>
+                        <a href="projetos.html" class="btn2 btn-three">Veja Projetos</a>
                     </div>
                 </div>
 
@@ -110,7 +89,7 @@
                         <iframe class="video3" width="280" height="157" src="https://www.youtube.com/embed/HV7DtH3J2PU" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                     </div>
                     <div class="button-info2">
-                        <a href="" class="btn btn-five">Acesse todo o conteúdo</a>
+                        <a href="aulas.html" class="btn btn-five">Acesse todo o conteúdo</a>
                     </div>
                 </div>
 
@@ -120,30 +99,42 @@
                         Veja a opinião das pessoas que utilizam a plataforma
                     </p>
                     <div class="opinioes">
-                        <?php
-                            $consulta = "SELECT * FROM usuarios, reclamacoes WHERE usuarios.cpf = reclamacoes.usuario_cpf LIMIT 3;";
-
-                            $resultado = mysqli_query($conexao, $consulta);
-
-                            while($dados = mysqli_fetch_assoc($resultado)) {
-                        ?>
-                            <div class="card">
-                                <img src="<?=$dados['avatarUrl']?>" alt="Avatar">
-                                <div class="container">
-                                    <h4><?=$dados['nome']?></h4>
-                                    <p><?=$dados['profissao']?></p>
-                                    <br><p><?=$dados['conteudo']?></p>
-                                </div>
+                        <div class="card">
+                            <img src="img/avatar.jpg" alt="Avatar">
+                            <div class="container">
+                                <h4>Nome</h4>
+                                <p>Profissão</p>
+                                <br><p>Me ajudou muito como freela, facilitou a procura por projetos.</p>
                             </div>
-                        <?php } ?>
+                        </div>
+                        <div class="card">
+                            <img src="img/avatar2.jpg" alt="Avatar">
+                            <div class="container">
+                                <h4>Nome</h4>
+                                <p>Profissão</p>
+                                <br><p>Me ajudou muito como freela, facilitou a procura por projetos.</p>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <img src="img/avatar3.jpg" alt="Avatar">
+                            <div class="container">
+                                <h4>Nome</h4>
+                                <p>Profissão</p>
+                                <br><p>Me ajudou muito como freela, facilitou a procura por projetos.</p>
+                            </div>
+                        </div>
                     </div>
                     <div class="button-info3">
-                        <a href="" class="btn btn-six">Deixe sua avaliação</a>
+                        <a href="avaliacoes.html" class="btn btn-six">Deixe sua avaliação</a>
                     </div>
                 </div>
             </div>
         </section>
 
+        <button onclick="backToTop()" id="btnTop"><i class="fas fa-arrow-up"></i></button>
+
         <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/all.min.js"></script>
+        <script type="text/JavaScript" src="js/loading.js"></script>
+        <script type="text/JavaScript" src="js/topo.js"></script>
     </body>
 </html>
