@@ -113,7 +113,13 @@
                         <iframe class="video3" width="280" height="157" src="https://www.youtube.com/embed/HV7DtH3J2PU" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                     </div>
                     <div class="button-info2">
-                        <a href="aulas.html" class="btn btn-five">Acesse todo o conteúdo</a>
+                        <a 
+                            <?php if(isset($_SESSION['logado'])) { ?>
+                                href="aulas.php" 
+                            <?php } else { ?>
+                                href="login.php" 
+                            <?php } ?>
+                            class="btn btn-five">Acesse todo o conteúdo</a>
                     </div>
                 </div>
 
@@ -141,7 +147,13 @@
                         <?php } ?>
                     </div>
                     <div class="button-info3">
-                        <a href="avaliacoes.html" class="btn btn-six">Deixe sua avaliação</a>
+                        <a 
+                        <?php if(isset($_SESSION['logado'])) { ?>
+                            href="avaliacoes.php" 
+                        <?php } else { ?>
+                            href="login.php" 
+                        <?php } ?>
+                        class="btn btn-six">Deixe sua avaliação</a> 
                     </div>
                 </div>
             </div>

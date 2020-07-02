@@ -46,56 +46,50 @@ form{
     left: calc(50% - 50px);
 }
 
-input, textarea{
-    margin-bottom: -5px;
-    width: 200px;
-    padding: 10px;
-    margin-left: 150px;
+.dados{
     margin-top: 20px;
-    transform: translate(-50%,-50%);
+    display: grid;
+    grid-template-columns: auto auto;
+    padding: 10px;
 }
 
-label{
-    margin-left: 40px;
+.dados p{
+    color: white;
+    margin: 20px;
+}
+
+.dados label{
     color: white;
 }
 
-.dados{
-    margin-top: 30px;
-    width: 300px;
-    height: 250px;
-    display: flex;
+.dados input{
+    padding: 10px;
 }
 
 .dp{
-    margin-left: 50px;
-    width: 250px;
+    padding-right: 20px;
+    border-radius: 25px;
+    display: grid;
+    grid-template-columns: auto auto;
+    border-right: 1px solid #337ca0;
 }
 
-.dp2{
-    margin-left: 50px;
-    width: 250px;
+.dp input{
+    margin: 20px;
+    border-radius: 25px;
+    border: none;
 }
 
-.dp3{
-    margin-left: 50px;
-    width: 250px;
-    border-left: 1px solid white;
+.estrelas input[id="vazio"] {
+    display: none;
 }
 
-.iniciante{
-    margin: 0;
-    color: white;
+.exp{
+    margin-left: 30px;
 }
 
-.intermedio{
-    margin: 0;
-    color: white;
-}
-
-.experiente{
-    margin: 0;
-    color: white;
+.exp input[type="radio"]{
+    margin: 10px;
 }
 
 .links{
@@ -105,7 +99,6 @@ label{
 
 .links a{
     padding: 20px;
-    margin-left: 50%;
     transform: translate(-50%,-50%);
     text-align: center;
     margin: -10px;
@@ -119,9 +112,8 @@ label{
 }
 
 .enviar{
-    margin-left: 50%;
-    margin-top: 60px;
-    transform: translate(-50%,-50%);
+    margin-top: 30px;
+    margin-left: 40px;
     width: 300px;
     height: 40px;
     background-color: rgba(77, 180, 232, 0);
@@ -141,37 +133,3 @@ label{
     transition: 1s;
     color: #4DB5E8;
 }
-
-.nasc{
-    border-radius: 25px;
-    border: none;
-}
-
-.nc{
-    border-radius: 25px;
-    border: none;
-}
-
-.em{
-    border-radius: 25px;
-    border: none;
-}
-
-.cpf{
-    border-radius: 25px;
-    border: none;
-}
-
-.tel{
-    border-radius: 25px;
-    border: none;
-}
-
-.nome_completo{
-    margin-top: 20px;
-}
-
-.cpf{
-    margin-top: 30px;
-}
-

@@ -144,13 +144,43 @@
   transition: .5s;
 }
 
+.icones-p{
+  width: 100px;
+  height: 50px;
+  display: inline;
+  margin-left: 110px;
+  padding: 10px 10px;
+}
+
+.git{
+  color: #191d23;
+  font-size: 30px;
+}
+
+.s-git{
+  color: red;
+  font-size: 30px;
+}
+
+.edit{
+  color: #191d23;
+  font-size: 30px;
+}
+.del{
+  color: #191d23;
+  font-size: 30px;
+  margin-bottom: 10px;
+}
+
 /*configurando botões (posição)*/
 .button-p{
-  margin-top: 30px;
+  margin-top: 110px;
+  margin-left: 40px;
 }
 
 /*estilo botões*/
 .btn-p{
+  width: 100px;
   border: 1px solid #191d23;
   border-radius: 25px;
   padding: 10px 30px;
@@ -169,7 +199,8 @@
 
 /*div dos projetos*/
 .projetos{
-  display: flex;
+  display: grid;
+  grid-template-columns: auto auto auto;
   padding: 20px;
   justify-content: center;
 }
@@ -177,7 +208,7 @@
 /*configurando o projeto*/
 .projeto {
   width: 350px;
-  height: 200px;
+  height: 300px;
   border-radius: 10px;
   margin: 20px;
   display: flex;
@@ -202,7 +233,9 @@
 
 /*espaçamento dentro dos cards*/
 .container-p {
-  padding: 10px 16px;
+  width: 250px;
+  padding: 10px 10px;
+  text-align: justify;
 }
 
 /*configurando o nome no card*/

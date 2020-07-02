@@ -1,8 +1,12 @@
+<?php
+    session_start();
+    include('conexao.php');
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="css/avaliacoes.css" rel="stylesheet" type="text/css">
     <link type="text/css" href="css/loading.css" rel="stylesheet">
     <link type="text/css" href="css/topo.css" rel="stylesheet">
@@ -22,12 +26,11 @@
                 <h1 class="facebook"><a href="https://www.facebook.com/Find-Jobs-111396177288447/" target="_blank"><i class="fab fa-facebook-square"></i></a></h1>
             </div>
             <ul>
-                <li><a href="index.html">Inicio</a></li>
-                <li><a href="aulas.html">Aulas</a></li>
-                <li><a href="projetos.html">Projetos</a></li>
-                <li><a href="login.html">Login</a></li>
-                <li><a href="cadastro.html">Cadastro</a></li>
-                <li><a href="contato.html">Contato</a></li>
+                <li><a href="index.php">Inicio</a></li>
+                <li><a href="aulas.php">Aulas</a></li>
+                <li><a href="projetos.php">Projetos</a></li>
+                <li><a href="contato.php">Projetos</a></li>
+                <li><a href="sair.php">Sair</a></li>>
             </ul>
         </nav>
         <div class="enjoy">
@@ -44,11 +47,20 @@
                     </p>
                     <div class="dados">
                         <div class="dp">
+                            <?php
+                                 $cpf = $_SESSION['cpf'];
+                                // Lista os ultimos criados
+                                $consulta = "SELECT usuarios.nome, usuarios.profissao FROM usuarios  WHERE usuarios.cpf = $cpf;";
+
+                                $resultado = mysqli_query($conexao, $consulta);
+
+                                $info_pessoais = mysqli_fetch_assoc($resultado);
+                            ?>
                             <p class="nome_completo">
-                                <input type="text" name="nome_completo" class="nc" placeholder="Nome Completo" required="required"/>
+                                <input type="text" name="nome_completo" class="nc" placeholder="Nome Completo" value="<?=$info_pessoais['nome']?>" required="required"/>
                             </p>
                             <p class="profissao">
-                                <input type="text" name="profissao" class="prof" placeholder="Profissão" required="required"/>
+                                <input type="text" name="profissao" class="prof" placeholder="Profissão" value="<?=$info_pessoais['profissao']?>" required="required"/>
                             </p>
                             <p class="opiniao">
                                 <input type="text" name="opiniao" class="opn" placeholder="Deixe sua opinião" required="required"/>
@@ -74,7 +86,7 @@
                             </div>
 
                             <input type="submit" name="enviar" class="enviar" id="enviar" />
-                            <a class="link" href="contato.html">Teve algum problema?</a>
+                            <a class="link" href="contato.php">Teve algum problema?</a>
                         </div>
                     </div>
                 </form>

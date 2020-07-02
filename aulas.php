@@ -22,12 +22,11 @@
                 <h1 class="facebook"><a href="https://www.facebook.com/Find-Jobs-111396177288447/" target="_blank"><i class="fab fa-facebook-square"></i></a></h1>
             </div>
             <ul>
-                <li><a href="index.html">Inicio</a></li>
-                <li><a href="aulas.html">Aulas</a></li>
-                <li><a href="projetos.html">Projetos</a></li>
-                <li><a href="login.html">Login</a></li>
-                <li><a href="cadastro.html">Cadastro</a></li>
-                <li><a href="contato.html">Contato</a></li>
+                <li><a href="index.php">Inicio</a></li>
+                <li><a href="aulas.php">Aulas</a></li>
+                <li><a href="projetos.php">Projetos</a></li>
+                <li><a href="contato.php">Projetos</a></li>
+                <li><a href="sair.php">Sair</a></li>
             </ul>
         </nav>
         <div class="enjoy">

@@ -1,0 +1,242 @@
+/*ajuste geral da pagina*/
+*{
+    padding: 0;
+    margin: 0;
+    font-family: sans-serif;
+}
+
+/*mexendo no header*/
+.topo{
+    width: 100%;
+    height: 500px;
+    background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url(../img/bg10.jpg);
+    background-position-y: -130px;
+}
+
+/*logo do header*/
+.topo img{
+    top: 30px;
+    margin-left: 45%;
+    position: absolute;
+    width: 128px;
+    height: auto;
+}
+
+/*unnorderlist (navbar)*/
+.menu ul{
+    list-style: none;
+    padding: 15px 30px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/*itens da lista*/
+.menu ul li{
+    display: inline;
+}
+
+/*texto dos itens*/
+.menu ul li a{
+    display: inline-block;
+    padding: 10px 20px;
+    text-decoration: none;
+    color: white;
+    font-size: 15px;
+    border-radius: 25px;
+    transition: .5s;
+}
+
+/*quando passar o mouse por cima*/
+.menu ul li a:hover {
+    background-color:white;
+    color: black;
+    transition: .5s;
+}
+
+/*icones do facebook e twitter*/
+.icones{
+    float: right;
+    width: 500px;
+    padding: 10px 30px;
+}
+
+/*icone twitter*/
+.fa-twitter-square{
+    float: right;
+    color: white;
+    padding: 20px;
+}
+
+/*icone facebook*/
+.fa-facebook-square{
+    float: right;
+    color: white;
+    padding: 20px;
+}
+
+/*icone twitter dentro do h1*/
+.twitter{
+    font-size: 28px;
+    transition: .5s;
+}
+
+/*quando passa o mouse por cima*/
+.twitter:hover{
+    opacity: 0.8;
+    transition: .5s;
+}
+
+/*icone facebook dentro do h1*/
+.facebook{
+    font-size: 28px;
+    transition: .5s;
+}
+
+/*quando passa por cima*/
+.facebook:hover{
+    opacity: 0.8;
+    transition: .5s;
+}
+
+/*texto header e botões do header (posicionamento)*/
+.enjoy{
+    margin-top: 0;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/*configurando texto*/
+.enjoy h1{
+    color: white;
+    text-transform: uppercase;
+    font-size: 50px;
+    text-align: center;
+    margin-top: 250px;
+}
+
+.enjoy p{
+    color: white;
+    font-size: 24px;
+    text-align: center;
+    margin-top: 10px;
+}
+
+.conteudo{
+    width: 100%;
+    height: 700px;
+    background-color: #191d23;
+}
+
+.avaliacoes{
+    align-items: center;
+    height: 600px;
+    width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 25px;
+}
+
+.dados{
+    width: 300px;
+    height: 300px;
+    margin: auto;
+}
+
+.dp{
+    margin-left: 50px;
+    width: 250px;
+}
+
+.enviar{
+    margin-left: 43%;
+    transform: translate(-50%,-50%);
+    width: 300px;
+    height: 40px;
+    margin-top: 80px;
+    border:solid 2px white;
+    background-color: #191d23;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: 1s;
+    color: white;
+    display: none;
+}
+
+.enviar:hover{
+    width: 300px;
+    height: 40px;
+    background-color: white;
+    border: none;
+    cursor: pointer;
+    transition: 1s;
+    color: #191d23;
+}
+
+.nc{
+    margin-top: 50px;
+    margin-left: -60px;
+    width: 300px;
+    padding: 10px;
+    border-radius: 25px;
+    border: 1.5px solid #191d23;
+}
+
+.prof{
+    margin-top: 20px;
+    margin-left: -60px;
+    width: 300px;
+    padding: 10px;
+    border-radius: 25px;
+    border: 1.5px solid #191d23;
+}
+
+.opn{
+    margin-top: 20px;
+    margin-left: -60px;
+    width: 300px;
+    padding: 10px;
+    border-radius: 25px;
+    border: 1.5px solid #191d23;
+}
+
+.titulo{
+    padding: 30px;
+    padding-top: 50px;
+    text-align: center;
+    color: white;
+    font-size: 18px;
+}
+
+.estrelas{
+    margin-top: 20px;
+    margin-left: -40px;
+    color: #CCC;
+    display: grid;
+    grid-template-columns: auto auto auto auto auto;
+}
+
+.estrelas input[type=radio] {
+    display: none;
+}
+
+.estrelas label i.fa:before {
+    content: '\f005';
+    color: #FC0;
+}
+
+.estrelas input[type=radio]:checked ~ label i.fa:before{
+    color: #CCC;
+}
+
+.fa{
+    cursor: pointer;
+    font-size: 28px;
+    margin: 10px;
+    transition: .5s;
+}
+
+.link{
+    color: white;
+    width: 350px;
+    margin-left: 20px;
+}
