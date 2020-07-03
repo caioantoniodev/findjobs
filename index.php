@@ -37,8 +37,10 @@
                     
                     <!-- Verifica se tem um usuario na sessao -->
                     <?php if(isset($_SESSION['logado'])) { ?>
+                        <li><a href="index.php">Inicio</a></li>
                         <li><a href="aulas.php">Aulas</a></li>
                         <li><a href="projetos.php">Projetos</a></li>
+                        <li><a href="contato.php">Projetos</a></li>
                         <li><a href="sair.php">Sair</a></li>
                     <?php } ?>
                 </ul>
