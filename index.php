@@ -54,7 +54,7 @@
                     $resultado = mysqli_query($conexao, $consulta);
                     $dados = mysqli_fetch_array($resultado);    
                 ?>
-                    <h1>Bem vindo, <?php echo  $dados['nome'];?>
+                    <h1>Bem vindo, <?php echo  $dados['nome'];?> !</h1>
                 <?php } else {?>
                     <h1>Ainda Não Tem Uma Conta?</h1>
                     <div class="button">
