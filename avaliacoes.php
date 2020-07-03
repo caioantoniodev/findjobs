@@ -41,7 +41,7 @@
     <section>
         <div class="conteudo">
             <div class="avaliacoes">
-                <form method="post" action="" enctype="multipart/form-data">
+                <form action="processa_avaliacao.php" method="POST">
                     <p class="titulo">
                         Preencha os dados corretamente e deixe sua avaliação.
                     </p>
@@ -63,7 +63,7 @@
                                 <input type="text" name="profissao" class="prof" placeholder="Profissão" value="<?=$info_pessoais['profissao']?>" required="required"/>
                             </p>
                             <p class="opiniao">
-                                <input type="text" name="opiniao" class="opn" placeholder="Deixe sua opinião" required="required"/>
+                                <input type="text" name="opniao" class="opn" placeholder="Deixe sua opinião" required="required"/>
                             </p>
                             <div class="estrelas">
                                 <input type="radio" id="vazio" name="estrela" value="" checked>
@@ -95,7 +95,18 @@
     </section>
 
     <button onclick="backToTop()" id="btnTop"><i class="fas fa-arrow-up"></i></button>
-    
+
+    <?php
+		if (isset($_SESSION['bem_sucedido'])) {
+            echo "<script>alert('SUCESSO: Avaliação efetuada.');</script>";
+        }
+        unset($_SESSION['bem_sucedido']);
+
+        if (isset($_SESSION['mal_sucedido'])) {
+            echo "<script>alert('ERRO: Avaliação não efetuada.');</script>";
+        }
+        unset($_SESSION['mal_sucedido']);
+    ?>
     <script type="text/JavaScript" src="js/loading.js"></script>
     <script type="text/JavaScript" src="js/topo.js"></script>
 </body>
