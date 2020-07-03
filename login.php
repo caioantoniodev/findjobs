@@ -17,7 +17,7 @@
         <div class="conteudo" id="conteudo">
             <div class="login">
                 <img class ="user" src="img/user.png">
-                <form action="entrar.php" method="POST">
+                <form action="processa_login.php" method="POST">
                     <p>
                         <h1 class="txt1">Entre em sua conta</h1>
                     </p>
