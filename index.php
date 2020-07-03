@@ -73,8 +73,8 @@
                     </p>
                     <div class="projetos">
                         <?php
-                            // Lista os ultimos criados
-                            $consulta = "SELECT * FROM usuarios, projetos WHERE usuarios.cpf = projetos.cliente_cpf LIMIT 3;";
+                            // Lista os 3 ultimos criados
+                            $consulta = "SELECT * FROM usuarios, projetos WHERE usuarios.cpf = projetos.cliente_cpf ORDER BY projetos.idprojetos LIMIT 3;";
 
                             $resultado = mysqli_query($conexao, $consulta);
 
@@ -132,7 +132,7 @@
                     </p>
                     <div class="opinioes">
                         <?php
-                            $consulta = "SELECT * FROM usuarios, reclamacoes WHERE usuarios.cpf = reclamacoes.usuario_cpf LIMIT 3;";
+                            $consulta = "SELECT * FROM usuarios, reclamacoes WHERE usuarios.cpf = reclamacoes.usuario_cpf ORDER BY reclamacoes.idreclamacoes DESC LIMIT 3;";
 
                             $resultado = mysqli_query($conexao, $consulta);
 

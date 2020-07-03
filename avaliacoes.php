@@ -30,7 +30,7 @@
                 <li><a href="aulas.php">Aulas</a></li>
                 <li><a href="projetos.php">Projetos</a></li>
                 <li><a href="contato.php">Projetos</a></li>
-                <li><a href="sair.php">Sair</a></li>>
+                <li><a href="sair.php">Sair</a></li>
             </ul>
         </nav>
         <div class="enjoy">
@@ -107,6 +107,7 @@
         }
         unset($_SESSION['mal_sucedido']);
     ?>
+
     <script type="text/JavaScript" src="js/loading.js"></script>
     <script type="text/JavaScript" src="js/topo.js"></script>
 </body>
