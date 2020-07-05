@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="css/login.css" type="text/css" rel="stylesheet">
-    <link type="text/css" href="css/loading.css" rel="stylesheet">
-    <link type="text/css" href="css/topo.css" rel="stylesheet">
-    <link rel="shortcut icon" href="img/LogoBranca32.png"/>
+    <link href="styles/login.css" type="text/css" rel="stylesheet">
+    <link type="text/css" href="styles/loading.css" rel="stylesheet">
+    <link type="text/css" href="styles/topo.css" rel="stylesheet">
+    <link rel="shortcut icon" href="images/LogoBranca32.png"/>
     <title>Login</title>
 </head>
 <body>
@@ -16,7 +16,7 @@
         </div>
         <div class="conteudo" id="conteudo">
             <div class="login">
-                <img class ="user" src="img/user.png">
+                <img class ="user" src="images/user.png">
                 <form action="processa_login.php" method="POST">
                     <p>
                         <h1 class="txt1">Entre em sua conta</h1>
@@ -42,7 +42,7 @@
 
     <button onclick="backToTop()" id="btnTop"><i class="fas fa-arrow-up"></i></button>
 
-    <script type="text/JavaScript" src="js/loading.js"></script>
-    <script type="text/JavaScript" src="js/topo.js"></script>
+    <script type="text/JavaScript" src="scripts/loading.js"></script>
+    <script type="text/JavaScript" src="scripts/topo.js"></script>
 </body>
 </html>

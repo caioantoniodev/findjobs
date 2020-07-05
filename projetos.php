@@ -3,11 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="css/projetos.css" rel="stylesheet" type="text/css">
-    <link type="text/css" href="css/loading.css" rel="stylesheet">
-    <link type="text/css" href="css/topo.css" rel="stylesheet">
+    <link href="styles/projetos.css" rel="stylesheet" type="text/css">
+    <link type="text/css" href="styles/loading.css" rel="stylesheet">
+    <link type="text/css" href="styles/topo.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
-    <link rel="shortcut icon" href="img/LogoBranca32.png"/>
+    <link rel="shortcut icon" href="images/LogoBranca32.png"/>
     <title>Find Jobs</title>
 </head>
 <body>
@@ -15,7 +15,7 @@
         <div id="spinner"></div>
     </div>
     <header class="topo" id="conteudo">
-        <img src="img/LogoAzul.png">
+        <img src="images/LogoAzul.png">
         <nav class="menu">
             <div class="icones">
                 <h1 class="twitter"><a href="https://twitter.com/FindJobsTCC" target="_blank"><i class="fab fa-twitter-square"></i></a></h1>
@@ -40,7 +40,7 @@
     <section>
         <div class="projetos">
             <div class="projeto">
-                <img src="img/projeto.png" alt="Avatar">
+                <img src="images/projeto.png" alt="Avatar">
                 <div class="container-p">
                     <div class="icones-p">
                         <abbr title="Repositório"><a class="git" href="https://github.com/" target="_blank"><i class="fab fa-github-square"></i></a></abbr>
@@ -55,7 +55,7 @@
                 </div>
             </div>
             <div class="projeto">
-                <img src="img/projeto2.png" alt="Avatar">
+                <img src="images/projeto2.png" alt="Avatar">
                 <div class="container-p">
                     <div class="icones-p">
                         <abbr title="Repositório"><a class="git" href="https://github.com/" target="_blank"><i class="fab fa-github-square"></i></a></abbr>
@@ -72,7 +72,7 @@
                 </div>
             </div>
             <div class="projeto">
-                <img src="img/projeto3.png" alt="Avatar">
+                <img src="images/projeto3.png" alt="Avatar">
                 <div class="container-p">
                     <div class="icones-p">
                         <abbr title="Sem Repositório"><a class="s-git" href="" onclick="alert('Ops... esse projeto não possui Repositório')"><i class="fab fa-github-square"></i></a></abbr>
@@ -92,8 +92,8 @@
     <button onclick="backToTop()" id="btnTop"><i class="fas fa-arrow-up"></i></button>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/all.min.js"></script>
-    <script type="text/JavaScript" src="js/loading.js"></script>
-    <script type="text/JavaScript" src="js/topo.js"></script>
-    <script type="text/JavaScript" src="js/script.js"></script>
+    <script type="text/JavaScript" src="scripts/loading.js"></script>
+    <script type="text/JavaScript" src="scripts/topo.js"></script>
+    <script type="text/JavaScript" src="scripts/script.js"></script>
 </body>
 </html>
