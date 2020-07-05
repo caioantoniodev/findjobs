@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="css/cadastro.css" type="text/css" rel="stylesheet">
-    <link type="text/css" href="css/loading.css" rel="stylesheet">
-    <link type="text/css" href="css/topo.css" rel="stylesheet">
-	<link rel="shortcut icon" href="img/LogoBranca32.png"/>
+    <link href="styles/cadastro.css" type="text/css" rel="stylesheet">
+    <link type="text/css" href="styles/loading.css" rel="stylesheet">
+    <link type="text/css" href="styles/topo.css" rel="stylesheet">
+	<link rel="shortcut icon" href="images/LogoBranca32.png"/>
     <title>Cadastrar</title>
 </head>
 <body>
@@ -17,7 +17,7 @@
         <div class="conteudo" id="conteudo">
             <div class="cadastro">
                 <form>
-                    <img class="user" src="img/user_cdst.png">
+                    <img class="user" src="images/user_cdst.png">
                     <p>
                         <h1 class="txt1">Preencha os campos corretamente para realizar o cadastro</h1>
                     </p>
@@ -51,18 +51,16 @@
                                 <a class="cdst" href="login.html">Login</a>
                             </div>
                         </div>
-                    </div>
-
-                    
+                    </div>                    
                 </form>
             </div>
         </div>
 
         <button onclick="backToTop()" id="btnTop"><i class="fas fa-arrow-up"></i></button>
 
-        <script type="text/JavaScript" src="js/script.js"></script>
-        <script type="text/JavaScript" src="js/loading.js"></script>
-        <script type="text/JavaScript" src="js/topo.js"></script>
+        <script type="text/JavaScript" src="scripts/script.js"></script>
+        <script type="text/JavaScript" src="scripts/loading.js"></script>
+        <script type="text/JavaScript" src="scripts/topo.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.15/jquery.mask.min.js"></script>
         <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.15/jquery.mask.min.js"></script>

@@ -7,11 +7,11 @@
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
-    <link href="css/avaliacoes.css" rel="stylesheet" type="text/css">
-    <link type="text/css" href="css/loading.css" rel="stylesheet">
-    <link type="text/css" href="css/topo.css" rel="stylesheet">
+    <link href="styles/avaliacoes.css" rel="stylesheet" type="text/css">
+    <link type="text/css" href="styles/loading.css" rel="stylesheet">
+    <link type="text/css" href="styles/topo.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
-    <link rel="shortcut icon" href="img/LogoBranca32.png"/>
+    <link rel="shortcut icon" href="images/LogoBranca32.png"/>
     <title>Avaliações</title>
 </head>
 <body>
@@ -19,7 +19,7 @@
         <div id="spinner"></div>
     </div>
     <header class="topo" id="conteudo">
-        <img src="img/LogoAzul.png">
+        <img src="images/LogoAzul.png">
         <nav class="menu">
             <div class="icones">
                 <h1 class="twitter"><a href="https://twitter.com/FindJobsTCC" target="_blank"><i class="fab fa-twitter-square"></i></a></h1>
@@ -108,7 +108,7 @@
         unset($_SESSION['mal_sucedido']);
     ?>
 
-    <script type="text/JavaScript" src="js/loading.js"></script>
-    <script type="text/JavaScript" src="js/topo.js"></script>
+    <script type="text/JavaScript" src="scripts/loading.js"></script>
+    <script type="text/JavaScript" src="scripts/topo.js"></script>
 </body>
 </html>

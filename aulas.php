@@ -4,10 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="css/aulas.css" rel="stylesheet" type="text/css">
-    <link type="text/css" href="css/loading.css" rel="stylesheet">
-    <link type="text/css" href="css/topo.css" rel="stylesheet">
+    <link type="text/css" href="styles/loading.css" rel="stylesheet">
+    <link type="text/css" href="styles/topo.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
-    <link rel="shortcut icon" href="img/LogoBranca32.png"/>
+    <link rel="shortcut icon" href="images/LogoBranca32.png"/>
     <title>Aulas</title>
 </head>
 <body>
@@ -15,7 +15,7 @@
         <div id="spinner"></div>
     </div>
     <header class="topo" id="conteudo">
-        <img src="img/LogoAzul.png">
+        <img src="imagesg/LogoAzul.png">
         <nav class="menu">
             <div class="icones">
                 <h1 class="twitter"><a href="https://twitter.com/FindJobsTCC" target="_blank"><i class="fab fa-twitter-square"></i></a></h1>
@@ -71,7 +71,7 @@
     <button onclick="backToTop()" id="btnTop"><i class="fas fa-arrow-up"></i></button>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/all.min.js"></script>
-    <script type="text/JavaScript" src="js/loading.js"></script>
-    <script type="text/JavaScript" src="js/topo.js"></script>
+    <script type="text/JavaScript" src="script/loading.js"></script>
+    <script type="text/JavaScript" src="script/topo.js"></script>
 </body>
 </html>
