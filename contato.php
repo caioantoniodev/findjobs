@@ -3,11 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link type="text/css" href="css/contato.css" rel="stylesheet">
-    <link type="text/css" href="css/loading.css" rel="stylesheet">
-    <link type="text/css" href="css/topo.css" rel="stylesheet">
+    <link type="text/css" href="styles/contato.css" rel="stylesheet">
+    <link type="text/css" href="styles/loading.css" rel="stylesheet">
+    <link type="text/css" href="styles/topo.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
-    <link rel="shortcut icon" href="img/LogoBranca32.png"/>
+    <link rel="shortcut icon" href="images/LogoBranca32.png"/>
     <title>Contato</title>
 </head>
 <body>
@@ -15,7 +15,7 @@
         <div id="spinner"></div>
     </div>
     <header class="topo" id="conteudo">
-        <img src="img/LogoAzul.png">
+        <img src="images/LogoAzul.png">
         <nav class="menu">
             <div class="icones">
                 <h1 class="twitter"><a href="https://twitter.com/FindJobsTCC" target="_blank"><i class="fab fa-twitter-square"></i></a></h1>
@@ -37,7 +37,7 @@
     <section>
         <div class="contatos">
             <div class="contato">
-                <img src="img/LogoAzulV2.png" alt="Avatar">
+                <img src="images/LogoAzulV2.png" alt="Avatar">
                 <div class="container-c">
                     <h4>FindJobs</h4>
                     <p><b>Telefone:</b><br>Não temos ainda</p>
@@ -52,7 +52,7 @@
                 </div>
             </div>
             <div class="contato">
-                <img src="img/matheus.jpg" alt="Avatar">
+                <img src="images/matheus.jpg" alt="Avatar">
                 <div class="container-c">
                     <h4>Matheus</h4>
                     <p><b>Telefone:</b><br>(19) 98448-8004</p>
@@ -66,7 +66,7 @@
                 </div>
             </div>
             <div class="contato">
-                <img src="img/caio.jpg" alt="Avatar">
+                <img src="images/caio.jpg" alt="Avatar">
                 <div class="container-c">
                     <h4>Caio</h4>
                     <p><b>Telefone:</b><br>(19) 987148-0266</p>
@@ -80,7 +80,7 @@
                 </div>
             </div>
             <div class="contato">
-                <img src="img/lucas.jpg" alt="Avatar">
+                <img src="images/lucas.jpg" alt="Avatar">
                 <div class="container-c">
                     <h4>Lucas</h4>
                     <p><b>Telefone:</b><br>(19) 98714-2390</p>
@@ -99,7 +99,7 @@
     <button onclick="backToTop()" id="btnTop"><i class="fas fa-arrow-up"></i></button>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/all.min.js"></script>
-    <script type="text/JavaScript" src="js/loading.js"></script>
-    <script type="text/JavaScript" src="js/topo.js"></script>
+    <script type="text/JavaScript" src="scripts/loading.js"></script>
+    <script type="text/JavaScript" src="scripts/topo.js"></script>
 </body>
 </html>

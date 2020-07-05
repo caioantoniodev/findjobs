@@ -8,18 +8,18 @@
     <head>
         <meta charset="UTF-8">
         <title>Find Jobs</title>
-        <link type="text/css" href="css/style.css" rel="stylesheet">
-        <link type="text/css" href="css/loading.css" rel="stylesheet">
-        <link type="text/css" href="css/topo.css" rel="stylesheet">
+        <link type="text/css" href="styles/style.css" rel="stylesheet">
+        <link type="text/css" href="styles/loading.css" rel="stylesheet">
+        <link type="text/css" href="styles/topo.css" rel="stylesheet">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
-        <link rel="shortcut icon" href="img/LogoBranca32.png"/>
+        <link rel="shortcut icon" href="images/LogoBranca32.png"/>
     </head>
     <body>
         <div id="content">
             <div id="spinner"></div>
         </div>
         <header class="topo" id="conteudo">
-            <img src="img/LogoAzul.png">
+            <img src="images/LogoAzul.png">
             <nav class="menu">
                 <div class="icones">
                     <h1 class="twitter"><a href="https://twitter.com/FindJobsTCC" target="_blank"><i class="fab fa-twitter-square"></i></a></h1>
@@ -29,7 +29,7 @@
                     <li><a href="index.php">Inicio</a></li>
 
                     <!--https://celke.com.br/artigo/como-usar-funcao-empty-e-isset-no-php#:~:text=Ela%20serve%20para%20saber%20se,uma%20vari%C3%A1vel%20n%C3%A3o%20for%20vazia.&text=Exemplo%20de%20isset%20e%20empty%20usado%20para%20validar%20um%20formul%C3%A1rio.-->
-                    <!-- Verifica se NÂO tem um usuario na sessao -->
+                    <!-- Verifica se NÃO tem um usuario na sessao -->
                     <?php if(!isset($_SESSION['logado'])) { ?>
                         <li><a href="login.php">Login</a></li>
                          <li><a href="cadastro.php">Cadastro</a></li>
@@ -164,7 +164,7 @@
         <button onclick="backToTop()" id="btnTop"><i class="fas fa-arrow-up"></i></button>
 
         <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/all.min.js"></script>
-        <script type="text/JavaScript" src="js/loading.js"></script>
-        <script type="text/JavaScript" src="js/topo.js"></script>
+        <script type="text/JavaScript" src="scripts/loading.js"></script>
+        <script type="text/JavaScript" src="scripts/topo.js"></script>
     </body>
 </html>
