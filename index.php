@@ -85,8 +85,6 @@
                                 <div class="container-p">
                                     <h4><?=$dados['nome']?></h4>
                                     <p><?=$dados['linguagem']?></p>
-                                    <script>alert(<?=$dados['linguagem']?>)</script>
-                                    <p><?=$dados['salario']?></p>
                                     <br><p><p><?=$dados['descricao']?></p></p>
                                 </div>
                             </div> 
