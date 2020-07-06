@@ -14,11 +14,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="styles/projetos.css" rel="stylesheet" type="text/css">
+    <link type="text/css" href="styles/loading.css" rel="stylesheet">
+    <link type="text/css" href="styles/topo.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
     <link rel="shortcut icon" href="images/LogoBranca32.png"/>
     <title>Find Jobs</title>
 </head>
 <body>
+    <div id="content">
+        <div id="spinner"></div>
+    </div>
     <header class="topo">
         <img src="images/LogoAzul.png">
         <nav class="menu">
@@ -93,8 +98,12 @@
             <?php } ?>
         </div>
     </section>
+    
+    <button onclick="backToTop()" id="btnTop"><i class="fas fa-arrow-up"></i></button>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/all.min.js"></script>
-    <script src="scripts/script.js"></script>
+    <script type="text/JavaScript" src="scripts/loading.js"></script>
+    <script type="text/JavaScript" src="scripts/topo.js"></script>
+    <script type="text/JavaScript" src="scripts/script.js"></script>
 </body>
 </html>
