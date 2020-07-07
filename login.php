@@ -40,6 +40,21 @@
         </div>
     </section>
 
+    <!---Se mal sucedido--->
+    <?php 
+        if (isset($_SESSION['campos_vazios'])) {
+            echo "<script>alert('ERRO: Preencha todos os campos.');</script>";
+        }
+        unset($_SESSION['campos_vazios']);
+    ?>
+
+    <?php 
+        if (isset($_SESSION['mal_sucedido'])) {
+            echo "<script>alert('ERRO: Preencha todos os campos.');</script>";
+        }
+        unset($_SESSION['mal_sucedido']);
+    ?>
+
     <button onclick="backToTop()" id="btnTop"><i class="fas fa-arrow-up"></i></button>
 
     <script type="text/JavaScript" src="scripts/loading.js"></script>
