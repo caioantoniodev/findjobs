@@ -2,16 +2,32 @@
     session_start();
     include("conexao.php");
 
+    // Verfica se todos campos estão preenchidos
+    if(empty($_POST['email']) || empty($_POST['rep_senha']) || empty($_POST['nome']) || 
+        empty($_POST['profissao']) || empty($_POST['cpf']) || empty($_POST['telefone']) || 
+        empty($_POST['nascimento']) || empty($_POST['exp'])) {
+
+        $_SESSION['campos_vazios'] = TRUE;
+        header('Location: cadastro.php');
+        exit();
+    }   
+
+    // Pegos os campos digitados pelos usuarios e armazeno em uma variável
     $nome = mysqli_real_escape_string($conexao, trim($_POST['nome']));
     $email = mysqli_real_escape_string($conexao, trim($_POST['email']));
     $senha = mysqli_real_escape_string($conexao, trim(md5($_POST['rep_senha'])));
     $profissao = mysqli_real_escape_string($conexao, trim($_POST['profissao']));
-    $telefone = mysqli_real_escape_string($conexao, trim(md5($_POST['telefone'])));
+    $experiencia = mysqli_real_escape_string($conexao, trim($_POST['exp']));
 
+
+    exp
+    // Pegos os campos digitados pelos usuarios e antes de armazenar passo para uma função
+    // e limpo as formatações do JQUERY
     $tel = limpaFFront(mysqli_real_escape_string($conexao, trim($_POST['telefone'])));
     $cpf = limpaFFront(mysqli_real_escape_string($conexao, trim($_POST['cpf'])));
     $data = limpaFFront(mysqli_real_escape_string($conexao, trim($_POST['nascimento'])));
 
+    // Função que executa a limpeza do JQUERY
     function limpaFFront($valor) {
       $valor = str_replace(".", "", $valor);
       $valor = str_replace(",", "", $valor);
@@ -23,18 +39,22 @@
       
       return $valor;
      }
-
+    
+    // Pego o cpf passado pelo usuario e verifico se já tem uma conta cadastrado
+    // com esse cpf
     $sql = "SELECT COUNT(*) AS total FROM users WHERE user = '$cpf'";
-    $result = mysqli_query($connection, $sql);
-    $row = mysqli_fetch_assoc($result);
-
+    $resultado = mysqli_query($connection, $sql);
+    $row = mysqli_fetch_assoc($resultado);
+    
+    // se o usuario ja for existente redireciono ele para a tela de cadastro
     if($row['total'] == 1) {
         $_SESSION['cpf_existente'] = TRUE;
         header('Location: cadastro.php');
         exit();
     }
 
-    $sql = "INSERT INTO users (name, user, password, date_register) VALUES ('$name', '$user', '$password', NOW())";
+    //  se não for existente insiro os dados na base de dados
+    $sql = "INSERT INTO usuarios (name, user, password, date_register) VALUES ('$name', '$user', '$password', NOW())";
 
     if(mysqli_query($connection, $sql) === TRUE) {
         $_SESSION['bem_sucedido'] = TRUE;

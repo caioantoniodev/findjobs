@@ -20,7 +20,7 @@
     <section>
         <div class="conteudo">
             <div class="cadastro">
-                <form>
+                <form action="processa_cadastro.php" method="POST">
                     <img class="user" src="images/user_cdst.png">
                     <p>
                         <h1 class="txt1">Preencha os campos corretamente para realizar o cadastro</h1>
