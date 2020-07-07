@@ -59,6 +59,16 @@
         unset($_SESSION['mal_sucedido']);
     ?>
 
+    <!---Se cadastro bem sucedido--->
+    <?php 
+        if (isset($_SESSION['bem_sucedido'])) {
+            echo "<script>alert('SUCESSO: Você foi cadastrado em nossa plataforma, agora é só fazer o login.');</script>";
+        }
+        unset($_SESSION['bem_sucedido']);
+    ?>
+
+
+
     <button onclick="backToTop()" id="btnTop"><i class="fas fa-arrow-up"></i></button>
 
     <script type="text/JavaScript" src="scripts/loading.js"></script>

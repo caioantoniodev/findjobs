@@ -35,8 +35,8 @@
                             <input type="tel" class="tel" id="cel" name="telefone" placeholder="(00)0000-0000" required="required" maxlength="13" onkeypress="$(this).mask('(00) 00000-0009')" />
                             <input type="text" class="cpf" id="cpf" name="cpf" placeholder="000.000.000-00" required="required" maxlength="14" onkeypress="$(this).mask('000.000.000-00')" />
                             <input type="date" class="nasc" name="nascimento" required="required" />
-                            <input type="password" class="pss" name="senha" placeholder="Sua Senha" required="required" minlength="8" />
-                            <input type="password" class="pss" name="rep_senha" placeholder="Confirme sua Senha" required="required" minlength="8" />
+                            <!-- <input type="password" class="pss" name="senha" placeholder="Sua Senha" required="required" minlength="8" /> -->
+                            <input type="password" class="pss" name="senha" placeholder="Senha" required="required" minlength="8" />
                         </div>
 
                         <div class="exp">
@@ -80,14 +80,6 @@
                 echo "<script>alert('ERRO: Já existe uma conta que utiliza esse CPF.');</script>";
             }
             unset($_SESSION['cpf_existente']);
-        ?>
-
-        <!---Se bem sucedido--->
-        <?php 
-            if (isset($_SESSION['bem_sucedido'])) {
-                echo "<script>alert('SUCESSO: Você foi cadastrado em nossa plataforma, agora é só fazer o login.');</script>";
-            }
-            unset($_SESSION['bem_sucedido']);
         ?>
 
         <button onclick="backToTop()" id="btnTop"><i class="fas fa-arrow-up"></i></button>

@@ -3,7 +3,7 @@
     include("conexao.php");
 
     // Verfica se todos campos estão preenchidos
-    if(empty($_POST['email']) || empty($_POST['rep_senha']) || empty($_POST['nome']) || 
+    if(empty($_POST['email']) || empty($_POST['senha']) || empty($_POST['nome']) || 
         empty($_POST['profissao']) || empty($_POST['cpf']) || empty($_POST['telefone']) || 
         empty($_POST['nascimento']) || empty($_POST['exp'])) {
 
@@ -15,7 +15,7 @@
     // Pegos os campos digitados pelos usuarios e armazeno em uma variável
     $nome = mysqli_real_escape_string($conexao, trim($_POST['nome']));
     $email = mysqli_real_escape_string($conexao, trim($_POST['email']));
-    $senha = mysqli_real_escape_string($conexao, trim(md5($_POST['rep_senha'])));
+    $senha = mysqli_real_escape_string($conexao, trim(md5($_POST['senha'])));
     $profissao = mysqli_real_escape_string($conexao, trim($_POST['profissao']));
     $experiencia = mysqli_real_escape_string($conexao, trim($_POST['exp']));
 
@@ -39,8 +39,8 @@
     
     // Pego o cpf passado pelo usuario e verifico se já tem uma conta cadastrado
     // com esse cpf
-    $sql = "SELECT COUNT(*) AS total FROM users WHERE user = '$cpf'";
-    $resultado = mysqli_query($connection, $sql);
+    $sql = "SELECT COUNT(*) AS total FROM usuarios WHERE cpf = '$cpf'";
+    $resultado = mysqli_query($conexao, $sql);
     $row = mysqli_fetch_assoc($resultado);
     
     // se o usuario ja for existente redireciono ele para a tela de cadastro
@@ -52,14 +52,13 @@
 
     //  se não for existente insiro os dados na base de dados
     $sql = "INSERT INTO usuarios (cpf, nome, email, senha, datanascimento, telefone, experiencia, avatarurl, profissao) 
-            VALUES ('10100111110', 'Caio Cichetti', 'caio_cichetti@outlook.com', MD5('123456'), '2002-08-10', '19971480266', 'Experiente', 'https://image.flaticon.com/icons/svg/813/813445.svg', 'Desenvolvedor Back-end');";
+            VALUES ('$cpf', '$nome', '$email', '$senha', '$data', '$tel', '$experiencia', 'https://image.flaticon.com/icons/svg/2721/2721278.svg', '$profissao');";
 
-    if(mysqli_query($connection, $sql) === TRUE) {
+    if(mysqli_query($conexao, $sql) === TRUE) {
         $_SESSION['bem_sucedido'] = TRUE;
     }
 
-    mysqli_close($connection);
-
+    mysqli_close($conexao);
     header('Location: login.php');
     exit();
 ?>
