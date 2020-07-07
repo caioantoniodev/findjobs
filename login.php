@@ -1,3 +1,7 @@
+<?php
+    session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -50,7 +54,7 @@
 
     <?php 
         if (isset($_SESSION['mal_sucedido'])) {
-            echo "<script>alert('ERRO: Preencha todos os campos.');</script>";
+            echo "<script>alert('ERRO: Usuário ou senha incorretos.');</script>";
         }
         unset($_SESSION['mal_sucedido']);
     ?>

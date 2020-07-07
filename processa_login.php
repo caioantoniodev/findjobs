@@ -5,6 +5,7 @@
   // impede que o usuario acesse essa pagina com os 
   // campos 'usuario' e 'senha' vazio 
   if(empty($_POST['email']) || empty($_POST['senha'])) {
+    $_SESSION['campos_vazios'] = TRUE;
     header('Location: login.php');
     exit();
   }
@@ -27,10 +28,10 @@
     $cpf =  mysqli_fetch_array($resultado);
     // inicio 2 sessoes contendo cpf o status de logado;
     $_SESSION['cpf'] = $cpf['cpf'];
-    $_SESSION['logado'] = True;
+    $_SESSION['logado'] = TRUE;
     header('Location: index.php');
   } else {
-    $_SESSION['nao_autenticado'] = true;
+    $_SESSION['mal_sucedido'] = TRUE;
     header('Location: login.php');
     exit();
   }
