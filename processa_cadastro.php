@@ -28,7 +28,6 @@
     // Função que executa a limpeza do JQUERY
     function limpaFFront($valor) {
       $valor = str_replace(".", "", $valor);
-      $valor = str_replace(",", "", $valor);
       $valor = str_replace("-", "", $valor);
       $valor = str_replace("/", "", $valor);
       $valor = str_replace("(", "", $valor);
