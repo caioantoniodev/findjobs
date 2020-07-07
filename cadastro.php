@@ -1,3 +1,7 @@
+<?php
+    session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -14,7 +18,7 @@
         <div id="spinner"></div>
     </div>
     <section>
-        <div class="conteudo" id="conteudo">
+        <div class="conteudo">
             <div class="cadastro">
                 <form>
                     <img class="user" src="images/user_cdst.png">
@@ -32,7 +36,7 @@
                             <input type="text" class="cpf" id="cpf" name="cpf" placeholder="000.000.000-00" required="required" maxlength="14" onkeypress="$(this).mask('000.000.000-00')" />
                             <input type="date" class="nasc" name="nascimento" required="required" />
                             <input type="password" class="pss" name="senha" placeholder="Sua Senha" required="required" minlength="8" />
-                            <input type="password" class="pss" name="senha" placeholder="Confirme sua Senha" required="required" minlength="8" />
+                            <input type="password" class="pss" name="rep_senha" placeholder="Confirme sua Senha" required="required" minlength="8" />
                         </div>
 
                         <div class="exp">
@@ -45,7 +49,7 @@
                             <label for="intermediario">Intermediario</label>
                             <br><input type="radio" class="rb" name="exp" value="experiente">
                             <label for="experiente">Experiente</label>
-                            <br><input type="submit" name="enviar" class="enviar" />
+                            <br><input type="submit" onclick="return validar()" name="enviar" class="enviar" />
                             <div class="links">
                                 <br><a class="st" href="index.html">Inicio</a>
                                 <a class="cdst" href="login.html">Login</a>
@@ -69,6 +73,13 @@
                 echo "<script>alert('ERRO: Preencha todos os campos.');</script>";
             }
             unset($_SESSION['mal_sucedido']);
+        ?>
+
+        <?php 
+            if (isset($_SESSION['cpf_existente'])) {
+                echo "<script>alert('ERRO: Já existe uma conta que utiliza esse CPF.');</script>";
+            }
+            unset($_SESSION['cpf_existente']);
         ?>
 
         <button onclick="backToTop()" id="btnTop"><i class="fas fa-arrow-up"></i></button>
