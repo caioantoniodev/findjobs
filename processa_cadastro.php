@@ -19,8 +19,6 @@
     $profissao = mysqli_real_escape_string($conexao, trim($_POST['profissao']));
     $experiencia = mysqli_real_escape_string($conexao, trim($_POST['exp']));
 
-
-    exp
     // Pegos os campos digitados pelos usuarios e antes de armazenar passo para uma função
     // e limpo as formatações do JQUERY
     $tel = limpaFFront(mysqli_real_escape_string($conexao, trim($_POST['telefone'])));
@@ -54,7 +52,8 @@
     }
 
     //  se não for existente insiro os dados na base de dados
-    $sql = "INSERT INTO usuarios (name, user, password, date_register) VALUES ('$name', '$user', '$password', NOW())";
+    $sql = "INSERT INTO usuarios (cpf, nome, email, senha, datanascimento, telefone, experiencia, avatarurl, profissao) 
+            VALUES ('10100111110', 'Caio Cichetti', 'caio_cichetti@outlook.com', MD5('123456'), '2002-08-10', '19971480266', 'Experiente', 'https://image.flaticon.com/icons/svg/813/813445.svg', 'Desenvolvedor Back-end');";
 
     if(mysqli_query($connection, $sql) === TRUE) {
         $_SESSION['bem_sucedido'] = TRUE;
