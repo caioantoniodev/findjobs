@@ -36,7 +36,7 @@
                             <input type="text" class="cpf" id="cpf" name="cpf" placeholder="000.000.000-00" required="required" maxlength="14" onkeypress="$(this).mask('000.000.000-00')" />
                             <input type="date" class="nasc" name="nascimento" required="required" />
                             <!-- <input type="password" class="pss" name="senha" placeholder="Sua Senha" required="required" minlength="8" /> -->
-                            <input type="password" class="pss" name="senha" placeholder="Senha" required="required" minlength="8" />
+                            <input type="password" class="pss" name="senha" placeholder="Senha" required="required" />
                         </div>
 
                         <div class="exp">
@@ -51,8 +51,8 @@
                             <label for="experiente">Experiente</label>
                             <br><input type="submit" onclick="return validar()" name="enviar" class="enviar" />
                             <div class="links">
-                                <br><a class="st" href="index.html">Inicio</a>
-                                <a class="cdst" href="login.html">Login</a>
+                                <br><a class="st" href="index.php">Inicio</a>
+                                <a class="cdst" href="login.php">Login</a>
                             </div>
                         </div>
                     </div>                    

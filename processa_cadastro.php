@@ -15,6 +15,7 @@
     // Pegos os campos digitados pelos usuarios e armazeno em uma variável
     $nome = mysqli_real_escape_string($conexao, trim($_POST['nome']));
     $email = mysqli_real_escape_string($conexao, trim($_POST['email']));
+    // já transformo a senha em hash MD5
     $senha = mysqli_real_escape_string($conexao, trim(md5($_POST['senha'])));
     $profissao = mysqli_real_escape_string($conexao, trim($_POST['profissao']));
     $experiencia = mysqli_real_escape_string($conexao, trim($_POST['exp']));
