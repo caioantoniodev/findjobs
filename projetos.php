@@ -90,7 +90,7 @@
                             
                             <!--Botao que redireciona o freela para o email do cliente-->
                             <div class="button-p">
-                                <a onclick="enviarEmail('<?=$email_cliente?>', '<?=$nome_cliente?>', '<?=$titulo_projeto?>', '<?=$nome_freela?>')" class="btn-p btn-one">Tenho Interesse</a>
+                                <a onclick="enviarEmail('<?=$email_cliente?>', '<?=$nome_cliente?>', '<?=$titulo_projeto?>', '<?=$nome_freela?>', '<?=$profissao_freela?>')" class="btn-p btn-one">Tenho Interesse</a>
                             </div>
                         <?php } ?>
                     </div>
