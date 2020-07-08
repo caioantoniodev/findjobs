@@ -14,6 +14,6 @@ function enviarEmail(email, nome, projeto, nomeFreela, profissaoF) {
   let profissaoFreela = profissaoF;
 
   if(confirm(`Você deseja enviar um e-mail para ${Nome}`)) {
-    location.href = `mailto:${Email}?subject=Interesse%no%projeto%${Projeto}&body=Olá%${Nome}!%Meu%nome%é%${nomefreela}%Sou%desenvolvedor(a)%${profissaoFreela}%e%vi%seu%projeto%${Projeto}%na%plataforma%Find%Jobs%e%eu%tenho%interesse%em%ajudar.`
+    location.href = `mailto:${Email}?subject=Interesse no projeto ${Projeto}&body=Olá ${Nome}! Meu nome é ${nomefreela} Sou ${profissaoFreela} e vi seu projeto ${Projeto} na plataforma Find Jobs e eu tenho interesse em ajudar.`
   }
 } 
