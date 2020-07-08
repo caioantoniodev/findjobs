@@ -74,7 +74,7 @@
                     <div class="projetos">
                         <?php
                             // Lista os 3 ultimos criados
-                            $consulta = "SELECT * FROM usuarios, projetos WHERE usuarios.cpf = projetos.cliente_cpf ORDER BY projetos.idprojetos LIMIT 3;";
+                            $consulta = "SELECT * FROM usuarios, projetos WHERE usuarios.cpf = projetos.cliente_cpf ORDER BY projetos.idprojetos DESC LIMIT 3;";
 
                             $resultado = mysqli_query($conexao, $consulta);
 
