@@ -58,7 +58,7 @@
                     <p><b>Telefone:</b><br>(19) 98448-8004</p>
                     <p><b>Email:</b><br>matheus.ggcosta2014@gmail.com</p>
                     <p><b>Quem somos:</b>
-                        <br><br>Tenho 17 anos, estudante da Escola Salesiana São José, cursando o segundo módulo de Informática. Fui responsável pelo Front-End do projeto, estudando a parte de html e css para trazer um site profissional para os usuários se darem bem e com facil acesso às secões disponíveis nele.
+                        <br><br>Tenho 17 anos, estudante da Escola Salesiana São José, cursando o segundo módulo de Informática. Fui responsável pelo Front-End do projeto, estudando a parte de html e css para trazer um site profissional para os usuários se darem bem e com fácil acesso às sessões disponíveis nele.
                     </p>
                     <!--<div class="button-c">
                         <a href="" class="btn-c btn-one">Ver mais infos</a>
