@@ -84,7 +84,7 @@
                         ?>
                             <h4><?=$dados['nome']?></h4>
                             <p><?=$dados['linguagem']?></p>
-                            <p><?=$dados['salario']?></p>
+                            <p><?="R$ ".$dados['salario']?></p>
                             <p><?=$dados['titulo']?></p>
                             <br><p><p><?=$dados['descricao']?></p></p>
                             
