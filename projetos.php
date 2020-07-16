@@ -43,7 +43,7 @@
             <h1>Bem vindo a area de projetos!</h1>
             <p>Aqui você encontra diversas opções de projetos para ingressar :)</p>
             <div class="button">
-                <a href="" class="btn btn-one">Criar projeto</a>
+                <a href="criar_projeto.php" class="btn btn-one">Criar projeto</a>
             </div>
         </div>
     </header>
