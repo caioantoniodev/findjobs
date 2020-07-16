@@ -43,7 +43,7 @@
     <section>
         <div class="conteudo">
             <div class="criar">
-                <form>
+                <form action="processa_criacaoProjetos.php" method="POST">
                     <p class="titulo">
                         Preencha os dados corretamente e aceite os termos para gerar um projeto.
                     </p>
@@ -106,6 +106,18 @@
 
 
     <button onclick="backToTop()" id="btnTop"><i class="fas fa-arrow-up"></i></button>
+
+    <?php
+		if (isset($_SESSION['bem_sucedido'])) {
+            echo "<script>alert('SUCESSO: Projeto criado com sucesso.');</script>";
+        }
+        unset($_SESSION['bem_sucedido']);
+
+        if (isset($_SESSION['mal_sucedido'])) {
+            echo "<script>alert('ERRO: Projeto não criado, preencha os campos.');</script>";
+        }
+        unset($_SESSION['mal_sucedido']);
+    ?>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/all.min.js"></script>
     <script type="text/JavaScript" src="scripts/loading.js"></script>
