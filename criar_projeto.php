@@ -17,17 +17,12 @@
     <header class="topo" id="conteudo">
         <img src="images/LogoAzul.png">
         <nav class="menu">
-            <div class="icones">
-                <h1 class="twitter"><a href="https://twitter.com/FindJobsTCC" target="_blank"></a></h1>
-                <h1 class="facebook"><a href="https://www.facebook.com/Find-Jobs-111396177288447/" target="_blank"></a></h1>
-            </div>
             <ul>
-                <li><a href="index.html">Inicio</a></li>
-                <li><a href="aulas.html">Aulas</a></li>
-                <li><a href="projetos.html">Projetos</a></li>
-                <li><a href="login.html">Login</a></li>
-                <li><a href="cadastro.html">Cadastro</a></li>
-                <li><a href="contato.html">Contato</a></li>
+                <li><a href="index.php">Inicio</a></li>
+                <li><a href="aulas.php">Aulas</a></li>
+                <li><a href="projetos.php">Projetos</a></li>
+                <li><a href="contato.php">Projetos</a></li>
+                <li><a href="sair.php">Sair</a></li>
             </ul>
         </nav>
         <div class="enjoy">
