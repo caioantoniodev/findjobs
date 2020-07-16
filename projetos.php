@@ -33,7 +33,7 @@
             </div>
             <ul>
                 <li><a href="index.php">Inicio</a></li>
-                <li><a href="">Aulas</a></li>
+                <li><a href="aulas.php">Aulas</a></li>
                 <li><a href="projetos.php">Projetos</a></li>
                 <li><a href="contato.php">Contato</a></li>
                 <li><a href="sair.php">Sair</a></li>
