@@ -5,7 +5,10 @@
     // verifico se está logado, assim impedindo acessar direto na url
     if (!isset($_SESSION['logado'])) {
         header('Location: index.php');
-    }    
+    }  
+    
+    // obtenho o cpf do cliente cadastrado
+    $cpfCliente = $cpf = $_SESSION['cpf'];
 ?>
 
 <!DOCTYPE html>
@@ -61,6 +64,10 @@
                             <p class="valor">
                                 <input type="text" name="valor" class="vlr" placeholder="R$ 00.000,00" required="required"/>
                             </p>
+
+                            <!--Input invisivel que passa o cpf do cliente para a pagina que processa que os dados-->
+                            <input type="hidden" name="cpfCliente" value="<?=$cpfCliente?>" />
+
                             <div class="pag">
                                 <br><p class="p-pg">Forma de Pagamento:</p><br>
                                 <input type="radio" class="rb" name="pg" value="paypal">
@@ -104,9 +111,6 @@
         </div>
     </section>
 
-
-    <button onclick="backToTop()" id="btnTop"><i class="fas fa-arrow-up"></i></button>
-
     <?php
 		if (isset($_SESSION['bem_sucedido'])) {
             echo "<script>alert('SUCESSO: Projeto criado com sucesso.');</script>";
@@ -118,6 +122,8 @@
         }
         unset($_SESSION['mal_sucedido']);
     ?>
+
+    <button onclick="backToTop()" id="btnTop"><i class="fas fa-arrow-up"></i></button>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/all.min.js"></script>
     <script type="text/JavaScript" src="scripts/loading.js"></script>
