@@ -98,7 +98,7 @@
                                 href="login.php" 
                             <?php } ?>
                             class="btn2 btn-three">Veja Projetos</a>
-                        <a href="criar_projeto" class="btn2 btn-four">Crie Projetos</a>
+                        <a href="criar_projeto.php" class="btn2 btn-four">Crie Projetos</a>
                     </div>
                 </div>
 
