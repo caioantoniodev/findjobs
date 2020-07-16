@@ -27,6 +27,6 @@
 	
 		mysqli_close($conexao);
 	
-		header("Location: projetos.php");
+		header("Location: criar_projeto.php");
   }
 ?>
