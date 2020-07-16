@@ -4,7 +4,7 @@
   
   if(empty($_POST['nome_projeto']) || empty($_POST['lang']) || empty($_POST['descricao']) || empty($_POST['valor'])) {
     $_SESSION['mal_sucedido'] = TRUE;
-    header('Location: index.php');
+    header('Location: criar_projeto.php');
   }  else {
 
     $nomeProjeto = trim($_POST['nome_projeto']);

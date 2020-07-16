@@ -13,7 +13,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="css/aulas.css" rel="stylesheet" type="text/css">
+    <link href="styles/aulas.css" rel="stylesheet" type="text/css">
     <link type="text/css" href="styles/loading.css" rel="stylesheet">
     <link type="text/css" href="styles/topo.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
@@ -25,7 +25,7 @@
         <div id="spinner"></div>
     </div>
     <header class="topo" id="conteudo">
-        <img src="imagesg/LogoAzul.png">
+        <img src="images/LogoAzul.png">
         <nav class="menu">
             <div class="icones">
                 <h1 class="twitter"><a href="https://twitter.com/FindJobsTCC" target="_blank"><i class="fab fa-twitter-square"></i></a></h1>
@@ -35,7 +35,7 @@
                 <li><a href="index.php">Inicio</a></li>
                 <li><a href="aulas.php">Aulas</a></li>
                 <li><a href="projetos.php">Projetos</a></li>
-                <li><a href="contato.php">Projetos</a></li>
+                <li><a href="contato.php">Contato</a></li>
                 <li><a href="sair.php">Sair</a></li>
             </ul>
         </nav>
@@ -81,7 +81,7 @@
     <button onclick="backToTop()" id="btnTop"><i class="fas fa-arrow-up"></i></button>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/all.min.js"></script>
-    <script type="text/JavaScript" src="script/loading.js"></script>
-    <script type="text/JavaScript" src="script/topo.js"></script>
+    <script type="text/JavaScript" src="scripts/loading.js"></script>
+    <script type="text/JavaScript" src="scripts/topo.js"></script>
 </body>
 </html>
