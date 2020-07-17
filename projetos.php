@@ -90,7 +90,8 @@
                             
                             <!--Botao que redireciona o freela para o email do cliente-->
                             <div class="button-p">
-                                <a onclick="enviarEmail('<?=$email_cliente?>', '<?=$nome_cliente?>', '<?=$titulo_projeto?>', '<?=$nome_freela?>', '<?=$profissao_freela?>')" class="btn-p btn-one">Tenho Interesse</a>
+                            <a onclick="enviarEmail('<?=$email_cliente?>', '<?=$nome_cliente?>', '<?=$titulo_projeto?>', '<?=$nome_freela?>', '<?=$profissao_freela?>')" class="btn-p btn-one">Tenho Interesse</a>
+                                <!-- <a onclick="enviarEmail('teste', 'oi', 'oi', 'oi', 'oi')" class="btn-p btn-one">Tenho Interesse</a> -->
                             </div>
                         <?php } ?>
                     </div>
@@ -101,9 +102,9 @@
     
     <button onclick="backToTop()" id="btnTop"><i class="fas fa-arrow-up"></i></button>
 
+    <script src="scripts/script.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/all.min.js"></script>
     <script type="text/JavaScript" src="scripts/loading.js"></script>
     <script type="text/JavaScript" src="scripts/topo.js"></script>
-    <script type="text/JavaScript" src="scripts/script.js"></script>
 </body>
 </html>
