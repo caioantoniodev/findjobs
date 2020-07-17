@@ -47,32 +47,22 @@
     <section>
         <div class="conteudo">
             <div class="info">
-                <h1>Aulas disponíveis<i class="fas fa-photo-video"></i></h1>
-
-                <p>
-                    Hiren's Boot
-                </p>
-
-                <div class="videos">
-                    <iframe class="video" width="280" height="157" src="https://www.youtube.com/embed/nzievuc3-EI" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                    <iframe class="video" width="280" height="157" src="https://www.youtube.com/embed/8LoSLzHftas" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                    <iframe class="video" width="280" height="157" src="https://www.youtube.com/embed/sZk4kdnqX3s" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                    <iframe class="video" width="280" height="157" src="https://www.youtube.com/embed/xcgIBfdO2FI" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                    <iframe class="video" width="280" height="157" src="https://www.youtube.com/embed/PMlxrWxc1P8" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                    <iframe class="video" width="280" height="157" src="https://www.youtube.com/embed/NMnuYAslJ0U" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                </div>
+                <h1>Nossos cursos<i class="fas fa-photo-video"></i></h1>
 
                 <p>
                     PHP
                 </p>
 
                 <div class="videos">
-                    <iframe class="video" width="280" height="157" src="https://www.youtube.com/watch?v=nzievuc3-EI&list=PLHRSwc96e-nDVcfXYRRBp7ltqfIvFGBhi&index=2&t=0s" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                    <iframe class="video" width="280" height="157" src="https://www.youtube.com/watch?v=8LoSLzHftas&list=PLHRSwc96e-nDVcfXYRRBp7ltqfIvFGBhi&index=2" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                    <iframe class="video" width="280" height="157" src="https://www.youtube.com/watch?v=sZk4kdnqX3s&list=PLHRSwc96e-nDVcfXYRRBp7ltqfIvFGBhi&index=3" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                    <iframe class="video" width="280" height="157" src="https://www.youtube.com/watch?v=xcgIBfdO2FI&list=PLHRSwc96e-nDVcfXYRRBp7ltqfIvFGBhi&index=4" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                    <iframe class="video" width="280" height="157" src="https://www.youtube.com/watch?v=PMlxrWxc1P8&list=PLHRSwc96e-nDVcfXYRRBp7ltqfIvFGBhi&index=5" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                    <iframe class="video" width="280" height="157" src="https://www.youtube.com/watch?v=NMnuYAslJ0U&list=PLHRSwc96e-nDVcfXYRRBp7ltqfIvFGBhi&index=6" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    <iframe class="video" width="360" height="203" src="https://www.youtube.com/embed/3VQKPGwMv6Y" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+
+                <h1>Vale a pena conhecer <i class="fas fa-chalkboard-teacher"></i></i></h1>
+
+                <div class="videos">
+                    <iframe class="video" width="360" height="203" src="https://www.youtube.com/embed/X7WMSfEfZGg" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    <iframe class="video" width="360" height="203" src="https://www.youtube.com/embed/AqJKAJ0TKms" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    <iframe class="video" width="360" height="203" src="https://www.youtube.com/embed/FH7YrE0RjWE" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                 </div>
             </div>
         </div>
