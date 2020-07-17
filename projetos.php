@@ -40,7 +40,7 @@
             </ul>
         </nav>
         <div class="enjoy">
-            <h1>Bem vindo a area de projetos!</h1>
+            <h1>Bem vindo à área de projetos!</h1>
             <p>Aqui você encontra diversas opções de projetos para ingressar :)</p>
             <div class="button">
                 <a href="criar_projeto.php" class="btn btn-one">Criar projeto</a>
