@@ -109,8 +109,7 @@
                     </p>
                     <div class="videos">
                         <iframe class="video1" width="360" height="203" src="https://www.youtube.com/embed/3VQKPGwMv6Y" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                        <iframe class="video2" width="280" height="157" src="https://www.youtube.com/embed/wHFflWvii3M" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                        <iframe class="video3" width="280" height="157" src="https://www.youtube.com/embed/HV7DtH3J2PU" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        <iframe class="video2" width="360" height="203" src="https://www.youtube.com/embed/2l_2w4RCUfg" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                     </div>
                     <div class="button-info2">
                         <a 

@@ -50,6 +50,14 @@
                 <h1>Nossos cursos<i class="fas fa-photo-video"></i></h1>
 
                 <p>
+                    NODE.JS
+                </p>
+
+                <div class="videos">
+                    <iframe class="video" width="360" height="203" src="https://www.youtube.com/embed/2l_2w4RCUfg" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+
+                <p>
                     PHP
                 </p>
 
@@ -63,6 +71,9 @@
                     <iframe class="video" width="360" height="203" src="https://www.youtube.com/embed/X7WMSfEfZGg" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                     <iframe class="video" width="360" height="203" src="https://www.youtube.com/embed/AqJKAJ0TKms" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                     <iframe class="video" width="360" height="203" src="https://www.youtube.com/embed/FH7YrE0RjWE" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    <iframe class="video" width="360" height="203" src="https://www.youtube.com/embed/RPzfYrFnauU" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    <iframe class="video" width="360" height="203" src="https://www.youtube.com/embed/kjhu1LEmRpY" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    <iframe class="video" width="360" height="203" src="https://www.youtube.com/embed/ULI3-LeWSVY" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                 </div>
             </div>
         </div>
