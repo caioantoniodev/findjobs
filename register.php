@@ -21,7 +21,7 @@
                     <spam class="navbar-toggler-icon"></spam>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarResponsive">
-                    <ul class="navbar-nav ml-auto">
+                    <ul class="navbar-nav ml-auto text-center">
                         <li class="nav-item active">
                             <a class="nav-link text-white" href="index.html">Home</a>
                         </li>

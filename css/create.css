@@ -49,6 +49,10 @@ hr{
     font-size: 1.1em !important;
 }
 
+.fa-user-circle{
+    font-size: 24px;
+}
+
 .btn-light{
     border-radius: 25px;
 }

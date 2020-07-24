@@ -23,7 +23,15 @@
                     <spam class="navbar-toggler-icon"></spam>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarResponsive">
-                    <ul class="navbar-nav ml-auto">
+                    <ul class="navbar-nav ml-auto text-center">
+                        <li class="nav-item dropdown">
+                            <a class="nav-link text-white" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" href="#"><i class="fas fa-user-circle"></i></a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <a href="profile.html" class="dropdown-item">Profile</a>
+                                <div class="dropdown-divider"></div>
+                                <a href="index.html" class="dropdown-item"><i class="fas fa-sign-out-alt"></i>  Log Out</a>
+                            </div>
+                        </li>
                         <li class="nav-item active">
                             <a class="nav-link text-white" href="index.html">Home</a>
                         </li>

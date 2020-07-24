@@ -21,7 +21,7 @@
                     <spam class="navbar-toggler-icon"></spam>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarResponsive">
-                    <ul class="navbar-nav ml-auto">
+                    <ul class="navbar-nav ml-auto text-center">
                         <li class="nav-item active">
                             <a class="nav-link text-white" href="index.html">Home</a>
                         </li>
@@ -39,6 +39,9 @@
                         </li>
                         <li class="nav-item">
                             <a class="nav-link text-white" href="contact.html">Contact</a>
+                        </li>
+                        <li class="nav-item">
+                            <abbr title="Log Out"><a class="nav-link text-white" href="index.html"><i class="fas fa-sign-out-alt"></i></a></abbr>
                         </li>
                     </ul>
                 </div>
@@ -161,6 +164,7 @@
                 </div>
                 <div class="col-12 social padding mt-2">
                     <h6>Social Media</h6>
+                    <a href="https://github.com/MGermano27"><i class="fab fa-github"></i></a>
                     <a href="https://twitter.com/_grrmano"><i class="fab fa-twitter"></i></a>
                     <a href="https://www.instagram.com/_grrmano/"><i class="fab fa-instagram"></i></a>
                 </div>
@@ -230,6 +234,14 @@
                                                 <a href="#"><i class="fas fa-user-circle"></i></a>
                                             </div>
                                         </div>
+                                        <hr>
+                                        <h6>Add a Participant</h6>
+                                        <form action="">
+                                            <div class="form-group">
+                                                <small class="text-muted">Insert the participant's cpf</small>
+                                                <input class="form-control" type="text" id="cpf" placeholder="000.000.000-00" onkeypress="$(this).mask('000.000.000-00');">
+                                            </div>
+                                        </form>
                                         <hr>
                                         <a data-toggle="modal" data-target="#modalEmail"><button type="button" class="btn btn-outline-dark btn-md mb-3">Confirm</button></a>
                                         <a href=""><button type="button" class="btn btn-danger btn-md mb-3">Delete Project</button></a>

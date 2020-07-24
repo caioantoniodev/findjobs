@@ -41,6 +41,10 @@ html, body{
     font-size: 1.1em !important;
 }
 
+.fa-sign-out-alt{
+    font-size: 24px;
+}
+
 .btn-light{
     border-radius: 25px;
 }
@@ -77,6 +81,10 @@ hr{
 
 .social-media{
     font-size: 24px;
+    color: #222;
+}
+
+.fa-github, .fa-twitter, .fa-instagram{
     color: #222;
 }
 
