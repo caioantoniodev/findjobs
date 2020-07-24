@@ -1,0 +1,186 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins:400,500,700');
+
+html, body{
+  height: 100%;
+  width: 100%;
+  font-family: 'poppins', sans-serif;
+  color: #222;
+}
+
+.navbar{
+  padding: .8rem;
+  text-transform: uppercase;
+}
+
+.navbar-brand img{
+  height: 4rem;
+}
+
+.navbar-nav li{
+  padding-right: 20px;
+}
+
+.navbar-light .navbar-nav .nav-link {
+  color: white;
+}
+
+.nav-link::after{
+  content: '';
+  width: 0;
+  height: 2px;
+  background-color: white;
+  display: block;
+  transition: .5s;
+}
+
+.nav-link:hover::after{
+  width: 100%;
+}
+
+.nav-link{
+  font-size: 1.1em !important;
+}
+
+.home-inner{
+  background-image: url(../img/bg1.jpg);
+}
+
+.caption{
+  width: 100%;
+  max-width: 100%;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  color: white;
+}
+
+.caption h1{
+  font-size: 3.8rem;
+  text-transform: uppercase;
+  padding-bottom: 1rem;
+}
+
+.btn-light{
+  border-radius: 25px;
+}
+
+.btn-outline-light{
+  border-radius: 25px;
+}
+
+.btn-outline-dark{
+  border-radius: 25px;
+}
+
+.card:hover{
+  transition: .5s;
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, .4);
+}
+
+.padding{
+  padding-bottom: 2rem;
+}
+
+.welcome{
+  width: 75%;
+  margin: 0 auto;
+  padding-top: 2rem;
+}
+
+.social a{
+  font-size: 4.5em;
+  margin: 3rem;
+  cursor: pointer;
+}
+
+.fa-facebook{
+  color: #3b5998;
+  transition: .5s;
+}
+
+.fa-twitter{
+  color: #00aced;
+  transition: .5s;
+}
+
+.fa-youtube{
+  color: #bb0000;
+  transition: .5s;
+}
+
+.estrelas{
+  color: #CCC;
+}
+
+.estrelas input[type=radio] {
+  display: none;
+}
+
+.estrelas label i .fa-star:before {
+  content: '\f005';
+  color: #FC0;
+}
+
+.estrelas input[type=radio]:checked ~ label i .fa-star:before{
+  color: #CCC;
+}
+
+.fa-star{
+  cursor: pointer;
+  font-size: 28px;
+  margin: 10px;
+  transition: .5s;
+}
+
+hr{
+  border-top: 1px solid rgb(206, 206, 206);
+}
+
+/*---Media Queries --*/
+@media (max-width: 992px) {
+  .caption h1{
+    font-size: 3rem;
+  }
+}
+
+@media (max-width: 768px) {
+  
+}
+
+@media (max-width: 576px) {
+  
+}
+
+@media (max-width: 420px){
+  .caption h1{
+    font-size: 3rem;
+  }
+}
+
+
+
+
+/*
+Extra small (xs) devices (portrait phones, less than 576px)
+No media query since this is the default in Bootstrap
+
+Small (sm) devices (landscape phones, 576px and up)
+@media (min-width: 576px) { ... }
+
+Medium (md) devices (tablets, 768px and up)
+@media (min-width: 768px) { ... }
+
+Large (lg) devices (desktops, 992px and up)
+@media (min-width: 992px) { ... }
+
+Extra (xl) large devices (large desktops, 1200px and up)
+@media (min-width: 1200px) { ... }
+*/
+
+
+
+
+
+
+
+

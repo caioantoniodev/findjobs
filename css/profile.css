@@ -1,0 +1,105 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins:400,500,700');
+
+html, body{
+    height: 100%;
+    width: 100%;
+    font-family: 'poppins', sans-serif;
+    color: #222;
+}
+
+.navbar{
+    padding: .8rem;
+    text-transform: uppercase;
+}
+  
+.navbar-brand img{
+    height: 4rem;
+}
+  
+.navbar-nav li{
+    padding-right: 20px;
+}
+  
+.navbar-light .navbar-nav .nav-link {
+    color: white;
+}
+  
+.nav-link::after{
+    content: '';
+    width: 0;
+    height: 2px;
+    background-color: white;
+    display: block;
+    transition: .5s;
+}
+  
+.nav-link:hover::after{
+    width: 100%;
+}
+  
+.nav-link{
+    font-size: 1.1em !important;
+}
+
+.btn-light{
+    border-radius: 25px;
+}
+  
+.btn-outline-light{
+    border-radius: 25px;
+}
+  
+.btn-outline-dark{
+    border-radius: 25px;
+}
+
+.btn-danger{
+    border-radius: 25px;
+}
+
+.card:hover{
+    transition: .5s;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, .4);
+}
+
+.participants a{
+    font-size: 2rem;
+    color: #222;
+}
+  
+hr{
+    border-top: 1px solid rgb(206, 206, 206);
+}
+
+.social{
+    font-size: 48px;
+}
+
+.social-media{
+    font-size: 24px;
+    color: #222;
+}
+
+.estrelas{
+    color: #CCC;
+}
+  
+.estrelas input[type=radio] {
+    display: none;
+}
+  
+.estrelas label i .fa-star:before {
+    content: '\f005';
+    color: #FC0;
+}
+  
+.estrelas input[type=radio]:checked ~ label i .fa-star:before{
+    color: #CCC;
+}
+  
+.fa-star{
+    cursor: pointer;
+    font-size: 24px;
+    margin: 5px;
+    transition: .5s;
+}
