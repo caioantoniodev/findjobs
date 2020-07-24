@@ -16,7 +16,7 @@
     <header>
         <nav class="navbar navbar-expand-lg navbar-light bg-info sticky-top">
             <div class="container-fluid">
-                <a class="navbar-brand mr-auto" href="index.html"><img src="img/LogoAzul.png"></a>
+                <a class="navbar-brand mr-auto" href="index.php"><img src="img/LogoAzul.png"></a>
                 <button class="navbar-toggler" type="button" style="border:none;" data-toggle="collapse" data-target="#navbarResponsive">
                     <spam class="navbar-toggler-icon"></spam>
                 </button>
@@ -25,28 +25,28 @@
                         <li class="nav-item dropdown">
                             <a class="nav-link text-white" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" href="#"><i class="fas fa-user-circle"></i></a>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <a href="profile.html" class="dropdown-item">Profile</a>
+                                <a href="profile.php" class="dropdown-item">Profile</a>
                                 <div class="dropdown-divider"></div>
-                                <a href="index.html" class="dropdown-item"><i class="fas fa-sign-out-alt"></i>  Log Out</a>
+                                <a href="index.php" class="dropdown-item"><i class="fas fa-sign-out-alt"></i>  Log Out</a>
                             </div>
                         </li>
                         <li class="nav-item active">
-                            <a class="nav-link text-white" href="index.html">Home</a>
+                            <a class="nav-link text-white" href="index.php">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-white" href="classes.html">Classes</a>
+                            <a class="nav-link text-white" href="classes.php">Classes</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-white" href="projects.html">Projects</a>
+                            <a class="nav-link text-white" href="projects.php">Projects</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-white" href="login.html">Sign In</a>
+                            <a class="nav-link text-white" href="login.php">Sign In</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-white" href="register.html">Register</a>
+                            <a class="nav-link text-white" href="register.php">Register</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-white" href="contact.html">Contact</a>
+                            <a class="nav-link text-white" href="contact.php">Contact</a>
                         </li>
                     </ul>
                 </div>
@@ -55,7 +55,7 @@
     </header>
 
     <!-- End Navigation Bar -->
-    
+
     <div class="container">
         <h1 class="display-5 mt-4">Create a project for developers participate and help you.</h1>
         <hr>
@@ -105,7 +105,7 @@
                             <p>Mauris congue justo tempus erat finibus, quis vestibulum urna aliquet. Phasellus porttitor, enim vitae ullamcorper ultrices, nibh magna hendrerit dui, sed sodales mi tellus sed sem. Nam justo dolor, porta sed ante ac, ullamcorper iaculis justo. Donec in nulla sapien. Morbi quis placerat orci, sed dictum orci. Aenean efficitur lectus in magna blandit suscipit. Phasellus nisi eros, accumsan et aliquet sed, tristique at nulla. Suspendisse viverra odio ultricies augue lobortis vulputate. Proin a lacus vitae dui porttitor ultrices. Vestibulum sed venenatis eros. Maecenas porta hendrerit magna nec cursus. Phasellus vulputate euismod molestie. Fusce varius, libero vel luctus pellentesque, ligula nulla consequat ex, a consectetur purus enim sit amet massa. Proin enim neque, laoreet nec tellus ut, iaculis ultricies nisl.</p>
 
                             <p>Duis interdum egestas nisi. Maecenas non pharetra arcu. Suspendisse vulputate eget eros vitae sodales. Aenean libero risus, accumsan ut vulputate tristique, accumsan quis magna. Mauris non egestas diam. Maecenas fringilla elit nisl, vel eleifend massa blandit vitae. Cras placerat justo imperdiet justo consequat, quis condimentum erat ornare. Integer porta urna ullamcorper velit tempor, ultricies vestibulum felis pulvinar. Fusce nec nisl a dolor feugiat bibendum non sed velit. Praesent ullamcorper ac orci vitae luctus. Curabitur mattis, purus vel dapibus finibus, lorem nibh tristique sapien, quis fermentum enim est sit amet tellus. Donec quis aliquet nisi. Etiam egestas metus at nunc eleifend ultrices. Integer eget finibus neque, ut ultrices ligula. Vivamus malesuada sem quis sapien mollis, ac dapibus elit commodo. Vivamus placerat massa a eros posuere, et sodales libero pulvinar.</p>
-                        </div>				  
+                        </div>
                     </div>
                 </div>
             </div>
@@ -115,7 +115,7 @@
     <button onclick="backToTop()" id="btnTop"><i class="fas fa-arrow-up"></i></button>
 
     <script type="text/JavaScript" src="js/bootstrap.bundle.min.js"></script>
-    <script type="text/JavaScript" src="js/topo.js"></script>    
+    <script type="text/JavaScript" src="js/topo.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
