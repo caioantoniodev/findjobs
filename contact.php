@@ -13,7 +13,7 @@
     <header>
         <nav class="navbar navbar-expand-lg navbar-light bg-info sticky-top">
             <div class="container-fluid">
-                <a class="navbar-brand mr-auto" href="index.html"><img src="img/LogoBranca64.png"></a>
+                <a class="navbar-brand mr-auto" href="index.php"><img src="img/LogoBranca64.png"></a>
                 <button class="navbar-toggler" type="button" style="border:none;" data-toggle="collapse" data-target="#navbarResponsive">
                     <spam class="navbar-toggler-icon"></spam>
                 </button>
@@ -22,28 +22,28 @@
                         <li class="nav-item dropdown">
                             <a class="nav-link text-white" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" href="#"><i class="fas fa-user-circle"></i></a>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <a href="profile.html" class="dropdown-item">Profile</a>
+                                <a href="profile.php" class="dropdown-item">Profile</a>
                                 <div class="dropdown-divider"></div>
-                                <a href="index.html" class="dropdown-item"><i class="fas fa-sign-out-alt"></i>  Log Out</a>
+                                <a href="index.php" class="dropdown-item"><i class="fas fa-sign-out-alt"></i>  Log Out</a>
                             </div>
                         </li>
                         <li class="nav-item active">
-                            <a class="nav-link text-white" href="index.html">Home</a>
+                            <a class="nav-link text-white" href="index.php">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-white" href="classes.html">Classes</a>
+                            <a class="nav-link text-white" href="classes.php">Classes</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-white" href="projects.html">Projects</a>
+                            <a class="nav-link text-white" href="projects.php">Projects</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-white" href="login.html">Sign In</a>
+                            <a class="nav-link text-white" href="login.php">Sign In</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-white" href="register.html">Register</a>
+                            <a class="nav-link text-white" href="register.php">Register</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-white" href="contact.html">Contact</a>
+                            <a class="nav-link text-white" href="contact.php">Contact</a>
                         </li>
                     </ul>
                 </div>
@@ -95,11 +95,11 @@
             </div>
         </div>
     </div>
-    
+
 
     <button onclick="backToTop()" id="btnTop"><i class="fas fa-arrow-up"></i></button>
 
-    <script type="text/JavaScript" src="js/topo.js"></script>    
+    <script type="text/JavaScript" src="js/topo.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
