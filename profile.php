@@ -18,7 +18,7 @@
   <header>
     <nav class="navbar navbar-expand-lg navbar-light bg-info sticky-top">
       <div class="container-fluid">
-        <a class="navbar-brand mr-auto" href="index.html"><img src="img/LogoAzul.png"></a>
+        <a class="navbar-brand mr-auto" href="index.php"><img src="img/LogoAzul.png"></a>
         <button class="navbar-toggler" type="button" style="border:none;" data-toggle="collapse" data-target="#navbarResponsive">
           <spam class="navbar-toggler-icon"></spam>
         </button>
