@@ -37,9 +37,9 @@ if (!isset($_SESSION['logado'])) {
             <li class="nav-item dropdown">
               <a class="nav-link text-white" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" href="#"><i class="fas fa-user-circle"></i></a>
               <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <a href="profile.html" class="dropdown-item">Profile</a>
+                <a href="profile.php" class="dropdown-item">Profile</a>
                 <div class="dropdown-divider"></div>
-                <a href="index.html" class="dropdown-item"><i class="fas fa-sign-out-alt"></i> Log Out</a>
+                <a href="index.php" class="dropdown-item"><i class="fas fa-sign-out-alt"></i> Log Out</a>
               </div>
             </li>
             <li class="nav-item active">
@@ -133,7 +133,7 @@ if (!isset($_SESSION['logado'])) {
                   <p>By entering a project you agree to all terms.</p>
                   <p>Now it's up to you, you need to inform the client by email about your interest in the project.</p>
                   <p>The project owner may or may not accept you in the project.</p>
-                  <p>Good luck to you</p>
+                  <p>Good luck to you🚀</p>
                   <hr>
 
                   <button type="button" onclick="enviarEmail('<?= $email_cliente ?>', '<?= $nome_cliente ?>', '<?= $titulo_projeto ?>', '<?= $nome_freela ?>', '<?= $profissao_freela ?>')" class="btn btn-outline-dark btn-md mb-3">Send email for <?php echo $nome_cliente ?>
