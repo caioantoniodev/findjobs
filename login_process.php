@@ -29,7 +29,7 @@
     // inicio 2 sessoes contendo cpf o status de logado;
     $_SESSION['cpf'] = $cpf['cpf'];
     $_SESSION['logado'] = TRUE;
-    header('Location: index.php');
+    header('Location: profile.php');
   } else {
     $_SESSION['mal_sucedido'] = TRUE;
     header('Location: login.php');
