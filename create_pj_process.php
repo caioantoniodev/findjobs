@@ -52,4 +52,3 @@
 
 		header("Location: profile.php");
   }
-?>
