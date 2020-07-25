@@ -1,3 +1,7 @@
+<?php
+    session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -27,20 +31,7 @@
             <li class="nav-item active">
               <a class="nav-link text-white" href="index.php">Home</a>
             </li>
-            <li class="nav-item">
-              <a class="nav-link text-white" href="classes.php">Classes</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link text-white" href="projects.php">Projects</a>
-            </li>
-            <li class="nav-item">
               <a class="nav-link text-white" href="login.php">Sign In</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link text-white" href="register.php">Register</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link text-white" href="contact.php">Contact</a>
             </li>
           </ul>
         </div>
@@ -55,55 +46,55 @@
     <hr>
     <h6 class="text-muted">Fill in the fields correctly</h6>
 
-    <form class="mt-3" action="">
+    <form class="mt-3" action="processa_cadastro.php" method="POST" enctype='multipart/form-data'>
       <h6>Personal data</h6>
       <div class="form-row">
         <div class="form-group col-md-6">
-          <input class="form-control" type="text" id="name" placeholder="Your Name" onkeypress="return ApenasLetras(event,this);" required="required">
+          <input class="form-control" name="nome" type="text" id="name" placeholder="Your Name" onkeypress="return ApenasLetras(event,this);" required="required">
         </div>
         <div class="form-group col-md-6">
-          <input class="form-control" type="date" id="born" required="required">
-        </div>
-      </div>
-      <div class="form-row">
-        <div class="form-group col-md-6">
-          <input class="form-control" type="text" id="cpf" placeholder="000.000.000-00" onkeypress="$(this).mask('000.000.000-00');" required="required">
-        </div>
-        <div class="form-group col-md-6">
-          <input class="form-control" type="text" id="prof" placeholder="Profession" onkeypress="return ApenasLetras(event,this);" required="required">
+          <input class="form-control"  name="nascimento" type="date" id="born" required="required">
         </div>
       </div>
       <div class="form-row">
         <div class="form-group col-md-6">
-          <input class="form-control" type="email" id="email" placeholder="youremail@email.com" onkeypress="return ValidaEmail(event,this);" required="required">
+          <input class="form-control" name="cpf" type="text" id="cpf" placeholder="000.000.000-00" onkeypress="$(this).mask('000.000.000-00');" required="required">
         </div>
         <div class="form-group col-md-6">
-          <input class="form-control" type="text" id="nbr" placeholder="(00)00000-0000" required="required" maxlength="13" onkeypress="$(this).mask('(00) 00000-0009')">
+          <input class="form-control" name="profissao" type="text" id="prof" placeholder="Profession" onkeypress="return ApenasLetras(event,this);" required="required">
         </div>
       </div>
       <div class="form-row">
         <div class="form-group col-md-6">
-          <input class="form-control" type="password" id="pass" placeholder="Your Password" required="required">
+          <input class="form-control" name="email" type="email" id="email" placeholder="youremail@email.com" onkeypress="return ValidaEmail(event,this);" required="required">
+        </div>
+        <div class="form-group col-md-6">
+          <input class="form-control" name="telefone" type="text" id="nbr" placeholder="(00)00000-0000" required="required" maxlength="13" onkeypress="$(this).mask('(00) 00000-0009')">
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group col-md-6">
+          <input class="form-control" name="senha" type="password" id="pass" placeholder="Your Password" required="required">
           <small class="text-muted">Mininal lenght: 8 characters</small>
         </div>
-        <div class="form-group col-md-6">
+        <!-- <div class="form-group col-md-6">
           <input class="form-control" type="password" id="pass" placeholder="Confirm Your Password" required="required">
           <small class="text-muted">Mininal lenght: 8 characters</small>
-        </div>
+        </div> -->
       </div>
       <hr>
       <div class="form-group">
         <label for="exp">Select your experience</label>
-        <select class="form-control" id="exp">
-          <option value="">Without experience</option>
-          <option value="">Rookie</option>
-          <option value="">Intermedian</option>
-          <option value="">Experient</option>
+        <select class="form-control" name="exp" id="exp">
+          <option value="Sem experiência">Without experience</option>
+          <option value="Iniciante">Rookie</option>
+          <option value="Intermediario">Intermedian</option>
+          <option value="Experiente">Experient</option>
         </select>
       </div>
       <div class="form-group">
         <label for="image">Select a image for your profile</label>
-        <input class="form-control" type="file" id="image">
+        <input class="form-control" name="imagem" type="file" id="image">
         <small class="text-muted">Max. size: 3MB</small>
       </div>
       <div class="form-group">
@@ -134,6 +125,28 @@
       <button type="submit" class="btn btn-info mb-3">Register</button>
     </form>
   </div>
+
+      <!---Se mal sucedido--->
+      <?php
+          if (isset($_SESSION['campos_vazios'])) {
+              echo "<script>alert('ERRO: Preencha todos os campos.');</script>";
+          }
+          unset($_SESSION['campos_vazios']);
+      ?>
+
+      <?php
+          if (isset($_SESSION['mal_sucedido'])) {
+              echo "<script>alert('ERRO: Preencha todos os campos.');</script>";
+          }
+          unset($_SESSION['mal_sucedido']);
+      ?>
+
+      <?php
+          if (isset($_SESSION['cpf_existente'])) {
+              echo "<script>alert('ERRO: Já existe uma conta que utiliza esse CPF.');</script>";
+          }
+          unset($_SESSION['cpf_existente']);
+      ?>
 
 
   <button onclick="backToTop()" id="btnTop"><i class="fas fa-arrow-up"></i></button>
