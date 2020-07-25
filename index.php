@@ -1,6 +1,6 @@
 <?php
   session_start();
-  include('conexao.php');
+  include('connection.php');
 ?>
 
 <!DOCTYPE html>
@@ -285,7 +285,7 @@
                 $info_pessoais = mysqli_fetch_assoc($resultado);
               ?>
 
-              <form action="processa_avaliacao.php" method="POST">
+              <form action="evaluation_process.php" method="POST">
                 <div class="form-group">
                   <input class="form-control" type="text" name="nome_completo" id="name" placeholder="Your Name" value="<?=$info_pessoais['nome']?>" onkeypress="return ApenasLetras(event,this);" required="required">
                 </div>
