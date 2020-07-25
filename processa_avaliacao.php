@@ -13,7 +13,7 @@
 		$cpf = $_SESSION['cpf'];
 
 		// Salvar no banco de dados
-		$sql = "INSERT INTO reclamacoes (opniao, usuario_cpf, estrelas) VALUES ('$opn', '$cpf', '$estrela');";
+		$sql = "INSERT INTO reclamacoes (opniao, usuario_cpf, estrelas) VALUES ('$opn', '$cpf', '$estrela')";
 
 		if(mysqli_query($conexao, $sql) === TRUE) {
 			$_SESSION['bem_sucedido'] = true;
