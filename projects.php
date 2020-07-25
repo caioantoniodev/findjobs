@@ -1,3 +1,13 @@
+<?php
+    session_start();
+    include('connection.php');
+
+    // verifico se está logado, assim impedindo acessar direto na url
+    if (!isset($_SESSION['logado'])) {
+        header('Location: index.php');
+    }
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -39,15 +49,6 @@
               <a class="nav-link text-white" href="classes.php">Classes</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link text-white" href="projects.php">Projects</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link text-white" href="login.php">Sign In</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link text-white" href="register.php">Register</a>
-            </li>
-            <li class="nav-item">
               <a class="nav-link text-white" href="contact.php">Contact</a>
             </li>
           </ul>
@@ -65,117 +66,107 @@
         <p class="lead">Here you'll find several project options to join.</p>
         <hr>
         <div class="col-12">
-          <a href="create.html"><button type="button" class="btn btn-outline-dark btn-lg">Create a Project</button></a>
+          <a href="create.php"><button type="button" class="btn btn-outline-dark btn-lg">Create a Project</button></a>
         </div>
       </div>
       <div class="container-fluid padding" align="center">
         <div class="row justify-content-center">
-          <div class="card m-3" style="width: 21rem;height: auto;">
-            <img src="img/gps2.png" class="card-img-top p-5" alt="">
-            <div class="card-body h-100">
-              <h5 class="card-title mb-1">Matheus</h5>
-              <h6 class="card-subtitle text-muted mb-3">Java</h6>
-              <hr>
-              <p class="card-text">Preciso de um GPS mobile em tempo real.</p>
-              <a data-toggle="modal" data-target="#modalProject"><button type="button" class="btn btn-outline-dark btn-lg">I'm Interested</button></a>
-            </div>
-          </div>
-          <div class="card m-3" style="width: 21rem;height: auto;">
-            <img src="img/calc2.png" class="card-img-top p-5" alt="">
-            <div class="card-body h-100">
-              <h5 class="card-title mb-1">Caio</h5>
-              <h6 class="card-subtitle text-muted mb-3">Visual Studio</h6>
-              <hr>
-              <p class="card-text">Preciso de uma calculadora quântica.</p>
-              <a data-toggle="modal" data-target="#modalProject"><button type="button" class="btn btn-outline-dark btn-lg">I'm Interested</button></a>
-            </div>
-          </div>
-          <div class="card m-3" style="width: 21rem;height: auto;">
-            <img src="img/database.png" class="card-img-top p-5" alt="">
-            <div class="card-body h-100">
-              <h5 class="card-title mb-1">Lucas</h5>
-              <h6 class="card-subtitle text-muted mb-2">MySQLFront</h6>
-              <hr>
-              <p class="card-text">Preciso de um banco de dados para minha aplicação web.</p>
-              <a data-toggle="modal" data-target="#modalProject"><button type="button" class="btn btn-outline-dark btn-lg">I'm Interested</button></a>
-            </div>
-          </div>
-          <div class="card m-3" style="width: 21rem;height: auto;">
-            <img src="img/delivery2.png" class="card-img-top p-5" alt="">
-            <div class="card-body h-100">
-              <h5 class="card-title mb-1">Guilherme</h5>
-              <h6 class="card-subtitle text-muted mb-3">Java</h6>
-              <hr>
-              <p class="card-text">Preciso de um app de delivery.</p>
-              <a data-toggle="modal" data-target="#modalProject"><button type="button" class="btn btn-outline-dark btn-lg">I'm Interested</button></a>
-            </div>
-          </div>
-          <div class="card m-3" style="width: 21rem;height: auto;">
-            <img src="img/website.png" class="card-img-top p-5" alt="">
-            <div class="card-body h-100">
-              <h5 class="card-title mb-1">Brayan</h5>
-              <h6 class="card-subtitle text-muted mb-3">HTML, CSS e JS</h6>
-              <hr>
-              <p class="card-text">Preciso de um Website para minha loja de roupas.</p>
-              <a data-toggle="modal" data-target="#modalProject"><button type="button" class="btn btn-outline-dark btn-lg">I'm Interested</button></a>
-            </div>
-          </div>
-          <div class="card m-3" style="width: 21rem;height: auto;">
-            <img src="img/scanner.png" class="card-img-top p-5" alt="">
-            <div class="card-body h-100">
-              <h5 class="card-title mb-1">Thales</h5>
-              <h6 class="card-subtitle text-muted mb-2">Java</h6>
-              <hr>
-              <p class="card-text">Preciso de um app scanner.</p>
-              <a data-toggle="modal" data-target="#modalProject"><button type="button" class="btn btn-outline-dark btn-lg">I'm Interested</button></a>
-            </div>
-          </div>
-          <div class="modal fade" id="modalProject" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-            <div class="modal-dialog" role="document">
-              <div class="modal-content col-12">
-                <div class="modal-header">
-                  <h4 class="modal-title" id="myModalLabel">Wanna join in a project?</h4>
-                  <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                </div>
-                <div class="modal-body">
-                  <form action="">
-                    <div class="form-group">
-                      <p>By entering a project you agree to all terms.</p>
-                      <p>The project owner will be notified.</p>
-                      <p>The project owner may or may not accept you in the project.</p>
-                      <hr>
-                      <a data-toggle="modal" data-target="#modalEmail"><button type="button" class="btn btn-outline-dark btn-md mb-3">Confirm Interest</button></a>
-                      <label class="active">
-                        <input type="checkbox" autocomplete="off" required="required"> I have read and accept the <span class="text-info" style="text-decoration: underline; cursor: pointer;"><a data-toggle="modal" data-target="#myModal">Terms of Use</a></span>
-                      </label>
-                    </div>
-                  </form>
-                </div>
+          <?php
+            // pegando nome e a profissao do freela
+            $cpf = $_SESSION['cpf'];
+
+            // pegando nome e a profissao do freela
+            $info_freela = mysqli_query($conexao, "SELECT usuarios.nome, usuarios.profissao FROM  usuarios WHERE cpf = $cpf;");
+            $dados = mysqli_fetch_assoc($info_freela);
+            $nome_freela = $dados['nome'];
+            $profissao_freela = $dados['profissao'];
+
+            // listando projetos  e seus respectivos donos
+            $consulta = "SELECT * FROM usuarios, projetos WHERE usuarios.cpf = projetos.cliente_cpf AND usuarios.cpf != $cpf;";
+
+            // recebo o resutado da querie na variavel $resultado
+            $resultado = mysqli_query($conexao, $consulta);
+
+            // utilizo o while para percorrer cada card de do html e add as infos do bd
+            while($dados = mysqli_fetch_assoc($resultado)) {
+          ?>
+            <!--Card do Projeto-->
+            <div class="card m-3" style="width: 21rem;height: auto;">
+              <img src="<?=$dados['imgurl']?>" class="card-img-top p-5" alt="">
+              <div class="card-body h-100">
+                <?php
+                  // guardando alguns valores que serão utilizados
+                  // pegando informações referentes ao cliente
+                  $nome_cliente = $dados['nome'];
+                  $email_cliente = $dados['email'];
+                  $titulo_projeto = $dados['titulo'];
+                  $id_projeto = $dados['idprojetos'];
+
+                  // Verifico se o projeto está em aberto
+                  if ($dados['cpffreela'] == NULL) {
+                ?>
+                  <h5 class="card-title mb-1"><?=$dados['nome']?></h5>
+                  <h6 class="card-subtitle text-muted mb-3"><?=$dados['linguagem']?></h6>
+                  <hr>
+                  <p class="card-text"><?=$dados['descricao']?></p>
+                  <a
+                    data-toggle="modal"
+                    data-target="#modalProject"
+                  >
+                    <button
+                      type="button"
+                      class="btn btn-outline-dark btn-lg">I'm Interested
+                    </button>
+                  </a>
+                <?php } ?>
               </div>
             </div>
-          </div>
-          <div class="modal fade" id="modalEmail" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-            <div class="modal-dialog" role="document">
-              <div class="modal-content col-12">
-                <div class="modal-header">
-                  <h4 class="modal-title" id="myModalLabel">All Ready :D</h4>
-                  <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+
+          <?php } ?>
+        </div>
+      </div>
+      <div class="modal fade" id="modalProject" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content col-12">
+            <div class="modal-header">
+              <h4 class="modal-title" id="myModalLabel">Wanna join in a project?</h4>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            </div>
+            <div class="modal-body">
+              <form action="">
+                <div class="form-group">
+                  <p>By entering a project you agree to all terms.</p>
+                  <p>Now it's up to you, you need to inform the client by email about your interest in the project.</p>
+                  <p>The project owner may or may not accept you in the project.</p>
+                  <p>Good luck to you</p>
+                  <hr>
+
+                  <button
+                    type="button"
+                    onclick="enviarEmail('<?=$email_cliente?>', '<?=$nome_cliente?>', '<?=$titulo_projeto?>', '<?=$nome_freela?>', '<?=$profissao_freela?>')"
+                    class="btn btn-outline-dark btn-md mb-3"
+                  >Send email for <?php echo $nome_cliente ?>
+                  </button>
+
+                  <label class="active">
+                    <input type="checkbox" autocomplete="off" required="required"> I have read and accept the <span class="text-info" style="text-decoration: underline; cursor: pointer;"><a data-toggle="modal" data-target="#myModal">Terms of Use</a></span>
+                  </label>
                 </div>
-                <div class="modal-body">
-                  <p>An email was sent to the project owner stating your interest.</p>
-                </div>
-              </div>
+              </form>
             </div>
           </div>
         </div>
       </div>
     </div>
-    <hr>
+  </div>
+  </div>
+  <hr>
   </div>
 
   <button onclick="backToTop()" id="btnTop"><i class="fas fa-arrow-up"></i></button>
 
   <script type="text/JavaScript" src="js/topo.js"></script>
+  <script src="js/sentEmail.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
