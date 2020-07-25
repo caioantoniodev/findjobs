@@ -46,7 +46,7 @@
     <hr>
     <h6 class="text-muted">Fill in the fields correctly</h6>
 
-    <form class="mt-3" action="processa_cadastro.php" method="POST" enctype='multipart/form-data'>
+    <form class="mt-3" action="register_process.php" method="POST" enctype='multipart/form-data'>
       <h6>Personal data</h6>
       <div class="form-row">
         <div class="form-group col-md-6">
