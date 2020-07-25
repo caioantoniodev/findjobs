@@ -1,3 +1,7 @@
+<?php
+    session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -28,19 +32,7 @@
               <a class="nav-link text-white" href="index.php">Home</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link text-white" href="classes.php">Classes</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link text-white" href="projects.php">Projects</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link text-white" href="login.php">Sign In</a>
-            </li>
-            <li class="nav-item">
               <a class="nav-link text-white" href="register.php">Register</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link text-white" href="contact.php">Contact</a>
             </li>
           </ul>
         </div>
@@ -55,14 +47,14 @@
     <hr>
     <h6 class="text-muted">fill in the fields correctly</h6>
 
-    <form class="mt-4" action="">
+    <form class="mt-4" action="processa_login.php" method="POST">
       <div class="form-group">
         <label for="email">E-mail</label>
-        <input class="form-control" type="email" id="email" placeholder="youremail@email.com" required="required">
+        <input class="form-control" type="email" name="email" id="email" placeholder="youremail@email.com" required="required">
       </div>
       <div class="form-group">
         <label for="senha">Password</label>
-        <input class="form-control" type="password" id="senha" placeholder="Your Password" required="required">
+        <input class="form-control" type="password" name="senha" id="senha" placeholder="Your Password" required="required">
         <a class="p-1" href="#">Forgot your password?</a>
       </div>
       <button type="submit" class="btn btn-info mb-3">Sign In</button>
