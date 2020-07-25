@@ -1,6 +1,6 @@
 <?php
-  session_start();
-  include('connection.php');
+session_start();
+include('connection.php');
 ?>
 
 <!DOCTYPE html>
@@ -89,15 +89,15 @@
 
   <div class="caption text-center">
     <!-- Verifica se tem um usuario na sessao -->
-    <?php if(isset($_SESSION['logado'])) {
-        // pegando dados do usuário no BD
-        $cpf = $_SESSION['cpf'];
-        $consulta = "SELECT * FROM usuarios WHERE cpf = '$cpf'";
-        $resultado = mysqli_query($conexao, $consulta);
-        $dados = mysqli_fetch_array($resultado);
+    <?php if (isset($_SESSION['logado'])) {
+      // pegando dados do usuário no BD
+      $cpf = $_SESSION['cpf'];
+      $consulta = "SELECT * FROM usuarios WHERE cpf = '$cpf'";
+      $resultado = mysqli_query($conexao, $consulta);
+      $dados = mysqli_fetch_array($resultado);
     ?>
-    <h1>Welcome, <?php echo  $dados['nome'];?> !</h1>
-    <?php } else {?>
+      <h1>Welcome, <?php echo  $dados['nome']; ?> !</h1>
+    <?php } else { ?>
       <h1 class="display-2">Don't have an account yet?</h1>
       <a href="login.php"><button type="button" class="btn btn-outline-light btn-lg">Sign In</button></a>
       <a href="register.php"><button type="button" class="btn btn-light btn-lg">Register</button></a>
@@ -114,284 +114,268 @@
       </div>
       <div class="container-fluid padding" align="center">
         <div class="row justify-content-center">
-        <?php if(isset($_SESSION['logado'])) { ?>
-          <?php
-              // Lista os 3 ultimos criados
+          <?php if (isset($_SESSION['logado'])) { ?>
+            <?php
+            // Lista os 3 ultimos criados
 
-              // pegando nome e a profissao do freela
-              $info_freela = mysqli_query($conexao, "SELECT usuarios.nome, usuarios.profissao FROM  usuarios WHERE cpf = $cpf;");
-              $dados = mysqli_fetch_assoc($info_freela);
-              $nome_freela = $dados['nome'];
-              $profissao_freela = $dados['profissao'];
+            // pegando nome e a profissao do freela
+            $info_freela = mysqli_query($conexao, "SELECT usuarios.nome, usuarios.profissao FROM  usuarios WHERE cpf = $cpf;");
+            $dados = mysqli_fetch_assoc($info_freela);
+            $nome_freela = $dados['nome'];
+            $profissao_freela = $dados['profissao'];
 
-              // listando projetos  e seus respectivos donos
-              $consulta = "SELECT * FROM usuarios, projetos WHERE usuarios.cpf = projetos.cliente_cpf AND usuarios.cpf != $cpf;";
+            // listando projetos  e seus respectivos donos
+            $consulta = "SELECT * FROM usuarios, projetos WHERE usuarios.cpf = projetos.cliente_cpf AND usuarios.cpf != $cpf;";
 
-              // recebo o resutado da querie na variavel $resultado
-              $resultado = mysqli_query($conexao, $consulta);
+            // recebo o resutado da querie na variavel $resultado
+            $resultado = mysqli_query($conexao, $consulta);
 
-              // utilizo o while para percorrer cada card de do html e add as infos do bd
-              while($dados = mysqli_fetch_assoc($resultado)) {
-          ?>
+            // utilizo o while para percorrer cada card de do html e add as infos do bd
+            while ($dados = mysqli_fetch_assoc($resultado)) {
+            ?>
 
-                <div class="card m-3" style="width: 21rem;height: auto;">
-                    <img src="<?=$dados['imgurl']?>" class="card-img-top p-5" alt="">
-                    <div class="card-body h-100">
-                      <?php
-                        // guardando alguns valores que serão utilizados
-                        // pegando informações referentes ao cliente
-                        $nome_cliente = $dados['nome'];
-                        $email_cliente = $dados['email'];
-                        $titulo_projeto = $dados['titulo'];
-                        $id_projeto = $dados['idprojetos'];
-
-                        // Verifico se o projeto está em aberto
-                        if ($dados['cpffreela'] == NULL) {
-                      ?>
-                        <h5 class="card-title mb-1"><?=$dados['nome']?></h5>
-                        <h6 class="card-subtitle text-muted mb-3"><?=$dados['linguagem']?></h6>
-                        <hr>
-                        <p class="card-text"><?=$dados['descricao']?></p>
-
-                          <a data-toggle="modal" data-target="#modalProject"><button type="button" class="btn btn-outline-dark btn-lg">I'm Interested</button></a>
-
-                      <?php } ?>
-                    </div>
-                </div>
-          <?php } ?>
-        <?php } else {?>
-          <?php
-              // Lista os 3 ultimos criados
-              $consulta = "SELECT * FROM usuarios, projetos WHERE usuarios.cpf = projetos.cliente_cpf ORDER BY projetos.idprojetos DESC LIMIT 3";
-
-              $resultado = mysqli_query($conexao, $consulta);
-
-              while($dados = mysqli_fetch_assoc($resultado)) {
-          ?>
-
-            <div class="card m-3" style="width: 21rem;height: auto;">
-                <img src="<?=$dados['imgurl']?>" class="card-img-top p-5" alt="">
+              <div class="card m-3" style="width: 21rem;height: auto;">
+                <img src="<?= $dados['imgurl'] ?>" class="card-img-top p-5" alt="">
                 <div class="card-body h-100">
-                  <h5 class="card-title mb-1"><?=$dados['nome']?></h5>
-                  <h6 class="card-subtitle text-muted mb-3"><?=$dados['linguagem']?></h6>
-                  <hr>
-                  <p class="card-text"><?=$dados['descricao']?></p>
-                </div>
-            </div>
+                  <?php
+                  // guardando alguns valores que serão utilizados
+                  // pegando informações referentes ao cliente
+                  $nome_cliente = $dados['nome'];
+                  $email_cliente = $dados['email'];
+                  $titulo_projeto = $dados['titulo'];
+                  $id_projeto = $dados['idprojetos'];
 
-          <?php } ?>
-        <?php } ?>
-      </div>
-      <div class="col-12">
-        <a
-          <?php if(isset($_SESSION['logado'])) { ?>
-              href="projects.php"
+                  // Verifico se o projeto está em aberto
+                  if ($dados['cpffreela'] == NULL) {
+                  ?>
+                    <h5 class="card-title mb-1"><?= $dados['nome'] ?></h5>
+                    <h6 class="card-subtitle text-muted mb-3"><?= $dados['linguagem'] ?></h6>
+                    <hr>
+                    <p class="card-text"><?= $dados['descricao'] ?></p>
+
+                    <a data-toggle="modal" data-target="#modalProject"><button type="button" class="btn btn-outline-dark btn-lg">I'm Interested</button></a>
+
+                  <?php } ?>
+                </div>
+              </div>
+            <?php } ?>
           <?php } else { ?>
-              href="login.php"
-          <?php } ?>
-        >
-          <button type="button" class="btn btn-outline-dark btn-lg">See Projects</button>
-        </a>
-      </div>
-      <div class="modal fade" id="modalProject" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-        <div class="modal-dialog" role="document">
-          <div class="modal-content col-12">
-            <div class="modal-header">
-              <h4 class="modal-title" id="myModalLabel">Wanna join in a project?</h4>
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-            </div>
-            <div class="modal-body">
-              <form action="">
-                <div class="form-group">
-                  <p>By entering a project you agree to all terms.</p>
-                  <p>Now it's up to you, you need to inform the client by email about your interest in the project.</p>
-                  <p>The project owner may or may not accept you in the project.</p>
-                  <p>Good luck to you</p>
+            <?php
+            // Lista os 3 ultimos criados
+            $consulta = "SELECT * FROM usuarios, projetos WHERE usuarios.cpf = projetos.cliente_cpf ORDER BY projetos.idprojetos DESC LIMIT 3";
+
+            $resultado = mysqli_query($conexao, $consulta);
+
+            while ($dados = mysqli_fetch_assoc($resultado)) {
+            ?>
+
+              <div class="card m-3" style="width: 21rem;height: auto;">
+                <img src="<?= $dados['imgurl'] ?>" class="card-img-top p-5" alt="">
+                <div class="card-body h-100">
+                  <h5 class="card-title mb-1"><?= $dados['nome'] ?></h5>
+                  <h6 class="card-subtitle text-muted mb-3"><?= $dados['linguagem'] ?></h6>
                   <hr>
-
-                  <button
-                    type="button"
-                    onclick="enviarEmail('<?=$email_cliente?>', '<?=$nome_cliente?>', '<?=$titulo_projeto?>', '<?=$nome_freela?>', '<?=$profissao_freela?>')"
-                    class="btn btn-outline-dark btn-md mb-3"
-                  >Send email for <?php echo $nome_cliente ?>
-                  </button>
-
-                  <label class="active">
-                    <input type="checkbox" autocomplete="off" required="required"> I have read and accept the <span class="text-info" style="text-decoration: underline; cursor: pointer;"><a data-toggle="modal" data-target="#myModal">Terms of Use</a></span>
-                  </label>
+                  <p class="card-text"><?= $dados['descricao'] ?></p>
                 </div>
-              </form>
+              </div>
+
+            <?php } ?>
+          <?php } ?>
+        </div>
+        <div class="col-12">
+          <a <?php if (isset($_SESSION['logado'])) { ?> href="projects.php" <?php } else { ?> href="login.php" <?php } ?>>
+            <button type="button" class="btn btn-outline-dark btn-lg">See Projects</button>
+          </a>
+        </div>
+        <div class="modal fade" id="modalProject" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content col-12">
+              <div class="modal-header">
+                <h4 class="modal-title" id="myModalLabel">Wanna join in a project?</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+              </div>
+              <div class="modal-body">
+                <form action="">
+                  <div class="form-group">
+                    <p>By entering a project you agree to all terms.</p>
+                    <p>Now it's up to you, you need to inform the client by email about your interest in the project.</p>
+                    <p>The project owner may or may not accept you in the project.</p>
+                    <p>Good luck to you</p>
+                    <hr>
+
+                    <button type="button" onclick="enviarEmail('<?= $email_cliente ?>', '<?= $nome_cliente ?>', '<?= $titulo_projeto ?>', '<?= $nome_freela ?>', '<?= $profissao_freela ?>')" class="btn btn-outline-dark btn-md mb-3">Send email for <?php echo $nome_cliente ?>
+                    </button>
+
+                    <label class="active">
+                      <input type="checkbox" autocomplete="off" required="required"> I have read and accept the <span class="text-info" style="text-decoration: underline; cursor: pointer;"><a data-toggle="modal" data-target="#myModal">Terms of Use</a></span>
+                    </label>
+                  </div>
+                </form>
+              </div>
             </div>
           </div>
         </div>
       </div>
+      <hr>
     </div>
-    <hr>
-  </div>
-  <div class="container padding" align="center">
-    <div class="row text-center justify-content-center" style="width: 100%;">
-      <div class="col-12">
-        <h1>WHAT DO WE HAVE TO OFFER?</h1>
-        <P class="lead">Need to prepare for your future job or project? We have Starter course for you :)</P>
+    <div class="container padding" align="center">
+      <div class="row text-center justify-content-center" style="width: 100%;">
+        <div class="col-12">
+          <h1>WHAT DO WE HAVE TO OFFER?</h1>
+          <P class="lead">Need to prepare for your future job or project? We have Starter course for you :)</P>
+        </div>
+        <div class="embed-responsive embed-responsive-16by9 col-md-5 col-xl-3 m-2">
+          <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/qJaA5VrtN0c" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+        <div class="embed-responsive embed-responsive-16by9 col-md-5 col-xl-3 m-2">
+          <iframe src="https://www.youtube.com/embed/6idFzvD4pz0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+        <div class="embed-responsive embed-responsive-16by9 col-md-5 col-xl-3 m-2">
+          <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/f--RjIOcZ_s" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+        <div class="col-12">
+          <a <?php if (isset($_SESSION['logado'])) { ?> href="classes.php" <?php } else { ?> href="login.php" <?php } ?>>
+            <button type="button" class="btn btn-outline-dark btn-lg">Access All Content</button>
+          </a>
+        </div>
       </div>
-      <div class="embed-responsive embed-responsive-16by9 col-md-5 col-xl-3 m-2">
-        <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/qJaA5VrtN0c" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-      </div>
-      <div class="embed-responsive embed-responsive-16by9 col-md-5 col-xl-3 m-2">
-        <iframe src="https://www.youtube.com/embed/6idFzvD4pz0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-      </div>
-      <div class="embed-responsive embed-responsive-16by9 col-md-5 col-xl-3 m-2">
-        <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/f--RjIOcZ_s" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-      </div>
-      <div class="col-12">
-        <a
-          <?php if(isset($_SESSION['logado'])) { ?>
-              href="classes.php"
-          <?php } else { ?>
-              href="login.php"
-          <?php } ?>
-        >
-          <button type="button" class="btn btn-outline-dark btn-lg">Access All Content</button>
-        </a>
-      </div>
+      <hr>
     </div>
-    <hr>
-  </div>
-  <div class="container">
-    <div class="row text-center justify-content-center">
-      <div class="col-12">
-        <h1>Opinions</h1>
-        <P class="lead">See the opinion of people using the platform.</P>
-      </div>
-      <div class="container-fluid padding" align="center">
-        <div class="row justify-content-center">
-          <?php
-              $consulta = "SELECT * FROM usuarios, reclamacoes WHERE usuarios.cpf = reclamacoes.usuario_cpf ORDER BY reclamacoes.idreclamacoes DESC LIMIT 3";
+    <div class="container">
+      <div class="row text-center justify-content-center">
+        <div class="col-12">
+          <h1>Opinions</h1>
+          <P class="lead">See the opinion of people using the platform.</P>
+        </div>
+        <div class="container-fluid padding" align="center">
+          <div class="row justify-content-center">
+            <?php
+            $consulta = "SELECT * FROM usuarios, reclamacoes WHERE usuarios.cpf = reclamacoes.usuario_cpf ORDER BY reclamacoes.idreclamacoes DESC LIMIT 3";
 
-              $resultado = mysqli_query($conexao, $consulta);
+            $resultado = mysqli_query($conexao, $consulta);
 
-              while($dados = mysqli_fetch_assoc($resultado)) {
-          ?>
+            while ($dados = mysqli_fetch_assoc($resultado)) {
+            ?>
 
-            <div class="card m-3" style="width: 21rem;height: auto;">
-                <img src="<?=$dados['avatarurl']?>" class="card-img-top" alt="">
+              <div class="card m-3" style="width: 21rem;height: auto;">
+                <img src="<?= $dados['avatarurl'] ?>" class="card-img-top" alt="">
                 <div class="card-body h-100">
-                  <h5 class="card-title mb-1"><?=$dados['nome']?></h5>
-                  <h6 class="card-subtitle text-muted mb-3"><?=$dados['profissao']?></h6>
+                  <h5 class="card-title mb-1"><?= $dados['nome'] ?></h5>
+                  <h6 class="card-subtitle text-muted mb-3"><?= $dados['profissao'] ?></h6>
                   <hr>
-                  <p class="card-text"><?=$dados['opniao']?></p>
+                  <p class="card-text"><?= $dados['opniao'] ?></p>
                 </div>
               </div>
 
+            <?php } ?>
+          </div>
+        </div>
+        <div class="col-12">
+          <?php if (isset($_SESSION['logado'])) { ?>
+            <a data-toggle="modal" data-target="#modalRate"><button type="button" class="btn btn-outline-dark btn-lg">Leave Your Review</button></a>
           <?php } ?>
         </div>
-      </div>
-      <div class="col-12">
-        <?php if(isset($_SESSION['logado'])) { ?>
-          <a data-toggle="modal" data-target="#modalRate"><button type="button" class="btn btn-outline-dark btn-lg">Leave Your Review</button></a>
-        <?php } ?>
-      </div>
-      <div class="modal fade" id="modalRate" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-        <div class="modal-dialog" role="document">
-          <div class="modal-content col-12">
-            <div class="modal-header">
-              <h4 class="modal-title" id="myModalLabel">Rate Us!</h4>
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-            </div>
-            <div class="modal-body">
-              <?php
-                  $cpf = $_SESSION['cpf'];
+        <div class="modal fade" id="modalRate" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content col-12">
+              <div class="modal-header">
+                <h4 class="modal-title" id="myModalLabel">Rate Us!</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+              </div>
+              <div class="modal-body">
+                <?php
+                $cpf = $_SESSION['cpf'];
                 // Lista os ultimos criados
                 $consulta = "SELECT usuarios.nome, usuarios.profissao FROM usuarios  WHERE usuarios.cpf = $cpf;";
 
                 $resultado = mysqli_query($conexao, $consulta);
 
                 $info_pessoais = mysqli_fetch_assoc($resultado);
-              ?>
+                ?>
 
-              <form action="evaluation_process.php" method="POST">
-                <div class="form-group">
-                  <input class="form-control" type="text" name="nome_completo" id="name" placeholder="Your Name" value="<?=$info_pessoais['nome']?>" onkeypress="return ApenasLetras(event,this);" required="required">
-                </div>
-                <div class="form-group">
-                  <input class="form-control" type="text" name="profissao" id="prof" placeholder="Profession" value="<?=$info_pessoais['profissao']?>" onkeypress="return ApenasLetras(event,this);" required="required">
-                </div>
-                <div class="form-group">
-                  <textarea id="desc" rows="5" name="opniao" placeholder="Leave Your Opinion" required="required" style="width: 100%;"></textarea>
-                </div>
-                <div class="estrelas">
-                  <input type="radio" id="vazio" name="estrela" value="" checked>
+                <form action="evaluation_process.php" method="POST">
+                  <div class="form-group">
+                    <input class="form-control" type="text" name="nome_completo" id="name" placeholder="Your Name" value="<?= $info_pessoais['nome'] ?>" onkeypress="return ApenasLetras(event,this);" required="required">
+                  </div>
+                  <div class="form-group">
+                    <input class="form-control" type="text" name="profissao" id="prof" placeholder="Profession" value="<?= $info_pessoais['profissao'] ?>" onkeypress="return ApenasLetras(event,this);" required="required">
+                  </div>
+                  <div class="form-group">
+                    <textarea id="desc" rows="5" name="opniao" placeholder="Leave Your Opinion" required="required" style="width: 100%;"></textarea>
+                  </div>
+                  <div class="estrelas">
+                    <input type="radio" id="vazio" name="estrela" value="" checked>
 
-                  <label for="estrela1"><i class="fas fa-star"></i></label>
-                  <input type="radio" id="estrela1" name="estrela" value="1">
+                    <label for="estrela1"><i class="fas fa-star"></i></label>
+                    <input type="radio" id="estrela1" name="estrela" value="1">
 
-                  <label for="estrela2"><i class="fas fa-star"></i></label>
-                  <input type="radio" id="estrela2" name="estrela" value="2">
+                    <label for="estrela2"><i class="fas fa-star"></i></label>
+                    <input type="radio" id="estrela2" name="estrela" value="2">
 
-                  <label for="estrela3"><i class="fas fa-star"></i></label>
-                  <input type="radio" id="estrela3" name="estrela" value="3">
+                    <label for="estrela3"><i class="fas fa-star"></i></label>
+                    <input type="radio" id="estrela3" name="estrela" value="3">
 
-                  <label for="estrela4"><i class="fas fa-star"></i></label>
-                  <input type="radio" id="estrela4" name="estrela" value="4">
+                    <label for="estrela4"><i class="fas fa-star"></i></label>
+                    <input type="radio" id="estrela4" name="estrela" value="4">
 
-                  <label for="estrela5"><i class="fas fa-star"></i></label>
-                  <input type="radio" id="estrela5" name="estrela" value="5">
-                </div>
-                <div class="form-group">
-                  <input type="submit" name="enviar" class="btn btn-outline-dark" id="enviar" />
-                </div>
-              </form>
-              <a class="link" href="contact.php">Did you have any problem?</a>
+                    <label for="estrela5"><i class="fas fa-star"></i></label>
+                    <input type="radio" id="estrela5" name="estrela" value="5">
+                  </div>
+                  <div class="form-group">
+                    <input type="submit" name="enviar" class="btn btn-outline-dark" id="enviar" />
+                  </div>
+                </form>
+                <a class="link" href="contact.php">Did you have any problem?</a>
+              </div>
             </div>
           </div>
         </div>
       </div>
+      <hr>
     </div>
-    <hr>
-  </div>
-  <div class="container padding" align="center">
-    <div class="row text-center padding">
-      <div class="col-12">
-        <h2>Follow Us</h2>
+    <div class="container padding" align="center">
+      <div class="row text-center padding">
+        <div class="col-12">
+          <h2>Follow Us</h2>
+        </div>
+        <div class="col-12 social padding">
+          <a href="https://twitter.com/FindJobsTCC"><i class="fab fa-twitter"></i></a>
+          <a href="https://www.facebook.com/Find-Jobs-111396177288447/"><i class="fab fa-facebook"></i></a>
+          <a href="https://www.youtube.com/channel/UCa0mtJK1hmpnK9pZmH9he-A"><i class="fab fa-youtube"></i></a>
+        </div>
       </div>
-      <div class="col-12 social padding">
-        <a href="https://twitter.com/FindJobsTCC"><i class="fab fa-twitter"></i></a>
-        <a href="https://www.facebook.com/Find-Jobs-111396177288447/"><i class="fab fa-facebook"></i></a>
-        <a href="https://www.youtube.com/channel/UCa0mtJK1hmpnK9pZmH9he-A"><i class="fab fa-youtube"></i></a>
-      </div>
+      <hr>
     </div>
-    <hr>
-  </div>
 
-  <!--Response evaluation-->
-  <?php
-		if (isset($_SESSION['avbem_sucedido'])) {
-            echo "<script>alert('SUCESSO: Avaliação efetuada.');</script>";
-        }
-        unset($_SESSION['avbem_sucedido']);
+    <!--Response evaluation-->
+    <?php
+    if (isset($_SESSION['avbem_sucedido'])) {
+      echo "<script>alert('SUCESSO: Avaliação efetuada.');</script>";
+    }
+    unset($_SESSION['avbem_sucedido']);
 
     if (isset($_SESSION['avmal_sucedido'])) {
-        echo "<script>alert('ERRO: Avaliação não efetuada.');</script>";
+      echo "<script>alert('ERRO: Avaliação não efetuada.');</script>";
     }
     unset($_SESSION['avmal_sucedido']);
-  ?>
+    ?>
 
-  <button onclick="backToTop()" id="btnTop"><i class="fas fa-arrow-up"></i></button>
+    <button onclick="backToTop()" id="btnTop"><i class="fas fa-arrow-up"></i></button>
 
-  <script src="js/sentEmail.js"></script>
-  <script type="text/JavaScript" src="js/topo.js"></script>
-  <script type="text/JavaScript" src="js/bootstrap.bundle.min.js"></script>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-  <script src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
-  <!--JQUERY-->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.15/jquery.mask.min.js"></script>
-  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.15/jquery.mask.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+    <script src="js/sentEmail.js"></script>
+    <script type="text/JavaScript" src="js/topo.js"></script>
+    <script type="text/JavaScript" src="js/bootstrap.bundle.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
+    <!--JQUERY-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.15/jquery.mask.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.15/jquery.mask.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
 
-  <script src="js/validacoes.js"></script>
+    <script src="js/validacoes.js"></script>
 </body>
 
 </html>
