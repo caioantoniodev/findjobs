@@ -1,3 +1,16 @@
+<?php
+session_start();
+include('connection.php');
+
+// verifico se está logado, assim impedindo acessar direto na url
+if (!isset($_SESSION['logado'])) {
+  header('Location: index.php');
+}
+
+// obtenho o cpf do cliente cadastrado
+$cpfCliente = $cpf = $_SESSION['cpf'];
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -42,12 +55,6 @@
               <a class="nav-link text-white" href="projects.php">Projects</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link text-white" href="login.php">Sign In</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link text-white" href="register.php">Register</a>
-            </li>
-            <li class="nav-item">
               <a class="nav-link text-white" href="contact.php">Contact</a>
             </li>
           </ul>
@@ -62,29 +69,42 @@
     <h1 class="display-5 mt-4">Create a project for developers participate and help you.</h1>
     <hr>
     <h6 class="text-muted">Fill in the data correctly and accept the terms to generate a project</h6>
-    <form class="mt-5" action="">
+    <form class="mt-5" action="create_pj_process.php" method="POST" enctype='multipart/form-data'>
       <div class="form-row">
         <div class="form-group col-md-6">
-          <input type="text" class="form-control" id="projectName" placeholder="Project Name" required="required">
+          <input type="text" class="form-control" name="nome_projeto" id="projectName" placeholder="Project Name" required="required">
         </div>
         <div class="form-group col-md-6">
-          <input type="text" class="form-control" id="lang" placeholder="Language (c#, Java, etc.)" required="required">
+          <input type="text" class="form-control" name="lang" id="lang" placeholder="Language (c#, Java, etc.)" required="required">
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group col-md-6">
+            <input class="form-control"  name="dataEntrega" type="date" id="born" required="required">
+            <small class="text-muted">Data de entrega</small>
         </div>
       </div>
       <div class="form-group">
-        <textarea id="desc" rows="5" placeholder="Project Description" required="required" style="width: 100%;"></textarea>
+        <textarea id="desc" rows="5" name="descricao" placeholder="Project Description" required="required" style="width: 100%;"></textarea>
       </div>
       <div class="form-row">
         <div class="form-group col-md-6">
-          <input type="text" class="form-control" id="price" placeholder="$ 00,000.00" required onkeypress="$(this).mask('#.##0,00', {reverse: true});">
+          <input type="text" class="form-control" name="valor" id="price" placeholder="$ 00,000.00" required onkeypress="$(this).mask('#.##0,00', {reverse: true});">
         </div>
         <div class="form-group col-md-6">
-          <select class="form-control" id="payment">
-            <option value="">Paypal</option>
-            <option value="">Bank Slip</option>
-            <option value="">Credit Card</option>
+          <select class="form-control" name="fPagamento" id="payment">
+            <option value="Paypal">Paypal</option>
+            <option value="Boleto Bancário">Bank Slip</option>
+            <option value="Cartão de Credito">Credit Card</option>
           </select>
         </div>
+      </div>
+      <!--Input invisivel que passa o cpf do cliente para a pagina que processa que os dados-->
+      <input type="hidden" name="cpfCliente" value="<?= $cpfCliente ?>" />
+      <div class="form-group">
+        <label for="image">Select a image for your project</label>
+        <input class="form-control" name="imagem" type="file" id="image">
+        <small class="text-muted">Max. size: 3MB</small>
       </div>
       <div class="form-group">
         <label class="active">
