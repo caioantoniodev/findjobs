@@ -1,3 +1,16 @@
+<?php
+session_start();
+include('connection.php');
+
+// verifico se está logado, assim impedindo acessar direto na url
+if (!isset($_SESSION['logado'])) {
+  header('Location: index.php');
+}
+
+// obtenho o cpf do cliente cadastrado
+$cpfCliente = $cpf = $_SESSION['cpf'];
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -312,10 +325,10 @@
   </div>
 
   <?php
-    if (isset($_SESSION['criar_sucedido'])) {
-      echo "<script>alert('ERROR: Project created with sucess');</script>";
-    }
-    unset($_SESSION['criar_sucedido']);
+  if (isset($_SESSION['criar_sucedido'])) {
+    echo "<script>alert('ERROR: Project created with sucess');</script>";
+  }
+  unset($_SESSION['criar_sucedido']);
   ?>
 
   <button onclick="backToTop()" id="btnTop"><i class="fas fa-arrow-up"></i></button>
