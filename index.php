@@ -287,13 +287,13 @@
 
               <form action="processa_avaliacao.php" method="POST">
                 <div class="form-group">
-                  <input class="form-control" type="text" id="name" placeholder="Your Name" value="<?=$info_pessoais['nome']?>" onkeypress="return ApenasLetras(event,this);" required="required">
+                  <input class="form-control" type="text" name="nome_completo" id="name" placeholder="Your Name" value="<?=$info_pessoais['nome']?>" onkeypress="return ApenasLetras(event,this);" required="required">
                 </div>
                 <div class="form-group">
-                  <input class="form-control" type="text" id="prof" placeholder="Profession" value="<?=$info_pessoais['profissao']?>" onkeypress="return ApenasLetras(event,this);" required="required">
+                  <input class="form-control" type="text" name="profissao" id="prof" placeholder="Profession" value="<?=$info_pessoais['profissao']?>" onkeypress="return ApenasLetras(event,this);" required="required">
                 </div>
                 <div class="form-group">
-                  <textarea id="desc" rows="5" placeholder="Leave Your Opinion" required="required" style="width: 100%;"></textarea>
+                  <textarea id="desc" rows="5" name="opniao" placeholder="Leave Your Opinion" required="required" style="width: 100%;"></textarea>
                 </div>
                 <div class="estrelas">
                   <input type="radio" id="vazio" name="estrela" value="" checked>
@@ -338,6 +338,19 @@
     </div>
     <hr>
   </div>
+
+  <!--Response evaluation-->
+  <?php
+		if (isset($_SESSION['bem_sucedido'])) {
+            echo "<script>alert('SUCESSO: Avaliação efetuada.');</script>";
+        }
+        unset($_SESSION['bem_sucedido']);
+
+    if (isset($_SESSION['mal_sucedido'])) {
+        echo "<script>alert('ERRO: Avaliação não efetuada.');</script>";
+    }
+    unset($_SESSION['mal_sucedido']);
+  ?>
 
   <button onclick="backToTop()" id="btnTop"><i class="fas fa-arrow-up"></i></button>
 
