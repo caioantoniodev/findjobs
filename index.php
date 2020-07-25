@@ -200,7 +200,7 @@ include('connection.php');
                     <p>By entering a project you agree to all terms.</p>
                     <p>Now it's up to you, you need to inform the client by email about your interest in the project.</p>
                     <p>The project owner may or may not accept you in the project.</p>
-                    <p>Good luck to you</p>
+                    <p>Good luck to you🚀</p>
                     <hr>
 
                     <button type="button" onclick="enviarEmail('<?= $email_cliente ?>', '<?= $nome_cliente ?>', '<?= $titulo_projeto ?>', '<?= $nome_freela ?>', '<?= $profissao_freela ?>')" class="btn btn-outline-dark btn-md mb-3">Send email for <?php echo $nome_cliente ?>
