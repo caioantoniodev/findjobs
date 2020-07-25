@@ -47,7 +47,7 @@
     <hr>
     <h6 class="text-muted">fill in the fields correctly</h6>
 
-    <form class="mt-4" action="processa_login.php" method="POST">
+    <form class="mt-4" action="login_process.php" method="POST">
       <div class="form-group">
         <label for="email">E-mail</label>
         <input class="form-control" type="email" name="email" id="email" placeholder="youremail@email.com" required="required">
