@@ -47,16 +47,10 @@ $cpfCliente = $cpf = $_SESSION['cpf'];
               <a class="nav-link text-white" href="projects.php">Projects</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link text-white" href="login.php">Sign In</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link text-white" href="register.php">Register</a>
-            </li>
-            <li class="nav-item">
               <a class="nav-link text-white" href="contact.php">Contact</a>
             </li>
             <li class="nav-item">
-              <abbr title="Log Out"><a class="nav-link text-white" href="index.php"><i class="fas fa-sign-out-alt"></i></a></abbr>
+              <abbr title="Log Out"><a class="nav-link text-white" href="sair.php"><i class="fas fa-sign-out-alt"></i></a></abbr>
             </li>
           </ul>
         </div>
