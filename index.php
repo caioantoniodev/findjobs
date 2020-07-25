@@ -341,15 +341,15 @@
 
   <!--Response evaluation-->
   <?php
-		if (isset($_SESSION['bem_sucedido'])) {
+		if (isset($_SESSION['avbem_sucedido'])) {
             echo "<script>alert('SUCESSO: Avaliação efetuada.');</script>";
         }
-        unset($_SESSION['bem_sucedido']);
+        unset($_SESSION['avbem_sucedido']);
 
-    if (isset($_SESSION['mal_sucedido'])) {
+    if (isset($_SESSION['avmal_sucedido'])) {
         echo "<script>alert('ERRO: Avaliação não efetuada.');</script>";
     }
-    unset($_SESSION['mal_sucedido']);
+    unset($_SESSION['avmal_sucedido']);
   ?>
 
   <button onclick="backToTop()" id="btnTop"><i class="fas fa-arrow-up"></i></button>
