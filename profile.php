@@ -311,6 +311,13 @@
     </div>
   </div>
 
+  <?php
+    if (isset($_SESSION['criar_sucedido'])) {
+      echo "<script>alert('ERROR: Project created with sucess');</script>";
+    }
+    unset($_SESSION['criar_sucedido']);
+  ?>
+
   <button onclick="backToTop()" id="btnTop"><i class="fas fa-arrow-up"></i></button>
 
   <script type="text/JavaScript" src="js/topo.js"></script>
