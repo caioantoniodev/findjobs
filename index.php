@@ -1,3 +1,8 @@
+<?php
+session_start();
+include('conexao.php');
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -26,32 +31,44 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarResponsive">
           <ul class="navbar-nav ml-auto text-center">
-            <li class="nav-item dropdown">
-              <a class="nav-link text-white" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" href="#"><i class="fas fa-user-circle"></i></a>
-              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <a href="profile.php" class="dropdown-item">Profile</a>
-                <div class="dropdown-divider"></div>
-                <a href="index.html" class="dropdown-item"><i class="fas fa-sign-out-alt"></i> Log Out</a>
-              </div>
-            </li>
-            <li class="nav-item active">
-              <a class="nav-link text-white" href="index.php">Home</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link text-white" href="classes.php">Classes</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link text-white" href="projects.php">Projects</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link text-white" href="login.php">Sign In</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link text-white" href="register.php">Register</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link text-white" href="contact.php">Contact</a>
-            </li>
+
+            <!-- Verifica se tem um usuario na sessao -->
+            <?php if (isset($_SESSION['logado'])) { ?>
+              <li class="nav-item dropdown">
+                <a class="nav-link text-white" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" href="#"><i class="fas fa-user-circle"></i></a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <a href="profile.php" class="dropdown-item">Profile</a>
+                  <div class="dropdown-divider"></div>
+                  <a href="index.html" class="dropdown-item"><i class="fas fa-sign-out-alt"></i> Log Out</a>
+                </div>
+              </li>
+
+              <li class="nav-item active">
+                <a class="nav-link text-white" href="index.php">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link text-white" href="classes.php">Classes</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link text-white" href="projects.php">Projects</a>
+              </li>
+            <?php } ?>
+            <!--https://celke.com.br/artigo/como-usar-funcao-empty-e-isset-no-php#:~:text=Ela%20serve%20para%20saber%20se,uma%20vari%C3%A1vel%20n%C3%A3o%20for%20vazia.&text=Exemplo%20de%20isset%20e%20empty%20usado%20para%20validar%20um%20formul%C3%A1rio.-->
+            <!-- Verifica se NÃO tem um usuario na sessao -->
+            <?php if (!isset($_SESSION['logado'])) { ?>
+              <li class="nav-item">
+                <a class="nav-link text-white" href="login.php">Sign In</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link text-white" href="register.php">Register</a>
+              </li>
+            <?php } ?>
+            <!-- Verifica se tem um usuario na sessao -->
+            <?php if (isset($_SESSION['logado'])) { ?>
+              <li class="nav-item">
+                <a class="nav-link text-white" href="contact.php">Contact</a>
+              </li>
+            <?php } ?>
           </ul>
         </div>
       </div>
@@ -71,9 +88,20 @@
   </div>
 
   <div class="caption text-center">
-    <h1 class="display-2">Don't have an account yet?</h1>
-    <a href="login.php"><button type="button" class="btn btn-outline-light btn-lg">Sign In</button></a>
-    <a href="register.php"><button type="button" class="btn btn-light btn-lg">Register</button></a>
+    <!-- Verifica se tem um usuario na sessao -->
+    <?php if(isset($_SESSION['logado'])) {
+        // pegando dados do usuário no BD
+        $cpf = $_SESSION['cpf'];
+        $consulta = "SELECT * FROM usuarios WHERE cpf = '$cpf'";
+        $resultado = mysqli_query($conexao, $consulta);
+        $dados = mysqli_fetch_array($resultado);
+    ?>
+    <h1>Welcome, <?php echo  $dados['nome'];?> !</h1>
+    <?php } else {?>
+      <h1 class="display-2">Don't have an account yet?</h1>
+      <a href="login.php"><button type="button" class="btn btn-outline-light btn-lg">Sign In</button></a>
+      <a href="register.php"><button type="button" class="btn btn-light btn-lg">Register</button></a>
+    <?php } ?>
   </div>
 
   <!-- End Landing Page -->
@@ -86,40 +114,40 @@
       </div>
       <div class="container-fluid padding" align="center">
         <div class="row justify-content-center">
-          <div class="card m-3" style="width: 21rem;height: auto;">
-            <img src="img/gps2.png" class="card-img-top p-5" alt="">
-            <div class="card-body h-100">
-              <h5 class="card-title mb-1">Matheus</h5>
-              <h6 class="card-subtitle text-muted mb-3">Java</h6>
-              <hr>
-              <p class="card-text">Preciso de um GPS mobile em tempo real.</p>
-              <a data-toggle="modal" data-target="#modalProject"><button type="button" class="btn btn-outline-dark btn-lg">I'm Interested</button></a>
-            </div>
-          </div>
-          <div class="card m-3" style="width: 21rem;height: auto;">
-            <img src="img/calc2.png" class="card-img-top p-5" alt="">
-            <div class="card-body h-100">
-              <h5 class="card-title mb-1">Caio</h5>
-              <h6 class="card-subtitle text-muted mb-3">Visual Studio</h6>
-              <hr>
-              <p class="card-text">Preciso de uma calculadora quântica.</p>
-              <a data-toggle="modal" data-target="#modalProject"><button type="button" class="btn btn-outline-dark btn-lg">I'm Interested</button></a>
-            </div>
-          </div>
-          <div class="card m-3" style="width: 21rem;height: auto;">
-            <img src="img/database.png" class="card-img-top p-5" alt="">
-            <div class="card-body h-100">
-              <h5 class="card-title mb-1">Lucas</h5>
-              <h6 class="card-subtitle text-muted mb-2">MySQLFront</h6>
-              <hr>
-              <p class="card-text">Preciso de um banco de dados para minha aplicação web.</p>
-              <a data-toggle="modal" data-target="#modalProject"><button type="button" class="btn btn-outline-dark btn-lg">I'm Interested</button></a>
-            </div>
-          </div>
-        </div>
+        <?php
+            // Lista os 3 ultimos criados
+            $consulta = "SELECT * FROM usuarios, projetos WHERE usuarios.cpf = projetos.cliente_cpf ORDER BY projetos.idprojetos DESC LIMIT 3";
+
+            $resultado = mysqli_query($conexao, $consulta);
+
+            while($dados = mysqli_fetch_assoc($resultado)) {
+        ?>
+
+              <div class="card m-3" style="width: 21rem;height: auto;">
+                  <img src="<?=$dados['imgurl']?>" class="card-img-top p-5" alt="">
+                  <div class="card-body h-100">
+                    <h5 class="card-title mb-1"><?=$dados['nome']?></h5>
+                    <h6 class="card-subtitle text-muted mb-3"><?=$dados['linguagem']?></h6>
+                    <hr>
+                    <p class="card-text"><?=$dados['descricao']?></p>
+                    <?php if(isset($_SESSION['logado'])) { ?>
+                      <a data-toggle="modal" data-target="#modalProject"><button type="button" class="btn btn-outline-dark btn-lg">I'm Interested</button></a>
+                    <?php } ?>
+                  </div>
+              </div>
+
+        <?php } ?>
       </div>
       <div class="col-12">
-        <a href="projects.php"><button type="button" class="btn btn-outline-dark btn-lg">See Projects</button></a>
+        <a
+          <?php if(isset($_SESSION['logado'])) { ?>
+              href="projects.php"
+          <?php } else { ?>
+              href="login.php"
+          <?php } ?>
+        >
+          <button type="button" class="btn btn-outline-dark btn-lg">See Projects</button>
+        </a>
       </div>
       <div class="modal fade" id="modalProject" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
         <div class="modal-dialog" role="document">
@@ -192,7 +220,15 @@
         <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/f--RjIOcZ_s" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
       </div>
       <div class="col-12">
-        <a href="classes.php"><button type="button" class="btn btn-outline-dark btn-lg">Access All Content</button></a>
+        <a
+          <?php if(isset($_SESSION['logado'])) { ?>
+              href="classes.php"
+          <?php } else { ?>
+              href="login.php"
+          <?php } ?>
+        >
+          <button type="button" class="btn btn-outline-dark btn-lg">Access All Content</button>
+        </a>
       </div>
     </div>
     <hr>
@@ -205,37 +241,31 @@
       </div>
       <div class="container-fluid padding" align="center">
         <div class="row justify-content-center">
-          <div class="card m-3" style="width: 21rem;height: auto;">
-            <img src="img/op1.jpg" class="card-img-top" alt="">
-            <div class="card-body h-100">
-              <h5 class="card-title mb-1">Gustavo Cichetti</h5>
-              <h6 class="card-subtitle text-muted mb-3">Front-End Developer</h6>
-              <hr>
-              <p class="card-text">Plataforma boa e intuitiva.</p>
-            </div>
-          </div>
-          <div class="card m-3" style="width: 21rem;height: auto;">
-            <img src="img/op2.jpg" class="card-img-top" alt="">
-            <div class="card-body h-100">
-              <h5 class="card-title mb-1">Jhon Costa</h5>
-              <h6 class="card-subtitle text-muted mb-3">Back-End Developer</h6>
-              <hr>
-              <p class="card-text">Me ajudou na busca por projetos.</p>
-            </div>
-          </div>
-          <div class="card m-3" style="width: 21rem;height: auto;">
-            <img src="img/op3.jpg" class="card-img-top" alt="">
-            <div class="card-body h-100">
-              <h5 class="card-title mb-1">Loren Pereira</h5>
-              <h6 class="card-subtitle text-muted mb-2">Writer and Tester</h6>
-              <hr>
-              <p class="card-text">Muito boa para quem está começando e não tem reconhecimento o suficiente.</p>
-            </div>
-          </div>
+          <?php
+              $consulta = "SELECT * FROM usuarios, reclamacoes WHERE usuarios.cpf = reclamacoes.usuario_cpf ORDER BY reclamacoes.idreclamacoes DESC LIMIT 3";
+
+              $resultado = mysqli_query($conexao, $consulta);
+
+              while($dados = mysqli_fetch_assoc($resultado)) {
+          ?>
+
+            <div class="card m-3" style="width: 21rem;height: auto;">
+                <img src="<?=$dados['avatarurl']?>" class="card-img-top" alt="">
+                <div class="card-body h-100">
+                  <h5 class="card-title mb-1"><?=$dados['nome']?></h5>
+                  <h6 class="card-subtitle text-muted mb-3"><?=$dados['profissao']?></h6>
+                  <hr>
+                  <p class="card-text"><?=$dados['opniao']?></p>
+                </div>
+              </div>
+
+          <?php } ?>
         </div>
       </div>
       <div class="col-12">
-        <a data-toggle="modal" data-target="#modalRate"><button type="button" class="btn btn-outline-dark btn-lg">Leave Your Review</button></a>
+        <?php if(isset($_SESSION['logado'])) { ?>
+          <a data-toggle="modal" data-target="#modalRate"><button type="button" class="btn btn-outline-dark btn-lg">Leave Your Review</button></a>
+        <?php } ?>
       </div>
       <div class="modal fade" id="modalRate" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
         <div class="modal-dialog" role="document">
@@ -245,12 +275,22 @@
               <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
             </div>
             <div class="modal-body">
-              <form action="">
+              <?php
+                  $cpf = $_SESSION['cpf'];
+                // Lista os ultimos criados
+                $consulta = "SELECT usuarios.nome, usuarios.profissao FROM usuarios  WHERE usuarios.cpf = $cpf;";
+
+                $resultado = mysqli_query($conexao, $consulta);
+
+                $info_pessoais = mysqli_fetch_assoc($resultado);
+              ?>
+
+              <form action="processa_avaliacao.php" method="POST">
                 <div class="form-group">
-                  <input class="form-control" type="text" id="name" placeholder="Your Name" onkeypress="return ApenasLetras(event,this);" required="required">
+                  <input class="form-control" type="text" id="name" placeholder="Your Name" value="<?=$info_pessoais['nome']?>" onkeypress="return ApenasLetras(event,this);" required="required">
                 </div>
                 <div class="form-group">
-                  <input class="form-control" type="text" id="prof" placeholder="Profession" onkeypress="return ApenasLetras(event,this);" required="required">
+                  <input class="form-control" type="text" id="prof" placeholder="Profession" value="<?=$info_pessoais['profissao']?>" onkeypress="return ApenasLetras(event,this);" required="required">
                 </div>
                 <div class="form-group">
                   <textarea id="desc" rows="5" placeholder="Leave Your Opinion" required="required" style="width: 100%;"></textarea>
