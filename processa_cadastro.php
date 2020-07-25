@@ -3,14 +3,19 @@
     include("conexao.php");
 
     // Verfica se todos campos estão preenchidos
-    if(empty($_POST['email']) || empty($_POST['senha']) || empty($_POST['nome']) || 
-        empty($_POST['profissao']) || empty($_POST['cpf']) || empty($_POST['telefone']) || 
+    if(empty($_POST['email']) || empty($_POST['senha']) || empty($_POST['nome']) ||
+        empty($_POST['profissao']) || empty($_POST['cpf']) || empty($_POST['telefone']) ||
         empty($_POST['nascimento']) || empty($_POST['exp'])) {
 
         $_SESSION['campos_vazios'] = TRUE;
-        header('Location: cadastro.php');
+        header('Location: register.php');
         exit();
-    }   
+    }
+
+    // Pego a imagem e movo para a pasta uploads e pego o caminho da imagem do usuario
+    $destino = 'uploads/' .  $_FILES['imagem']['name'];
+    $imagem = $_FILES['imagem']['tmp_name'];
+    $caminho =  move_uploaded_file($imagem, $destino);
 
     // Pegos os campos digitados pelos usuarios e armazeno em uma variável
     $nome = mysqli_real_escape_string($conexao, trim($_POST['nome']));
@@ -34,26 +39,46 @@
       $valor = str_replace("(", "", $valor);
       $valor = str_replace(")", "", $valor);
       $valor = str_replace(" ", "", $valor);
-      
+
       return $valor;
      }
-    
+
     // Pego o cpf passado pelo usuario e verifico se já tem uma conta cadastrado
     // com esse cpf
     $sql = "SELECT COUNT(*) AS total FROM usuarios WHERE cpf = '$cpf'";
     $resultado = mysqli_query($conexao, $sql);
     $row = mysqli_fetch_assoc($resultado);
-    
+
     // se o usuario ja for existente redireciono ele para a tela de cadastro
     if($row['total'] == 1) {
         $_SESSION['cpf_existente'] = TRUE;
-        header('Location: cadastro.php');
+        header('Location: register.php');
         exit();
     }
 
     //  se não for existente insiro os dados na base de dados
-    $sql = "INSERT INTO usuarios (cpf, nome, email, senha, datanascimento, telefone, experiencia, avatarurl, profissao) 
-            VALUES ('$cpf', '$nome', '$email', '$senha', '$data', '$tel', '$experiencia', 'https://image.flaticon.com/icons/svg/2721/2721278.svg', '$profissao');";
+    $sql = "INSERT INTO usuarios (
+              cpf,
+              nome,
+              email,
+              senha,
+              datanascimento,
+              telefone,
+              experiencia,
+              avatarurl,
+              profissao
+            )
+            VALUES (
+              '$cpf',
+              '$nome',
+              '$email',
+              '$senha',
+              '$data',
+              '$tel',
+              '$experiencia',
+              '$destino',
+              '$profissao'
+            )";
 
     if(mysqli_query($conexao, $sql) === TRUE) {
         $_SESSION['bem_sucedido'] = TRUE;
