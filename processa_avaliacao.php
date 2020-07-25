@@ -16,7 +16,7 @@
 		$sql = "INSERT INTO reclamacoes (opniao, usuario_cpf, estrelas) VALUES ('$opn', '$cpf', '$estrela')";
 
 		if(mysqli_query($conexao, $sql) === TRUE) {
-			$_SESSION['bem_sucedido'] = true;
+			$_SESSION['avbem_sucedido'] = true;
 		}
 
 		mysqli_close($conexao);
