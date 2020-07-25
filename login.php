@@ -1,5 +1,5 @@
 <?php
-    session_start();
+session_start();
 ?>
 
 <!DOCTYPE html>
@@ -60,6 +60,21 @@
       <button type="submit" class="btn btn-info mb-3">Sign In</button>
     </form>
   </div>
+
+  <!---Se mal sucedido--->
+  <?php
+  if (isset($_SESSION['campos_vazios'])) {
+    echo "<script>alert('ERROR: Fill in all the fields.');</script>";
+  }
+  unset($_SESSION['campos_vazios']);
+  ?>
+
+  <?php
+  if (isset($_SESSION['mal_sucedido'])) {
+    echo "<script>alert('ERROR: Invalid email or password');</script>";
+  }
+  unset($_SESSION['mal_sucedido']);
+  ?>
 
 
   <button onclick="backToTop()" id="btnTop"><i class="fas fa-arrow-up"></i></button>
