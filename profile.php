@@ -90,75 +90,48 @@ $dadosRS = mysqli_fetch_assoc($resultado);
               <div class="modal-body">
                 <form action="profile_update.php" method="POST" enctype='multipart/form-data'>
                   <div class="form-group">
-                    <input class="form-control" type="text" name="nome" id="name" placeholder="Your Name" value="<?= $dados['nome'] ?>"onkeypress="return ApenasLetras(event,this);">
+                    <input class="form-control" type="text" name="nome" id="name" placeholder="Your Name" value="<?= $dados['nome'] ?>" onkeypress="return ApenasLetras(event,this);">
                   </div>
                   <div class="form-group">
                     <input class="form-control" type="text" name="profissao" id="prof" placeholder="Profession" value="<?= $dados['profissao'] ?>" onkeypress="return ApenasLetras(event,this);">
                   </div>
                   <div class="form-group">
-                    <textarea id="desc" rows="5" placeholder="About You" name="sobre"required="required" style="width: 100%;"><?= $dados['sobre'] ?></textarea>
+                    <textarea id="desc" rows="5" placeholder="About You" name="sobre" required="required" style="width: 100%;"><?= $dados['sobre'] ?></textarea>
                   </div>
                   <div class="form-group">
-                    <input class="form-control" type="text" id="nbr" name="tel" placeholder="(00)00000-0000" value="<?= $dados['telefone'] ?>"required="required" maxlength="13" onkeypress="$(this).mask('(00) 00000-0009')">
+                    <input class="form-control" type="text" id="nbr" name="tel" placeholder="(00)00000-0000" value="<?= $dados['telefone'] ?>" required="required" maxlength="13" onkeypress="$(this).mask('(00) 00000-0009')">
                   </div>
                   <hr>
                   <h6>Social Media:</h6>
                   <div class="form-row justify-content-center">
                     <a class="social-media mr-2" href="#"><i class="fab fa-github"></i></a>
                     <div class="form-group">
-                      <input
-                      type="text"
-                      class="form-control"
-                      name="github"
-                      id="GitHub"
-                      <?php
-                        if (!empty($dadosRS['github'])) {
-                      ?>
-                      value="<?= $dadosRS['github'] ?>"
-                      <?php
-                        }
-                      ?>
-                      placeholder="GitHub_User"
-                      required="required">
+                      <input type="text" class="form-control" name="github" id="GitHub" <?php
+                                                                                        if (!empty($dadosRS['github'])) {
+                                                                                        ?> value="<?= $dadosRS['github'] ?>" <?php
+                                                                                        }
+                                                            ?> placeholder="GitHub_User" required="required">
                     </div>
                   </div>
 
                   <div class="form-row justify-content-center">
                     <a class="social-media mr-2" href="#"><i class="fab fa-twitter"></i></a>
                     <div class="form-group">
-                      <input
-                      type="text"
-                      class="form-control"
-                      name="twitter"
-                      <?php
-                        if (!empty($dadosRS['twitter'])) {
-                      ?>
-                      value="<?= $dadosRS['twitter'] ?>"
-                      <?php
-                        }
-                      ?>
-                      id="Twitter"
-                      placeholder="Twitter_User"
-                      required="required">
+                      <input type="text" class="form-control" name="twitter" <?php
+                                                                              if (!empty($dadosRS['twitter'])) {
+                                                                              ?> value="<?= $dadosRS['twitter'] ?>" <?php
+                                                                              }
+                                                            ?> id="Twitter" placeholder="Twitter_User" required="required">
                     </div>
                   </div>
                   <div class="form-row justify-content-center">
                     <a class="social-media mr-2" href="#"><i class="fab fa-instagram"></i></a>
                     <div class="form-group">
-                      <input
-                      type="text"
-                      class="form-control"
-                      name="instagram"
-                      <?php
-                        if (!empty($dadosRS['instagram'])) {
-                      ?>
-                      value="<?= $dadosRS['instagram'] ?>"
-                      <?php
-                        }
-                      ?>
-                      id="Instagram"
-                      placeholder="Instagram_User"
-                      required="required">
+                      <input type="text" class="form-control" name="instagram" <?php
+                                                                                if (!empty($dadosRS['instagram'])) {
+                                                                                ?> value="<?= $dadosRS['instagram'] ?>" <?php
+                                                                                }
+                                                              ?> id="Instagram" placeholder="Instagram_User" required="required">
                     </div>
                   </div>
                   <hr>
@@ -169,54 +142,33 @@ $dadosRS = mysqli_fetch_assoc($resultado);
 
                     <select name="experiencia" class="form-control" id="exp">
 
-                      <option
-                        value="Sem experiência"
-                        <?php
-                          if ($experienciaUser == "Sem experiência") {
-                        ?>
-                        selected="selected"
-                        <?php
-                          }
-                        ?>
-
-                      >Without experience
+                      <option value="Sem experiência" <?php
+                                                      if ($experienciaUser == "Sem experiência") {
+                                                      ?> selected="selected" <?php
+                                                      }
+                                                ?>>Without experience
                       </option>
 
 
-                      <option
-                        value="Iniciante"
-                        <?php
-                          if ($experienciaUser == "Iniciante") {
-                        ?>
-                        selected="selected"
-                        <?php
-                          }
-                        ?>
-                      >Rookie
+                      <option value="Iniciante" <?php
+                                                if ($experienciaUser == "Iniciante") {
+                                                ?> selected="selected" <?php
+                                                }
+                                                ?>>Rookie
                       </option>
 
-                      <option
-                        value="Intermediario"
-                        <?php
-                          if ($experienciaUser == "Intermediario") {
-                        ?>
-                        selected="selected"
-                        <?php
-                          }
-                        ?>
-                      >Intermedian
+                      <option value="Intermediario" <?php
+                                                    if ($experienciaUser == "Intermediario") {
+                                                    ?> selected="selected" <?php
+                                                    }
+                                                ?>>Intermedian
                       </option>
 
-                      <option
-                        value="Experiente"
-                        <?php
-                          if ($experienciaUser == "Experiente") {
-                        ?>
-                        selected="selected"
-                        <?php
-                          }
-                        ?>
-                      >Experient
+                      <option value="Experiente" <?php
+                                                  if ($experienciaUser == "Experiente") {
+                                                  ?> selected="selected" <?php
+                                                  }
+                                                ?>>Experient
                       </option>
 
                     </select>
@@ -265,10 +217,17 @@ $dadosRS = mysqli_fetch_assoc($resultado);
         </div>
       </div>
       <div class="col-xl-8 justify-content-center" align="center">
-        <h3>Own Projects</h3>
-        <div class="container-fluid padding" align="center">
-          <div class="row justify-content-center">
-            <?php
+        <?php
+        $query = "SELECT COUNT(*) AS total FROM projetos WHERE cliente_cpf = '$cpf'";
+        $resultado = mysqli_query($conexao, $query);
+        $row = mysqli_fetch_assoc($resultado);
+
+        if ($row['total'] >= 1) {
+        ?>
+          <h3>Own Projects</h3>
+          <div class="container-fluid padding" align="center">
+            <div class="row justify-content-center">
+              <?php
               // listando projetos  desse usuário
               $consulta = "SELECT * FROM usuarios, projetos WHERE usuarios.cpf = projetos.cliente_cpf AND usuarios.cpf = $cpf;";
 
@@ -277,20 +236,21 @@ $dadosRS = mysqli_fetch_assoc($resultado);
 
               // utilizo o while para percorrer cada card de do html e add as infos do bd
               while ($projetos = mysqli_fetch_assoc($resultado)) {
-            ?>
+              ?>
 
 
-              <div class="card m-3" style="width: 21rem;height: auto;">
-                <img src="<?= $projetos['imgurl'] ?>" class="card-img-top p-5" alt="">
-                <div class="card-body h-100">
-                  <h5 class="card-title mb-1"><?= $projetos['titulo'] ?></h5>
-                  <h6 class="card-subtitle text-muted mb-3"><?= $projetos['linguagem'] ?></h6>
-                  <hr>
-                  <p class="card-text"><?= $projetos['descricao'] ?></p>
-                  <a data-toggle="modal" data-target="#modalEditProject"><button onclick="setValue(3)" type="button" class="btn btn-outline-dark btn-lg">Edit Project</button></a>
+                <div class="card m-3" style="width: 21rem;height: auto;">
+                  <img src="<?= $projetos['imgurl'] ?>" class="card-img-top p-5" alt="">
+                  <div class="card-body h-100">
+                    <h5 class="card-title mb-1"><?= $projetos['titulo'] ?></h5>
+                    <h6 class="card-subtitle text-muted mb-3"><?= $projetos['linguagem'] ?></h6>
+                    <hr>
+                    <p class="card-text"><?= $projetos['descricao'] ?></p>
+                    <a data-toggle="modal" data-target="#modalEditProject"><button onclick="setValue(3)" type="button" class="btn btn-outline-dark btn-lg">Edit Project</button></a>
+                  </div>
                 </div>
-              </div>
 
+              <?php } ?>
             <?php } ?>
 
             <div class="modal fade" id="modalEditProject" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
@@ -361,12 +321,20 @@ $dadosRS = mysqli_fetch_assoc($resultado);
                 </div>
               </div>
             </div>
+            </div>
           </div>
-        </div>
-        <h3 class="mt-5">Participating</h3>
-        <div class="container-fluid padding" align="center">
-          <div class="row justify-content-center">
-            <?php
+          <?php
+          $query = "SELECT COUNT(*) AS total FROM projetos WHERE cpffreela = '$cpf'";
+          $resultado = mysqli_query($conexao, $query);
+          $row = mysqli_fetch_assoc($resultado);
+
+          if ($row['total'] >= 1) {
+          ?>
+            <h3 class="mt-5">Participating</h3>
+            <div class="container-fluid padding" align="center">
+              <div class="row justify-content-center">
+
+                <?php
                 // listando projetos  desse usuário
                 $consulta = "SELECT * FROM usuarios, projetos WHERE usuarios.cpf = projetos.cliente_cpf AND projetos.cpffreela = $cpf";
 
@@ -375,23 +343,23 @@ $dadosRS = mysqli_fetch_assoc($resultado);
 
                 // utilizo o while para percorrer cada card de do html e add as infos do bd
                 while ($meuFreela = mysqli_fetch_assoc($resultado)) {
-            ?>
+                ?>
 
-              <div class="card m-3" style="width: 21rem;height: auto;">
-                <img src="img/delivery2.png" class="card-img-top p-5" alt="">
-                <div class="card-body h-100">
-                  <h5 class="card-title mb-1"><?= $meuFreela['titulo'] ?></h5>
-                  <h6 class="card-subtitle text-muted mb-3"><?= $meuFreela['linguagem'] ?></h6>
-                  <hr>
-                  <p class="card-text"><?= $meuFreela['descricao'] ?>.</p>
-                  <a href="<?= $meuFreela['repositorio'] ?>"><button type="button" class="btn btn-outline-dark btn-lg">See Repository</button></a>
-                </div>
+                  <div class="card m-3" style="width: 21rem;height: auto;">
+                    <img src="img/delivery2.png" class="card-img-top p-5" alt="">
+                    <div class="card-body h-100">
+                      <h5 class="card-title mb-1"><?= $meuFreela['titulo'] ?></h5>
+                      <h6 class="card-subtitle text-muted mb-3"><?= $meuFreela['linguagem'] ?></h6>
+                      <hr>
+                      <p class="card-text"><?= $meuFreela['descricao'] ?>.</p>
+                      <a href="<?= $meuFreela['repositorio'] ?>"><button type="button" class="btn btn-outline-dark btn-lg">See Repository</button></a>
+                    </div>
+                  </div>
+
+                <?php } ?>
+              <?php } ?>
               </div>
-
-            <?php } ?>
-
-          </div>
-        </div>
+            </div>
       </div>
     </div>
   </div>
