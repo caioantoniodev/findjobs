@@ -88,47 +88,77 @@ $dadosRS = mysqli_fetch_assoc($resultado);
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
               </div>
               <div class="modal-body">
-                <form action="">
+                <form action="profile_update.php" method="POST" enctype='multipart/form-data'>
                   <div class="form-group">
-                    <input class="form-control" type="text" id="name" placeholder="Your Name" value="<?= $dados['nome'] ?>"onkeypress="return ApenasLetras(event,this);" required="required">
+                    <input class="form-control" type="text" name="nome" id="name" placeholder="Your Name" value="<?= $dados['nome'] ?>"onkeypress="return ApenasLetras(event,this);">
                   </div>
                   <div class="form-group">
-                    <input class="form-control" type="text" id="prof" placeholder="Profession" value="<?= $dados['profissao'] ?>" onkeypress="return ApenasLetras(event,this);" required="required">
+                    <input class="form-control" type="text" name="profissao" id="prof" placeholder="Profession" value="<?= $dados['profissao'] ?>" onkeypress="return ApenasLetras(event,this);">
                   </div>
                   <div class="form-group">
-                    <textarea id="desc" rows="5" placeholder="About You" required="required" style="width: 100%;"></textarea>
+                    <textarea id="desc" rows="5" placeholder="About You" name="sobre"required="required" style="width: 100%;"><?= $dados['sobre'] ?></textarea>
                   </div>
                   <div class="form-group">
-                    <input class="form-control" type="text" id="nbr" placeholder="(00)00000-0000" value="<?= $dados['telefone'] ?>"required="required" maxlength="13" onkeypress="$(this).mask('(00) 00000-0009')">
+                    <input class="form-control" type="text" id="nbr" name="tel" placeholder="(00)00000-0000" value="<?= $dados['telefone'] ?>"required="required" maxlength="13" onkeypress="$(this).mask('(00) 00000-0009')">
                   </div>
-                  <!-- <div class="form-row">
-                    <div class="form-group col-md-6">
-                      <input class="form-control" type="password" id="pass" value="<?= $dados['senha'] ?>"placeholder="Your Password" required="required">
-                      <small class="text-muted">Mininal lenght: 8 characters</small>
-                    </div>
-                    <div class="form-group col-md-6">
-                      <input class="form-control" type="password" id="pass" placeholder="Confirm Your Password" required="required">
-                      <small class="text-muted">Mininal lenght: 8 characters</small>
-                    </div>
-                  </div> -->
                   <hr>
                   <h6>Social Media:</h6>
                   <div class="form-row justify-content-center">
                     <a class="social-media mr-2" href="#"><i class="fab fa-github"></i></a>
                     <div class="form-group">
-                      <input type="text" class="form-control" id="GitHub" value="<?= $dadosRS['github'] ?>"  placeholder="GitHub_User" required="required">
+                      <input
+                      type="text"
+                      class="form-control"
+                      name="github"
+                      id="GitHub"
+                      <?php
+                        if (!empty($dadosRS['github'])) {
+                      ?>
+                      value="<?= $dadosRS['github'] ?>"
+                      <?php
+                        }
+                      ?>
+                      placeholder="GitHub_User"
+                      required="required">
                     </div>
                   </div>
+
                   <div class="form-row justify-content-center">
                     <a class="social-media mr-2" href="#"><i class="fab fa-twitter"></i></a>
                     <div class="form-group">
-                      <input type="text" class="form-control" value="<?= $dadosRS['twitter'] ?>" id="Twitter" placeholder="Twitter_User" required="required">
+                      <input
+                      type="text"
+                      class="form-control"
+                      name="twitter"
+                      <?php
+                        if (!empty($dadosRS['twitter'])) {
+                      ?>
+                      value="<?= $dadosRS['twitter'] ?>"
+                      <?php
+                        }
+                      ?>
+                      id="Twitter"
+                      placeholder="Twitter_User"
+                      required="required">
                     </div>
                   </div>
                   <div class="form-row justify-content-center">
                     <a class="social-media mr-2" href="#"><i class="fab fa-instagram"></i></a>
                     <div class="form-group">
-                      <input type="text" class="form-control" value="<?= $dadosRS['instagram'] ?>"  id="Instagram" placeholder="Instagram_User" required="required">
+                      <input
+                      type="text"
+                      class="form-control"
+                      name="instagram"
+                      <?php
+                        if (!empty($dadosRS['instagram'])) {
+                      ?>
+                      value="<?= $dadosRS['instagram'] ?>"
+                      <?php
+                        }
+                      ?>
+                      id="Instagram"
+                      placeholder="Instagram_User"
+                      required="required">
                     </div>
                   </div>
                   <hr>
@@ -137,7 +167,7 @@ $dadosRS = mysqli_fetch_assoc($resultado);
 
                     <?php $experienciaUser = $dados['experiencia']; ?>
 
-                    <select value="" class="form-control" id="exp">
+                    <select name="experiencia" class="form-control" id="exp">
 
                       <option
                         value="Sem experiência"
@@ -193,7 +223,7 @@ $dadosRS = mysqli_fetch_assoc($resultado);
                   </div>
                   <div class="form-group">
                     <label for="image">Select a image for your profile</label>
-                    <input class="form-control" value="<?=$dados['avatarurl']?>"type="file" id="image">
+                    <input class="form-control" name="img" type="file" id="image">
                     <small class="text-muted">Max. size: 3MB</small>
                   </div>
                   <hr>
@@ -207,7 +237,7 @@ $dadosRS = mysqli_fetch_assoc($resultado);
         </div>
         <div class="border p-2">
           <h6>About</h6>
-          <p>I'm 17yo, Front-End Developer</p>
+          <p><?= $dados['sobre'] ?></p>
           <div class="estrelas">
             <input type="radio" id="vazio" name="estrela" value="" checked>
 
@@ -257,7 +287,7 @@ $dadosRS = mysqli_fetch_assoc($resultado);
                   <h6 class="card-subtitle text-muted mb-3"><?= $projetos['linguagem'] ?></h6>
                   <hr>
                   <p class="card-text"><?= $projetos['descricao'] ?></p>
-                  <a data-toggle="modal" data-target="#modalEditProject"><button type="button" class="btn btn-outline-dark btn-lg">Edit Project</button></a>
+                  <a data-toggle="modal" data-target="#modalEditProject"><button onclick="setValue(3)" type="button" class="btn btn-outline-dark btn-lg">Edit Project</button></a>
                 </div>
               </div>
 
@@ -273,7 +303,7 @@ $dadosRS = mysqli_fetch_assoc($resultado);
                   <div class="modal-body">
                     <div class="form-row">
                       <div class="form-group col-md-6">
-                        <input type="text" class="form-control" value="<?= $_GET['id'] ?>"id="projectName" placeholder="Project Name" required="required">
+                        <input type="text" class="form-control" value="" id="projectName" placeholder="Project Name" required="required">
                       </div>
                       <div class="form-group col-md-6">
                         <input type="text" class="form-control" id="lang" placeholder="Language (c#, Java, etc.)" required="required">
@@ -303,8 +333,8 @@ $dadosRS = mysqli_fetch_assoc($resultado);
                       </div>
                     </form>
                     <hr>
-                    <a data-toggle="modal" data-target="#modalEmail"><button type="button" class="btn btn-outline-dark btn-md mb-3">Confirm</button></a>
-                    <a href=""><button type="button" class="btn btn-danger btn-md mb-3">Delete Project</button></a>
+                    <button type="button" class="btn btn-outline-dark btn-md mb-3">Confirm</button>
+                    <button type="button" class="btn btn-danger btn-md mb-3">Delete Project</button>
                     <label class="active">
                       <input type="checkbox" autocomplete="off" required="required"> I have read and accept the <span class="text-info" style="text-decoration: underline; cursor: pointer;"><a data-toggle="modal" data-target="#myModal">Terms of Use</a></span>
                     </label>
@@ -368,13 +398,24 @@ $dadosRS = mysqli_fetch_assoc($resultado);
 
   <?php
   if (isset($_SESSION['criar_sucedido'])) {
-    echo "<script>alert('ERROR: Project created with sucess');</script>";
+    echo "<script>alert('SUCESS: Project created with sucess');</script>";
   }
   unset($_SESSION['criar_sucedido']);
+
+  if (isset($_SESSION['update_sucedido'])) {
+    echo "<script>alert('SUCESS: Profile updated');</script>";
+  }
+  unset($_SESSION['update_sucedido']);
+
+  if (isset($_SESSION['update_error'])) {
+    echo "<script>alert('ERROR: Profile not updated');</script>";
+  }
+  unset($_SESSION['update_error']);
   ?>
 
   <button onclick="backToTop()" id="btnTop"><i class="fas fa-arrow-up"></i></button>
 
+  <script src="js/validacoes.js"></script>
   <script type="text/JavaScript" src="js/topo.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
