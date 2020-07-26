@@ -109,8 +109,8 @@ $dadosRS = mysqli_fetch_assoc($resultado);
                       <input type="text" class="form-control" name="github" id="GitHub" <?php
                                                                                         if (!empty($dadosRS['github'])) {
                                                                                         ?> value="<?= $dadosRS['github'] ?>" <?php
-                                                                                        }
-                                                            ?> placeholder="GitHub_User" required="required">
+                                                                                                                            }
+                                                                                                                              ?> placeholder="GitHub_User">
                     </div>
                   </div>
 
@@ -120,8 +120,8 @@ $dadosRS = mysqli_fetch_assoc($resultado);
                       <input type="text" class="form-control" name="twitter" <?php
                                                                               if (!empty($dadosRS['twitter'])) {
                                                                               ?> value="<?= $dadosRS['twitter'] ?>" <?php
-                                                                              }
-                                                            ?> id="Twitter" placeholder="Twitter_User" required="required">
+                                                                                                                  }
+                                                                                                                    ?> id="Twitter" placeholder="Twitter_User">
                     </div>
                   </div>
                   <div class="form-row justify-content-center">
@@ -130,8 +130,8 @@ $dadosRS = mysqli_fetch_assoc($resultado);
                       <input type="text" class="form-control" name="instagram" <?php
                                                                                 if (!empty($dadosRS['instagram'])) {
                                                                                 ?> value="<?= $dadosRS['instagram'] ?>" <?php
-                                                                                }
-                                                              ?> id="Instagram" placeholder="Instagram_User" required="required">
+                                                                                                                      }
+                                                                                                                        ?> id="Instagram" placeholder="Instagram_User">
                     </div>
                   </div>
                   <hr>
@@ -145,30 +145,30 @@ $dadosRS = mysqli_fetch_assoc($resultado);
                       <option value="Sem experiência" <?php
                                                       if ($experienciaUser == "Sem experiência") {
                                                       ?> selected="selected" <?php
-                                                      }
-                                                ?>>Without experience
+                                                                            }
+                                                                              ?>>Without experience
                       </option>
 
 
                       <option value="Iniciante" <?php
                                                 if ($experienciaUser == "Iniciante") {
                                                 ?> selected="selected" <?php
-                                                }
-                                                ?>>Rookie
+                                                                      }
+                                                                        ?>>Rookie
                       </option>
 
                       <option value="Intermediario" <?php
                                                     if ($experienciaUser == "Intermediario") {
                                                     ?> selected="selected" <?php
-                                                    }
-                                                ?>>Intermedian
+                                                                          }
+                                                                            ?>>Intermedian
                       </option>
 
                       <option value="Experiente" <?php
                                                   if ($experienciaUser == "Experiente") {
                                                   ?> selected="selected" <?php
-                                                  }
-                                                ?>>Experient
+                                                                        }
+                                                                          ?>>Experient
                       </option>
 
                     </select>
@@ -211,9 +211,24 @@ $dadosRS = mysqli_fetch_assoc($resultado);
         </div>
         <div class="col-12 social padding mt-2">
           <h6>Social Media</h6>
-          <a href="<?= $dadosRS['github'] ?>" target="_blank"><i class="fab fa-github"></i></a>
-          <a href="<?= $dadosRS['twitter'] ?>"><i class="fab fa-twitter"></i></a>
-          <a href="<?= $dadosRS['instagram'] ?>"><i class="fab fa-instagram"></i></a>
+
+          <?php if (!empty($dadosRS['github'])) { ?>
+            <a href="<?= $dadosRS['github'] ?>" target="_blank">
+              <i class="fab fa-github"></i>
+            </a>
+          <?php } ?>
+
+          <?php if (!empty($dadosRS['twitter'])) { ?>
+            <a href="<?= $dadosRS['twitter'] ?>">
+              <i class="fab fa-twitter"></i>
+            </a>
+          <?php } ?>
+
+          <?php if (!empty($dadosRS['instagram'])) { ?>
+            <a href="<?= $dadosRS['instagram'] ?>">
+              <i class="fab fa-instagram"></i>
+            </a>
+          <?php } ?>
         </div>
       </div>
       <div class="col-xl-8 justify-content-center" align="center">
@@ -263,17 +278,17 @@ $dadosRS = mysqli_fetch_assoc($resultado);
                   <div class="modal-body">
                     <div class="form-row">
                       <div class="form-group col-md-6">
-                        <input type="text" class="form-control" value="" id="projectName" placeholder="Project Name" required="required">
+                        <input type="text" class="form-control" value="" id="projectName" placeholder="Project Name">
                       </div>
                       <div class="form-group col-md-6">
-                        <input type="text" class="form-control" id="lang" placeholder="Language (c#, Java, etc.)" required="required">
+                        <input type="text" class="form-control" id="lang" placeholder="Language (c#, Java, etc.)">
                       </div>
                     </div>
                     <div class="form-group">
-                      <textarea id="desc" rows="5" placeholder="Project Description" required="required" style="width: 100%;"></textarea>
+                      <textarea id="desc" rows="5" placeholder="Project Description" style="width: 100%;"></textarea>
                     </div>
                     <div class="form-group">
-                      <input type="text" class="form-control" id="repository" placeholder="Add your GitHub Repository" required="required">
+                      <input type="text" class="form-control" id="repository" placeholder="Add your GitHub Repository">
                     </div>
                     <hr>
                     <h6>Participants:</h6>
