@@ -1,3 +1,10 @@
+<?php
+// verifico se está logado, assim impedindo acessar direto na url
+if (!isset($_SESSION['logado'])) {
+  header('Location: index.php');
+}
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -37,15 +44,6 @@
             </li>
             <li class="nav-item">
               <a class="nav-link text-white" href="projects.php">Projects</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link text-white" href="login.php">Sign In</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link text-white" href="register.php">Register</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link text-white" href="contact.php">Contact</a>
             </li>
           </ul>
         </div>
