@@ -133,21 +133,21 @@ include('connection.php');
             // utilizo o while para percorrer cada card de do html e add as infos do bd
             while ($dados = mysqli_fetch_assoc($resultado)) {
             ?>
+              <?php
+              // guardando alguns valores que serão utilizados
+              // pegando informações referentes ao cliente
+              $nome_cliente = $dados['nome'];
+              $email_cliente = $dados['email'];
+              $titulo_projeto = $dados['titulo'];
+              $id_projeto = $dados['idprojetos'];
 
-              <div class="card m-3" style="width: 21rem;height: auto;">
-                <img src="<?= $dados['imgurl'] ?>" class="card-img-top p-5" alt="">
-                <div class="card-body h-100">
-                  <?php
-                  // guardando alguns valores que serão utilizados
-                  // pegando informações referentes ao cliente
-                  $nome_cliente = $dados['nome'];
-                  $email_cliente = $dados['email'];
-                  $titulo_projeto = $dados['titulo'];
-                  $id_projeto = $dados['idprojetos'];
+              // Verifico se o projeto está em aberto
+              if ($dados['cpffreela'] == NULL) {
+              ?>
+                <div class="card m-3" style="width: 21rem;height: auto;">
+                  <img src="<?= $dados['imgurl'] ?>" class="card-img-top p-5" alt="">
+                  <div class="card-body h-100">
 
-                  // Verifico se o projeto está em aberto
-                  if ($dados['cpffreela'] == NULL) {
-                  ?>
                     <h5 class="card-title mb-1"><?= $dados['nome'] ?></h5>
                     <h6 class="card-subtitle text-muted mb-3"><?= $dados['linguagem'] ?></h6>
                     <hr>
@@ -155,9 +155,10 @@ include('connection.php');
 
                     <a data-toggle="modal" data-target="#modalProject"><button type="button" class="btn btn-outline-dark btn-lg">I'm Interested</button></a>
 
-                  <?php } ?>
+
+                  </div>
                 </div>
-              </div>
+              <?php } ?>
             <?php } ?>
           <?php } else { ?>
             <?php
