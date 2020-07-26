@@ -7,8 +7,20 @@ if (!isset($_SESSION['logado'])) {
   header('Location: index.php');
 }
 
-// obtenho o cpf do cliente cadastrado
-$cpfCliente = $cpf = $_SESSION['cpf'];
+// obtenho o cpf do usuario
+$cpf = $_SESSION['cpf'];
+
+// listando informações pessoais do usuário
+$consulta = "SELECT * FROM usuarios WHERE usuarios.cpf = '$cpf'";
+$resultado = mysqli_query($conexao, $consulta);
+$dados = mysqli_fetch_assoc($resultado);
+
+// listando as redes sociais do usuário
+$consulta = "SELECT * FROM redes_sociais WHERE redes_sociais.usuarios_cpf = '$cpf'";
+$resultado = mysqli_query($conexao, $consulta);
+$dadosRS = mysqli_fetch_assoc($resultado);
+
+
 ?>
 
 <!DOCTYPE html>
@@ -63,9 +75,9 @@ $cpfCliente = $cpf = $_SESSION['cpf'];
   <div class="container-fluid">
     <div class="row mt-5">
       <div class="col-xl-4 justify-content-center" align="center">
-        <img src="img/matheus.jpg" style="width: 300px;height: 300px;border-radius: 10px;">
+        <img src="<?= $dados['avatarurl'] ?>" style="width: 300px;height: 300px;border-radius: 10px;">
         <div class="row justify-content-center text-center">
-          <h3 class="mt-2">Matheus Germano</h3>
+          <h3 class="mt-2"><?= $dados['nome'] ?></h3>
           <a data-toggle="modal" data-target="#modalEdit"><i class="fas fa-edit m-3" style="cursor: pointer;"></i></a>
         </div>
         <div class="modal fade" id="modalEdit" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
@@ -78,66 +90,110 @@ $cpfCliente = $cpf = $_SESSION['cpf'];
               <div class="modal-body">
                 <form action="">
                   <div class="form-group">
-                    <input class="form-control" type="text" id="name" placeholder="Your Name" onkeypress="return ApenasLetras(event,this);" required="required">
+                    <input class="form-control" type="text" id="name" placeholder="Your Name" value="<?= $dados['nome'] ?>"onkeypress="return ApenasLetras(event,this);" required="required">
                   </div>
                   <div class="form-group">
-                    <input class="form-control" type="text" id="prof" placeholder="Profession" onkeypress="return ApenasLetras(event,this);" required="required">
+                    <input class="form-control" type="text" id="prof" placeholder="Profession" value="<?= $dados['profissao'] ?>" onkeypress="return ApenasLetras(event,this);" required="required">
                   </div>
                   <div class="form-group">
                     <textarea id="desc" rows="5" placeholder="About You" required="required" style="width: 100%;"></textarea>
                   </div>
                   <div class="form-group">
-                    <input class="form-control" type="text" id="nbr" placeholder="(00)00000-0000" required="required" maxlength="13" onkeypress="$(this).mask('(00) 00000-0009')">
+                    <input class="form-control" type="text" id="nbr" placeholder="(00)00000-0000" value="<?= $dados['telefone'] ?>"required="required" maxlength="13" onkeypress="$(this).mask('(00) 00000-0009')">
                   </div>
-                  <div class="form-row">
+                  <!-- <div class="form-row">
                     <div class="form-group col-md-6">
-                      <input class="form-control" type="password" id="pass" placeholder="Your Password" required="required">
+                      <input class="form-control" type="password" id="pass" value="<?= $dados['senha'] ?>"placeholder="Your Password" required="required">
                       <small class="text-muted">Mininal lenght: 8 characters</small>
                     </div>
                     <div class="form-group col-md-6">
                       <input class="form-control" type="password" id="pass" placeholder="Confirm Your Password" required="required">
                       <small class="text-muted">Mininal lenght: 8 characters</small>
                     </div>
-                  </div>
+                  </div> -->
                   <hr>
                   <h6>Social Media:</h6>
                   <div class="form-row justify-content-center">
                     <a class="social-media mr-2" href="#"><i class="fab fa-github"></i></a>
                     <div class="form-group">
-                      <input type="text" class="form-control" id="GitHub" placeholder="GitHub_User" required="required">
+                      <input type="text" class="form-control" id="GitHub" value="<?= $dadosRS['github'] ?>"  placeholder="GitHub_User" required="required">
                     </div>
                   </div>
                   <div class="form-row justify-content-center">
                     <a class="social-media mr-2" href="#"><i class="fab fa-twitter"></i></a>
                     <div class="form-group">
-                      <input type="text" class="form-control" id="Twitter" placeholder="Twitter_User" required="required">
-                    </div>
-                  </div>
-                  <div class="form-row justify-content-center">
-                    <a class="social-media mr-2" href="#"><i class="fab fa-facebook"></i></a>
-                    <div class="form-group">
-                      <input type="text" class="form-control" id="Facebook" placeholder="Facebook_User" required="required">
+                      <input type="text" class="form-control" value="<?= $dadosRS['twitter'] ?>" id="Twitter" placeholder="Twitter_User" required="required">
                     </div>
                   </div>
                   <div class="form-row justify-content-center">
                     <a class="social-media mr-2" href="#"><i class="fab fa-instagram"></i></a>
                     <div class="form-group">
-                      <input type="text" class="form-control" id="Instagram" placeholder="Instagram_User" required="required">
+                      <input type="text" class="form-control" value="<?= $dadosRS['instagram'] ?>"  id="Instagram" placeholder="Instagram_User" required="required">
                     </div>
                   </div>
                   <hr>
                   <div class="form-group">
                     <label for="exp">Select your experience</label>
-                    <select class="form-control" id="exp">
-                      <option value="">Without experience</option>
-                      <option value="">Rookie</option>
-                      <option value="">Intermedian</option>
-                      <option value="">Experient</option>
+
+                    <?php $experienciaUser = $dados['experiencia']; ?>
+
+                    <select value="" class="form-control" id="exp">
+
+                      <option
+                        value="Sem experiência"
+                        <?php
+                          if ($experienciaUser == "Sem experiência") {
+                        ?>
+                        selected="selected"
+                        <?php
+                          }
+                        ?>
+
+                      >Without experience
+                      </option>
+
+
+                      <option
+                        value="Iniciante"
+                        <?php
+                          if ($experienciaUser == "Iniciante") {
+                        ?>
+                        selected="selected"
+                        <?php
+                          }
+                        ?>
+                      >Rookie
+                      </option>
+
+                      <option
+                        value="Intermediario"
+                        <?php
+                          if ($experienciaUser == "Intermediario") {
+                        ?>
+                        selected="selected"
+                        <?php
+                          }
+                        ?>
+                      >Intermedian
+                      </option>
+
+                      <option
+                        value="Experiente"
+                        <?php
+                          if ($experienciaUser == "Experiente") {
+                        ?>
+                        selected="selected"
+                        <?php
+                          }
+                        ?>
+                      >Experient
+                      </option>
+
                     </select>
                   </div>
                   <div class="form-group">
                     <label for="image">Select a image for your profile</label>
-                    <input class="form-control" type="file" id="image">
+                    <input class="form-control" value="<?=$dados['avatarurl']?>"type="file" id="image">
                     <small class="text-muted">Max. size: 3MB</small>
                   </div>
                   <hr>
@@ -173,9 +229,9 @@ $cpfCliente = $cpf = $_SESSION['cpf'];
         </div>
         <div class="col-12 social padding mt-2">
           <h6>Social Media</h6>
-          <a href="https://github.com/MGermano27"><i class="fab fa-github"></i></a>
-          <a href="https://twitter.com/_grrmano"><i class="fab fa-twitter"></i></a>
-          <a href="https://www.instagram.com/_grrmano/"><i class="fab fa-instagram"></i></a>
+          <a href="<?= $dadosRS['github'] ?>" target="_blank"><i class="fab fa-github"></i></a>
+          <a href="<?= $dadosRS['twitter'] ?>"><i class="fab fa-twitter"></i></a>
+          <a href="<?= $dadosRS['instagram'] ?>"><i class="fab fa-instagram"></i></a>
         </div>
       </div>
       <div class="col-xl-8 justify-content-center" align="center">
