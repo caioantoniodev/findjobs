@@ -91,10 +91,7 @@ if (!isset($_SESSION['logado'])) {
           while ($dados = mysqli_fetch_assoc($resultado)) {
           ?>
             <!--Card do Projeto-->
-            <div class="card m-3" style="width: 21rem;height: auto;">
-              <img src="<?= $dados['imgurl'] ?>" class="card-img-top p-5" alt="">
-              <div class="card-body h-100">
-                <?php
+            <?php
                 // guardando alguns valores que serão utilizados
                 // pegando informações referentes ao cliente
                 $nome_cliente = $dados['nome'];
@@ -104,19 +101,22 @@ if (!isset($_SESSION['logado'])) {
 
                 // Verifico se o projeto está em aberto
                 if ($dados['cpffreela'] == NULL) {
-                ?>
+            ?>
+            <div class="card m-3" style="width: 21rem;height: auto;">
+              <img src="<?= $dados['imgurl'] ?>" class="card-img-top p-5" alt="">
+              <div class="card-body h-100">
+
                   <h5 class="card-title mb-1"><?= $dados['nome'] ?></h5>
                   <h6 class="card-subtitle text-muted mb-3"><?= $dados['linguagem'] ?></h6>
                   <hr>
                   <p class="card-text"><?= $dados['descricao'] ?></p>
                   <a data-toggle="modal" data-target="#modalProject">
-                    <button type="button" class="btn btn-outline-dark btn-lg">I'm Interested
-                    </button>
+                    <button type="button" class="btn btn-outline-dark btn-lg">I'm Interested</button>
                   </a>
-                <?php } ?>
+
               </div>
             </div>
-
+            <?php } ?>
           <?php } ?>
         </div>
       </div>
