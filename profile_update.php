@@ -74,11 +74,11 @@ if (empty($_FILES['img']['name'])) {
   $cons = "UPDATE usuarios SET avatarurl = '$destino' WHERE usuarios.cpf = $cpf";
 }
 
-if (mysqli_query($conexao, $sql) && mysqli_query($conexao, $sql2) && mysqli_query($conexao, $cons)) {
+if (mysqli_query($conexao, $sql) && mysqli_query($conexao, $sql2) || mysqli_query($conexao, $cons) || mysqli_query($conexao, $sql3) ) {
   $_SESSION['update_sucedido'] = TRUE;
 } else {
   $_SESSION['update_error'] = TRUE;
 }
 
-header('profile.php');
+header('Location: profile.php');
 mysqli_close($conexao);
