@@ -87,4 +87,3 @@
     mysqli_close($conexao);
     header('Location: login.php');
     exit();
-?>
