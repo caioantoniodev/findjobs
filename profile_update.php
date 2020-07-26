@@ -59,7 +59,6 @@
 
     $url = $img['avatarurl'];
 
-
     $cons = "UPDATE usuarios
           SET avatarurl = '$url'
           WHERE usuarios.cpf = $cpf";
@@ -68,8 +67,6 @@
     $destino = 'uploads/' .  $_FILES['img']['name'];
     $imagem = $_FILES['img']['tmp_name'];
     $caminho =  move_uploaded_file($imagem, $destino);
-
-    echo $destino;
 
     $cons = "UPDATE usuarios SET avatarurl = '$destino' WHERE usuarios.cpf = $cpf";
   }
