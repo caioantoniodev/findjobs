@@ -8,7 +8,7 @@ if (!isset($_SESSION['logado'])) {
 }
 
 // obtenho o cpf do cliente cadastrado
-$cpfCliente = $cpf = $_SESSION['cpf'];
+$cpfCliente = $_SESSION['cpf'];
 ?>
 
 <!DOCTYPE html>
