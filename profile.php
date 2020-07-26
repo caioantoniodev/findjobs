@@ -238,36 +238,31 @@ $dadosRS = mysqli_fetch_assoc($resultado);
         <h3>Own Projects</h3>
         <div class="container-fluid padding" align="center">
           <div class="row justify-content-center">
-            <div class="card m-3" style="width: 21rem;height: auto;">
-              <img src="img/gps2.png" class="card-img-top p-5" alt="">
-              <div class="card-body h-100">
-                <h5 class="card-title mb-1">Matheus</h5>
-                <h6 class="card-subtitle text-muted mb-3">Java</h6>
-                <hr>
-                <p class="card-text">Preciso de um GPS mobile em tempo real.</p>
-                <a data-toggle="modal" data-target="#modalEditProject"><button type="button" class="btn btn-outline-dark btn-lg">Edit Project</button></a>
+            <?php
+              // listando projetos  desse usuário
+              $consulta = "SELECT * FROM usuarios, projetos WHERE usuarios.cpf = projetos.cliente_cpf AND usuarios.cpf = $cpf;";
+
+              // recebo o resutado da querie na variavel $resultado
+              $resultado = mysqli_query($conexao, $consulta);
+
+              // utilizo o while para percorrer cada card de do html e add as infos do bd
+              while ($projetos = mysqli_fetch_assoc($resultado)) {
+            ?>
+
+
+              <div class="card m-3" style="width: 21rem;height: auto;">
+                <img src="<?= $projetos['imgurl'] ?>" class="card-img-top p-5" alt="">
+                <div class="card-body h-100">
+                  <h5 class="card-title mb-1"><?= $projetos['titulo'] ?></h5>
+                  <h6 class="card-subtitle text-muted mb-3"><?= $projetos['linguagem'] ?></h6>
+                  <hr>
+                  <p class="card-text"><?= $projetos['descricao'] ?></p>
+                  <a data-toggle="modal" data-target="#modalEditProject"><button type="button" class="btn btn-outline-dark btn-lg">Edit Project</button></a>
+                </div>
               </div>
-            </div>
-            <div class="card m-3" style="width: 21rem;height: auto;">
-              <img src="img/calc2.png" class="card-img-top p-5" alt="">
-              <div class="card-body h-100">
-                <h5 class="card-title mb-1">Matheus</h5>
-                <h6 class="card-subtitle text-muted mb-3">Visual Studio</h6>
-                <hr>
-                <p class="card-text">Preciso de uma calculadora quântica.</p>
-                <a data-toggle="modal" data-target="#modalEditProject"><button type="button" class="btn btn-outline-dark btn-lg">Edit Project</button></a>
-              </div>
-            </div>
-            <div class="card m-3" style="width: 21rem;height: auto;">
-              <img src="img/database.png" class="card-img-top p-5" alt="">
-              <div class="card-body h-100">
-                <h5 class="card-title mb-1">Matheus</h5>
-                <h6 class="card-subtitle text-muted mb-2">MySQLFront</h6>
-                <hr>
-                <p class="card-text">Preciso de um banco de dados para minha aplicação web.</p>
-                <a data-toggle="modal" data-target="#modalEditProject"><button type="button" class="btn btn-outline-dark btn-lg">Edit Project</button></a>
-              </div>
-            </div>
+
+            <?php } ?>
+
             <div class="modal fade" id="modalEditProject" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
               <div class="modal-dialog" role="document">
                 <div class="modal-content col-12">
@@ -278,7 +273,7 @@ $dadosRS = mysqli_fetch_assoc($resultado);
                   <div class="modal-body">
                     <div class="form-row">
                       <div class="form-group col-md-6">
-                        <input type="text" class="form-control" id="projectName" placeholder="Project Name" required="required">
+                        <input type="text" class="form-control" value="<?= $_GET['id'] ?>"id="projectName" placeholder="Project Name" required="required">
                       </div>
                       <div class="form-group col-md-6">
                         <input type="text" class="form-control" id="lang" placeholder="Language (c#, Java, etc.)" required="required">
@@ -341,33 +336,30 @@ $dadosRS = mysqli_fetch_assoc($resultado);
         <h3 class="mt-5">Participating</h3>
         <div class="container-fluid padding" align="center">
           <div class="row justify-content-center">
-            <div class="card m-3" style="width: 21rem;height: auto;">
-              <img src="img/delivery2.png" class="card-img-top p-5" alt="">
-              <div class="card-body h-100">
-                <h5 class="card-title mb-1">Guilherme</h5>
-                <h6 class="card-subtitle text-muted mb-3">Java</h6>
-                <hr>
-                <p class="card-text">Preciso de um app de delivery.</p>
+            <?php
+                // listando projetos  desse usuário
+                $consulta = "SELECT * FROM usuarios, projetos WHERE usuarios.cpf = projetos.cliente_cpf AND projetos.cpffreela = $cpf";
+
+                // recebo o resutado da querie na variavel $resultado
+                $resultado = mysqli_query($conexao, $consulta);
+
+                // utilizo o while para percorrer cada card de do html e add as infos do bd
+                while ($meuFreela = mysqli_fetch_assoc($resultado)) {
+            ?>
+
+              <div class="card m-3" style="width: 21rem;height: auto;">
+                <img src="img/delivery2.png" class="card-img-top p-5" alt="">
+                <div class="card-body h-100">
+                  <h5 class="card-title mb-1"><?= $meuFreela['titulo'] ?></h5>
+                  <h6 class="card-subtitle text-muted mb-3"><?= $meuFreela['linguagem'] ?></h6>
+                  <hr>
+                  <p class="card-text"><?= $meuFreela['descricao'] ?>.</p>
+                  <a href="<?= $meuFreela['repositorio'] ?>"><button type="button" class="btn btn-outline-dark btn-lg">See Repository</button></a>
+                </div>
               </div>
-            </div>
-            <div class="card m-3" style="width: 21rem;height: auto;">
-              <img src="img/website.png" class="card-img-top p-5" alt="">
-              <div class="card-body h-100">
-                <h5 class="card-title mb-1">Brayan</h5>
-                <h6 class="card-subtitle text-muted mb-3">HTML, CSS e JS</h6>
-                <hr>
-                <p class="card-text">Preciso de um Website para minha loja de roupas.</p>
-              </div>
-            </div>
-            <div class="card m-3" style="width: 21rem;height: auto;">
-              <img src="img/scanner.png" class="card-img-top p-5" alt="">
-              <div class="card-body h-100">
-                <h5 class="card-title mb-1">Thales</h5>
-                <h6 class="card-subtitle text-muted mb-2">Java</h6>
-                <hr>
-                <p class="card-text">Preciso de um app scanner.</p>
-              </div>
-            </div>
+
+            <?php } ?>
+
           </div>
         </div>
       </div>
