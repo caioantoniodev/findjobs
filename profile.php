@@ -261,7 +261,19 @@ $dadosRS = mysqli_fetch_assoc($resultado);
                     <h6 class="card-subtitle text-muted mb-3"><?= $projetos['linguagem'] ?></h6>
                     <hr>
                     <p class="card-text"><?= $projetos['descricao'] ?></p>
-                    <a data-toggle="modal" data-target="#modalEditProject"><button onclick="setValue(3)" type="button" class="btn btn-outline-dark btn-lg">Edit Project</button></a>
+                    <button
+                      type="button"
+                      class="btn btn-xs btn-warning"
+                      data-toggle="modal"
+                      data-target="#modalEditProject"
+                      data-whatever="<?= $projetos['idprojetos'] ?>"
+                      data-whatevertitulo="<?= $projetos['titulo'] ?>"
+                      data-whateverdescricao="<?= $projetos['descricao'] ?>"
+                      data-whateverlinguagem="<?= $projetos['linguagem'] ?>"
+                      data-whateverrepositorio="<?= $projetos['repositorio'] ?>"
+                      data-whateverfreela="<?= $projetos['cpffreela'] ?>"
+                    >Editar
+                    </button>
                   </div>
                 </div>
 
@@ -277,8 +289,9 @@ $dadosRS = mysqli_fetch_assoc($resultado);
                   </div>
                   <div class="modal-body">
                     <div class="form-row">
+                      <input type="hidden" name="cpfCliente">
                       <div class="form-group col-md-6">
-                        <input type="text" class="form-control" value="" id="projectName" placeholder="Project Name">
+                        <input type="text" class="form-control" value="" id="titulo" placeholder="Project Name">
                       </div>
                       <div class="form-group col-md-6">
                         <input type="text" class="form-control" id="lang" placeholder="Language (c#, Java, etc.)">
@@ -289,15 +302,6 @@ $dadosRS = mysqli_fetch_assoc($resultado);
                     </div>
                     <div class="form-group">
                       <input type="text" class="form-control" id="repository" placeholder="Add your GitHub Repository">
-                    </div>
-                    <hr>
-                    <h6>Participants:</h6>
-                    <div class="row justify-content-center text-center mb-2">
-                      <div class="participants">
-                        <a href="#"><i class="fas fa-user-circle"></i></a>
-                        <a href="#"><i class="fas fa-user-circle"></i></a>
-                        <a href="#"><i class="fas fa-user-circle"></i></a>
-                      </div>
                     </div>
                     <hr>
                     <h6>Add a Participant</h6>
@@ -398,12 +402,39 @@ $dadosRS = mysqli_fetch_assoc($resultado);
 
   <button onclick="backToTop()" id="btnTop"><i class="fas fa-arrow-up"></i></button>
 
+  <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+
+
   <script src="js/validacoes.js"></script>
   <script type="text/JavaScript" src="js/topo.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
   <script src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
+
+  <script type="text/javascript">
+		$('#modalEditProject').on('show.bs.modal', function (event) {
+		  let button = $(event.relatedTarget);
+      let id = button.data('whatever');
+      console.log(id);
+      let titulo = button.data('whatevertitulo');
+      let descricao = button.data('whateverdescricao');
+      let linguagem = button.data('whateverlinguagem');
+      let repositorio = button.data('whateverrepositorio');
+      let freela = button.data('whateverfreela');
+
+      let modal = $(this);
+
+
+      modal.find('#idCliente').val(titulo);
+      modal.find('#titulo').val(titulo);
+		  modal.find('#desc').val(descricao);
+      modal.find('#lang').val(linguagem);
+      modal.find('#repository').val(repositorio);
+      modal.find('#cpf').val(freela);
+		});
+	</script>
 </body>
 
 </html>
