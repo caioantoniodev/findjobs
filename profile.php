@@ -279,46 +279,55 @@ $dadosRS = mysqli_fetch_assoc($resultado);
             <?php } ?>
 
             <div class="modal fade" id="modalEditProject" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+            <form action="project_update.php" method="POST">
               <div class="modal-dialog" role="document">
                 <div class="modal-content col-12">
                   <div class="modal-header">
                     <h4 class="modal-title" id="myModalLabel">Edit Project</h4>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                   </div>
-                  <div class="modal-body">
-                    <div class="form-row">
-                      <input type="hidden" name="cpfCliente">
-                      <div class="form-group col-md-6">
-                        <input type="text" class="form-control" value="" id="titulo" placeholder="Project Name">
+
+                    <div class="modal-body">
+                      <div class="form-row">
+
+                        <input type="hidden" name="idProjeto" id="idProjeto">
+
+                        <div class="form-group col-md-6">
+                          <input type="text" class="form-control" name= "titulo" value="" id="titulo" placeholder="Project Name">
+                        </div>
+                        <div class="form-group col-md-6">
+                          <input type="text" class="form-control" name="lang" id="lang" placeholder="Language (c#, Java, etc.)">
+                        </div>
                       </div>
-                      <div class="form-group col-md-6">
-                        <input type="text" class="form-control" id="lang" placeholder="Language (c#, Java, etc.)">
+                      <div class="form-group">
+                        <textarea name="desc" id="desc" rows="5" placeholder="Project Description" style="width: 100%;"></textarea>
                       </div>
-                    </div>
-                    <div class="form-group">
-                      <textarea id="desc" rows="5" placeholder="Project Description" style="width: 100%;"></textarea>
-                    </div>
-                    <div class="form-group">
-                      <input type="text" class="form-control" id="repository" placeholder="Add your GitHub Repository">
-                    </div>
-                    <hr>
-                    <h6>Add a Participant</h6>
-                    <form action="">
+                      <div class="form-group">
+                        <input type="text" class="form-control" name="repo" id="repository" placeholder="Add your GitHub Repository">
+                      </div>
+                      <hr>
+                      <h6>Add a Participant</h6>
+
                       <div class="form-group">
                         <small class="text-muted">Insert the participant's cpf</small>
-                        <input class="form-control" type="text" id="cpf" placeholder="000.000.000-00" onkeypress="$(this).mask('000.000.000-00');">
+                        <input class="form-control" type="text" name="cpfFreela" id="cpf" placeholder="000.000.000-00" maxlength=11>
                       </div>
-                    </form>
+
                     <hr>
-                    <button type="button" class="btn btn-outline-dark btn-md mb-3">Confirm</button>
-                    <button type="button" class="btn btn-danger btn-md mb-3">Delete Project</button>
-                    <label class="active">
-                      <input type="checkbox" autocomplete="off" required="required"> I have read and accept the <span class="text-info" style="text-decoration: underline; cursor: pointer;"><a data-toggle="modal" data-target="#myModal">Terms of Use</a></span>
-                    </label>
+                    <button type="submit" class="btn btn-outline-dark btn-md mb-3">Confirm</button>
+                  </form>
+                  <form action="project_delete.php" method="POST">
+                    <input type="hidden" name="idProjetoDL" id="idProjetoDL">
+                    <button type="submit" class="btn btn-danger btn-md mb-3">Delete Project</button>
+                  </form>
                   </div>
+                  <label class="active">
+                      <input type="checkbox" autocomplete="off" required="required"> I have read and accept the <span class="text-info" style="text-decoration: underline; cursor: pointer;"><a data-toggle="modal" data-target="#myModal">Terms of Use</a></span>
+                  </label>
                 </div>
               </div>
             </div>
+
             <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
               <div class="modal-dialog" role="document">
                 <div class="modal-content col-12">
@@ -382,11 +391,13 @@ $dadosRS = mysqli_fetch_assoc($resultado);
   </div>
 
   <?php
+  // MSG CRIAR PROJETO
   if (isset($_SESSION['criar_sucedido'])) {
     echo "<script>alert('SUCESS: Project created with sucess');</script>";
   }
   unset($_SESSION['criar_sucedido']);
 
+  // MSG ATUALIZAR UM PROJETO
   if (isset($_SESSION['update_sucedido'])) {
     echo "<script>alert('SUCESS: Profile updated');</script>";
   }
@@ -396,6 +407,34 @@ $dadosRS = mysqli_fetch_assoc($resultado);
     echo "<script>alert('ERROR: Profile not updated');</script>";
   }
   unset($_SESSION['update_error']);
+
+  // MSG ATUALIZAR UM PROJETO
+  if (isset($_SESSION['updatepj_sucedido'])) {
+    echo "<script>alert('SUCESS: Profile updated');</script>";
+  }
+  unset($_SESSION['updatepj_sucedido']);
+
+  if (isset($_SESSION['updatepj_error'])) {
+    echo "<script>alert('ERROR: Profile not updated');</script>";
+  }
+  unset($_SESSION['updatepj_error']);
+
+  // MSG DELETAR UM PROJETO
+  if (isset($_SESSION['delete_sucedido'])) {
+    echo "<script>alert('SUCESS: Project Deleted');</script>";
+  }
+  unset($_SESSION['delete_sucedido']);
+
+  if (isset($_SESSION['delete_error'])) {
+    echo "<script>alert('ERROR: Project not deleted');</script>";
+  }
+  unset($_SESSION['delete_error']);
+
+  // MSG FREELANCER NÂO ENCONTRADO
+  if (isset($_SESSION['freelaNa'])) {
+    echo "<script>alert('ERROR: Freelancer not found');</script>";
+  }
+  unset($_SESSION['freelaNa']);
   ?>
 
   <button onclick="backToTop()" id="btnTop"><i class="fas fa-arrow-up"></i></button>
@@ -410,6 +449,7 @@ $dadosRS = mysqli_fetch_assoc($resultado);
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
   <script src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
 
+  <!--Inserir dados no modal-->
   <script type="text/javascript">
     $('#modalEditProject').on('show.bs.modal', function(event) {
       const button = $(event.relatedTarget);
@@ -422,7 +462,8 @@ $dadosRS = mysqli_fetch_assoc($resultado);
 
       const modal = $(this);
 
-      modal.find('#idCliente').val(id);
+      modal.find('#idProjeto').val(id);
+      modal.find('#idProjetoDL').val(id);
       modal.find('#titulo').val(titulo);
       modal.find('#desc').val(descricao);
       modal.find('#lang').val(linguagem);
