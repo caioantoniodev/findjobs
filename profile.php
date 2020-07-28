@@ -266,12 +266,12 @@ $dadosRS = mysqli_fetch_assoc($resultado);
                       class="btn btn-xs btn-warning"
                       data-toggle="modal"
                       data-target="#modalEditProject"
-                      data-whatever="<?= $projetos['idprojetos'] ?>"
-                      data-whatevertitulo="<?= $projetos['titulo'] ?>"
-                      data-whateverdescricao="<?= $projetos['descricao'] ?>"
-                      data-whateverlinguagem="<?= $projetos['linguagem'] ?>"
-                      data-whateverrepositorio="<?= $projetos['repositorio'] ?>"
-                      data-whateverfreela="<?= $projetos['cpffreela'] ?>"
+                      data-id="<?= $projetos['idprojetos'] ?>"
+                      data-titulo="<?= $projetos['titulo'] ?>"
+                      data-descricao="<?= $projetos['descricao'] ?>"
+                      data-linguagem="<?= $projetos['linguagem'] ?>"
+                      data-repositorio="<?= $projetos['repositorio'] ?>"
+                      data-freela="<?= $projetos['cpffreela'] ?>"
                     >Editar
                     </button>
                   </div>
@@ -416,13 +416,12 @@ $dadosRS = mysqli_fetch_assoc($resultado);
   <script type="text/javascript">
 		$('#modalEditProject').on('show.bs.modal', function (event) {
 		  let button = $(event.relatedTarget);
-      let id = button.data('whatever');
-      console.log(id);
-      let titulo = button.data('whatevertitulo');
-      let descricao = button.data('whateverdescricao');
-      let linguagem = button.data('whateverlinguagem');
-      let repositorio = button.data('whateverrepositorio');
-      let freela = button.data('whateverfreela');
+      let id = button.data('id');
+      let titulo = button.data('titulo');
+      let descricao = button.data('descricao');
+      let linguagem = button.data('linguagem');
+      let repositorio = button.data('repositorio');
+      let freela = button.data('freela');
 
       let modal = $(this);
 
