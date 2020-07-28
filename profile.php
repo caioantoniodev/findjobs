@@ -403,7 +403,6 @@ $dadosRS = mysqli_fetch_assoc($resultado);
   <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 
-
   <script src="js/validacoes.js"></script>
   <script type="text/JavaScript" src="js/topo.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
@@ -413,7 +412,7 @@ $dadosRS = mysqli_fetch_assoc($resultado);
 
   <script type="text/javascript">
     $('#modalEditProject').on('show.bs.modal', function(event) {
-      let button = $(event.relatedTarget);
+      const button = $(event.relatedTarget);
       let id = button.data('id');
       let titulo = button.data('titulo');
       let descricao = button.data('descricao');
@@ -421,10 +420,9 @@ $dadosRS = mysqli_fetch_assoc($resultado);
       let repositorio = button.data('repositorio');
       let freela = button.data('freela');
 
-      let modal = $(this);
+      const modal = $(this);
 
-
-      modal.find('#idCliente').val(titulo);
+      modal.find('#idCliente').val(id);
       modal.find('#titulo').val(titulo);
       modal.find('#desc').val(descricao);
       modal.find('#lang').val(linguagem);
