@@ -1,4 +1,6 @@
 <?php
+session_start();
+
 // verifico se está logado, assim impedindo acessar direto na url
 if (!isset($_SESSION['logado'])) {
   header('Location: index.php');

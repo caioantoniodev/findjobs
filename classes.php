@@ -1,4 +1,6 @@
 <?php
+session_start();
+
 // verifico se está logado, assim impedindo acessar direto na url
 if (!isset($_SESSION['logado'])) {
   header('Location: index.php');
@@ -43,16 +45,7 @@ if (!isset($_SESSION['logado'])) {
               <a class="nav-link text-white" href="index.php">Home</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link text-white" href="classes.php">Classes</a>
-            </li>
-            <li class="nav-item">
               <a class="nav-link text-white" href="projects.php">Projects</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link text-white" href="login.php">Sign In</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link text-white" href="register.php">Register</a>
             </li>
             <li class="nav-item">
               <a class="nav-link text-white" href="contact.php">Contact</a>
