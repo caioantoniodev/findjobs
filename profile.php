@@ -261,18 +261,7 @@ $dadosRS = mysqli_fetch_assoc($resultado);
                     <h6 class="card-subtitle text-muted mb-3"><?= $projetos['linguagem'] ?></h6>
                     <hr>
                     <p class="card-text"><?= $projetos['descricao'] ?></p>
-                    <button
-                      type="button"
-                      class="btn btn-xs btn-warning"
-                      data-toggle="modal"
-                      data-target="#modalEditProject"
-                      data-id="<?= $projetos['idprojetos'] ?>"
-                      data-titulo="<?= $projetos['titulo'] ?>"
-                      data-descricao="<?= $projetos['descricao'] ?>"
-                      data-linguagem="<?= $projetos['linguagem'] ?>"
-                      data-repositorio="<?= $projetos['repositorio'] ?>"
-                      data-freela="<?= $projetos['cpffreela'] ?>"
-                    >Editar
+                    <button type="button" class="btn btn-xs btn-warning" data-toggle="modal" data-target="#modalEditProject" data-id="<?= $projetos['idprojetos'] ?>" data-titulo="<?= $projetos['titulo'] ?>" data-descricao="<?= $projetos['descricao'] ?>" data-linguagem="<?= $projetos['linguagem'] ?>" data-repositorio="<?= $projetos['repositorio'] ?>" data-freela="<?= $projetos['cpffreela'] ?>">Editar
                     </button>
                   </div>
                 </div>
@@ -414,8 +403,8 @@ $dadosRS = mysqli_fetch_assoc($resultado);
   <script src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
 
   <script type="text/javascript">
-		$('#modalEditProject').on('show.bs.modal', function (event) {
-		  let button = $(event.relatedTarget);
+    $('#modalEditProject').on('show.bs.modal', function(event) {
+      let button = $(event.relatedTarget);
       let id = button.data('id');
       let titulo = button.data('titulo');
       let descricao = button.data('descricao');
@@ -428,12 +417,12 @@ $dadosRS = mysqli_fetch_assoc($resultado);
 
       modal.find('#idCliente').val(titulo);
       modal.find('#titulo').val(titulo);
-		  modal.find('#desc').val(descricao);
+      modal.find('#desc').val(descricao);
       modal.find('#lang').val(linguagem);
       modal.find('#repository').val(repositorio);
       modal.find('#cpf').val(freela);
-		});
-	</script>
+    });
+  </script>
 </body>
 
 </html>
