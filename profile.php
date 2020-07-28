@@ -261,7 +261,16 @@ $dadosRS = mysqli_fetch_assoc($resultado);
                     <h6 class="card-subtitle text-muted mb-3"><?= $projetos['linguagem'] ?></h6>
                     <hr>
                     <p class="card-text"><?= $projetos['descricao'] ?></p>
-                    <button type="button" class="btn btn-xs btn-warning" data-toggle="modal" data-target="#modalEditProject" data-id="<?= $projetos['idprojetos'] ?>" data-titulo="<?= $projetos['titulo'] ?>" data-descricao="<?= $projetos['descricao'] ?>" data-linguagem="<?= $projetos['linguagem'] ?>" data-repositorio="<?= $projetos['repositorio'] ?>" data-freela="<?= $projetos['cpffreela'] ?>">Editar
+                    <button
+                      type="button"
+                      class="btn btn-outline-dark btn-lg"
+                      data-toggle="modal" data-target="#modalEditProject"
+                      data-id="<?= $projetos['idprojetos'] ?>"
+                      data-titulo="<?= $projetos['titulo'] ?>"
+                      data-descricao="<?= $projetos['descricao'] ?>"
+                      data-linguagem="<?= $projetos['linguagem'] ?>"
+                      data-repositorio="<?= $projetos['repositorio'] ?>"
+                      data-freela="<?= $projetos['cpffreela'] ?>">Editar
                     </button>
                   </div>
                 </div>
