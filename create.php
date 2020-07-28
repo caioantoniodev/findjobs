@@ -80,8 +80,8 @@ $cpfCliente = $_SESSION['cpf'];
       </div>
       <div class="form-row">
         <div class="form-group col-md-6">
-            <input class="form-control"  name="dataEntrega" type="date" id="born" required="required">
-            <small class="text-muted">Data de entrega</small>
+          <input class="form-control" name="dataEntrega" type="date" id="born" required="required">
+          <small class="text-muted">Data de entrega</small>
         </div>
       </div>
       <div class="form-group">
