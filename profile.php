@@ -439,7 +439,7 @@ $dadosRS = mysqli_fetch_assoc($resultado);
 
   <button onclick="backToTop()" id="btnTop"><i class="fas fa-arrow-up"></i></button>
 
-  <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+  <!-- jQuery (necessary for Bootstrap's JavaScript plugins -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 
   <script src="js/validacoes.js"></script>

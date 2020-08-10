@@ -35,7 +35,7 @@ if (!isset($_SESSION['logado'])) {
               <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                 <a href="profile.php" class="dropdown-item">Profile</a>
                 <div class="dropdown-divider"></div>
-                <a href="index.php" class="dropdown-item"><i class="fas fa-sign-out-alt"></i> Log Out</a>
+                <a href="sair.php" class="dropdown-item"><i class="fas fa-sign-out-alt"></i> Log Out</a>
               </div>
             </li>
             <li class="nav-item active">

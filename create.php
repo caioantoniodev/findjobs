@@ -42,7 +42,7 @@ $cpfCliente = $_SESSION['cpf'];
               <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                 <a href="profile.php" class="dropdown-item">Profile</a>
                 <div class="dropdown-divider"></div>
-                <a href="index.php" class="dropdown-item"><i class="fas fa-sign-out-alt"></i> Log Out</a>
+                <a href="sair.php" class="dropdown-item"><i class="fas fa-sign-out-alt"></i> Log Out</a>
               </div>
             </li>
             <li class="nav-item active">
@@ -89,7 +89,7 @@ $cpfCliente = $_SESSION['cpf'];
       </div>
       <div class="form-row">
         <div class="form-group col-md-6">
-          <input type="text" class="form-control" name="valor" id="price" placeholder="$ 00,000.00" required onkeypress="$(this).mask('#.##0,00', {reverse: true});">
+          <input type="text" class="form-control" name="valor" id="price" placeholder="Valor do projeto">
         </div>
         <div class="form-group col-md-6">
           <select class="form-control" name="fPagamento" id="payment">
