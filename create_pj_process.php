@@ -1,16 +1,26 @@
 <?php
-session_start();
-include_once("connection.php");
+  session_start();
+  include_once("connection.php");
 
-if (empty($_POST['nome_projeto']) || empty($_POST['lang']) || empty($_POST['descricao']) || empty($_POST['valor'])) {
-  $_SESSION['mal_sucedido'] = TRUE;
-  header('Location: create_pj_process.php');
-} else {
+  // Função que executa a limpeza do JQUERY
+  function limpaFFront($valor)
+  {
+    $valor = str_replace(".", "", $valor);
+    $valor = str_replace(",", "", $valor);
+    $valor = str_replace(" ", "", $valor);
+
+    return $valor;
+  }
+
+  if (empty($_POST['nome_projeto']) || empty($_POST['lang']) || empty($_POST['descricao']) || empty($_POST['valor'])) {
+    $_SESSION['mal_sucedido'] = TRUE;
+    header('Location: create_pj_process.php');
+  } else {
 
   $nomeProjeto = trim($_POST['nome_projeto']);
   $linguagem = trim($_POST['lang']);
   $descricao = trim($_POST['descricao']);
-  $valorProjeto = trim($_POST['valor']);
+  $valorProjeto = limpaFFront(trim($_POST['valor']));
   $cpfCliente = trim($_POST['cpfCliente']);
   $dataEntrega = trim($_POST['dataEntrega']);
   $pagamento = trim($_POST['fPagamento']);
