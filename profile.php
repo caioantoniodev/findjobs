@@ -413,7 +413,7 @@ $dadosRS = mysqli_fetch_assoc($resultado);
     echo '<div class="alert alert-danger fixed-top m-3 " style="transition: .1s ">
     <button type="button" class="close" data-dismiss="alert">&times;</button>
     <h4 class="alert-heading">Erro!</h4>
-    Perfil não atualizado!</div>';
+    Perfil não atualizado.</div>';
   }
   unset($_SESSION['update_error']);
 
@@ -430,7 +430,7 @@ $dadosRS = mysqli_fetch_assoc($resultado);
     echo '<div class="alert alert-danger fixed-top m-3 " style="transition: .1s ">
     <button type="button" class="close" data-dismiss="alert">&times;</button>
     <h4 class="alert-heading">Erro!</h4>
-    Projeto não atualizado!</div>';
+    Projeto não atualizado.</div>';
   }
   unset($_SESSION['updatepj_error']);
 
@@ -447,8 +447,7 @@ $dadosRS = mysqli_fetch_assoc($resultado);
     echo '<div class="alert alert-danger fixed-top m-3 " style="transition: .1s ">
     <button type="button" class="close" data-dismiss="alert">&times;</button>
     <h4 class="alert-heading">Erro!</h4>
-    Projeto não deletado!</div>';
-    echo "<script>alert('ERROR: Project not deleted');</script>";
+    Projeto não deletado.</div>';
   }
   unset($_SESSION['delete_error']);
 
