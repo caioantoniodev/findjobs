@@ -140,7 +140,7 @@ include('connection.php');
               $id_projeto = $dados['idprojetos'];
 
               // Verifico se o projeto está em aberto
-              if ($dados['cpffreela'] == NULL) {
+              if ($dados['cpffreela'] == NULL || $dados['cpffreela'] == 0) {
               ?>
                 <div class="card m-3" style="width: 21rem;height: auto;">
                   <img src="<?= $dados['imgurl'] ?>" class="card-img-top p-5" alt="">
