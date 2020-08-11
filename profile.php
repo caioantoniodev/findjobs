@@ -393,46 +393,70 @@ $dadosRS = mysqli_fetch_assoc($resultado);
   <?php
   // MSG CRIAR PROJETO
   if (isset($_SESSION['criar_sucedido'])) {
-    echo "<script>alert('SUCESS: Project created with sucess');</script>";
+    echo '<div class="alert alert-success fixed-top m-3" style="transition: .6s ease-in">
+    <button type="button" class="close" data-dismiss="alert">&times;</button>
+    <h4 class="alert-heading">Sucesso!</h4>
+    Project created with sucess.</div>';
   }
   unset($_SESSION['criar_sucedido']);
 
   // MSG ATUALIZAR UM PROJETO
   if (isset($_SESSION['update_sucedido'])) {
-    echo "<script>alert('SUCESS: Profile updated');</script>";
+    echo '<div class="alert alert-success fixed-top m-3" style="transition: .6s ease-in">
+    <button type="button" class="close" data-dismiss="alert">&times;</button>
+    <h4 class="alert-heading">Sucesso!</h4>
+    Projeto atualizado com sucesso.</div>';
   }
   unset($_SESSION['update_sucedido']);
 
   if (isset($_SESSION['update_error'])) {
-    echo "<script>alert('ERROR: Profile not updated');</script>";
+    echo '<div class="alert alert-danger fixed-top m-3 " style="transition: .1s ">
+    <button type="button" class="close" data-dismiss="alert">&times;</button>
+    <h4 class="alert-heading">Erro!</h4>
+    Perfil não atualizado.</div>';
   }
   unset($_SESSION['update_error']);
 
   // MSG ATUALIZAR UM PROJETO
   if (isset($_SESSION['updatepj_sucedido'])) {
-    echo "<script>alert('SUCESS: Profile updated');</script>";
+    echo '<div class="alert alert-success fixed-top m-3" style="transition: .6s ease-in">
+    <button type="button" class="close" data-dismiss="alert">&times;</button>
+    <h4 class="alert-heading">Sucesso!</h4>
+    Projeto atualizado com sucesso.</div>';
   }
   unset($_SESSION['updatepj_sucedido']);
 
   if (isset($_SESSION['updatepj_error'])) {
-    echo "<script>alert('ERROR: Profile not updated');</script>";
+    echo '<div class="alert alert-danger fixed-top m-3 " style="transition: .1s ">
+    <button type="button" class="close" data-dismiss="alert">&times;</button>
+    <h4 class="alert-heading">Erro!</h4>
+    Projeto não atualizado.</div>';
   }
   unset($_SESSION['updatepj_error']);
 
   // MSG DELETAR UM PROJETO
   if (isset($_SESSION['delete_sucedido'])) {
-    echo "<script>alert('SUCESS: Project Deleted');</script>";
+    echo '<div class="alert alert-warning fixed-top m-3 " style="transition: .6s ease-in ">
+    <button type="button" class="close" data-dismiss="alert">&times;</button>
+    <h4 class="alert-heading">Sucesso!</h4>
+    Projeto deletado.</div>';
   }
   unset($_SESSION['delete_sucedido']);
 
   if (isset($_SESSION['delete_error'])) {
-    echo "<script>alert('ERROR: Project not deleted');</script>";
+    echo '<div class="alert alert-danger fixed-top m-3 " style="transition: .1s ">
+    <button type="button" class="close" data-dismiss="alert">&times;</button>
+    <h4 class="alert-heading">Erro!</h4>
+    Projeto não deletado.</div>';
   }
   unset($_SESSION['delete_error']);
 
   // MSG FREELANCER NÂO ENCONTRADO
   if (isset($_SESSION['freelaNa'])) {
-    echo "<script>alert('ERROR: Freelancer not found');</script>";
+    echo '<div class="alert alert-danger fixed-top m-3 " style="transition: .18s ease-out">
+    <button type="button" class="close" data-dismiss="alert">&times;</button>
+    <h4 class="alert-heading">Erro!</h4>
+    Freelancer não encontrado.</div>';
   }
   unset($_SESSION['freelaNa']);
   ?>

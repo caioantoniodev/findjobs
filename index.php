@@ -140,7 +140,7 @@ include('connection.php');
               $id_projeto = $dados['idprojetos'];
 
               // Verifico se o projeto está em aberto
-              if ($dados['cpffreela'] == NULL) {
+              if ($dados['cpffreela'] == NULL || $dados['cpffreela'] == 0) {
               ?>
                 <div class="card m-3" style="width: 21rem;height: auto;">
                   <img src="<?= $dados['imgurl'] ?>" class="card-img-top p-5" alt="">
@@ -296,7 +296,7 @@ include('connection.php');
           <div class="modal-dialog" role="document">
             <div class="modal-content col-12">
               <div class="modal-header">
-                <h4 class="modal-title" id="myModalLabel">Rate Us!</h4>
+                <h4 class="modal-title" id="myModalLabel">Nos avalie!</h4>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
               </div>
               <div class="modal-body">
@@ -318,7 +318,7 @@ include('connection.php');
                     <input class="form-control" type="text" name="profissao" id="prof" placeholder="Profession" value="<?= $info_pessoais['profissao'] ?>" onkeypress="return ApenasLetras(event,this);" required="required">
                   </div>
                   <div class="form-group">
-                    <textarea id="desc" rows="5" name="opniao" placeholder="Leave Your Opinion" required="required" style="width: 100%;"></textarea>
+                    <textarea id="desc" rows="5" name="opniao" placeholder="Sua opnião" required="required" style="width: 100%;"></textarea>
                   </div>
                   <div class="estrelas">
                     <input type="radio" id="vazio" name="estrela" value="" checked>
@@ -339,10 +339,10 @@ include('connection.php');
                     <input type="radio" id="estrela5" name="estrela" value="5">
                   </div>
                   <div class="form-group">
-                    <input type="submit" name="enviar" class="btn btn-outline-dark" id="enviar" />
+                    <input type="submit" name="enviar" class="btn btn-outline-dark" id="enviar" value="enviar" />
                   </div>
                 </form>
-                <a class="link" href="contact.php">Did you have any problem?</a>
+                <a class="link" href="contact.php">Você teve um problema?</a>
               </div>
             </div>
           </div>
@@ -353,7 +353,7 @@ include('connection.php');
     <div class="container padding" align="center">
       <div class="row text-center padding">
         <div class="col-12">
-          <h2>Follow Us</h2>
+          <h2>Siga-nos</h2>
         </div>
         <div class="col-12 social padding">
           <a href="https://twitter.com/FindJobsTCC"><i class="fab fa-twitter"></i></a>
@@ -367,12 +367,18 @@ include('connection.php');
     <!--Response evaluation-->
     <?php
     if (isset($_SESSION['avbem_sucedido'])) {
-      echo "<script>alert('SUCESSO: Avaliação efetuada.');</script>";
+      echo '<div class="alert alert-success fixed-top m-3" style="transition: .6s ease-in">
+      <button type="button" class="close" data-dismiss="alert">&times;</button>
+      <h4 class="alert-heading">Sucesso!</h4>
+      Avaliação efetuada.</div>';
     }
     unset($_SESSION['avbem_sucedido']);
 
     if (isset($_SESSION['avmal_sucedido'])) {
-      echo "<script>alert('ERRO: Avaliação não efetuada.');</script>";
+      echo '<div class="alert alert-danger fixed-top m-3 " style="transition: .1s ">
+      <button type="button" class="close" data-dismiss="alert">&times;</button>
+      <h4 class="alert-heading">Erro!</h4>
+      Avaliação não efetuada.</div>';
     }
     unset($_SESSION['avmal_sucedido']);
     ?>
