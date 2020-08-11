@@ -37,36 +37,34 @@ include('connection.php');
               <li class="nav-item dropdown">
                 <a class="nav-link text-white" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" href="#"><i class="fas fa-user-circle"></i></a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                  <a href="profile.php" class="dropdown-item">Profile</a>
+                  <a href="profile.php" class="dropdown-item">Perfil</a>
                   <div class="dropdown-divider"></div>
-                  <a href="sair.php" class="dropdown-item"><i class="fas fa-sign-out-alt"></i> Log Out</a>
+                  <a href="sair.php" class="dropdown-item"><i class="fas fa-sign-out-alt"></i>Sair</a>
                 </div>
               </li>
 
-              <li class="nav-item active">
-                <a class="nav-link text-white" href="index.php">Home</a>
+              <li class="nav-item">
+                <a class="nav-link text-white" href="classes.php">Aulas</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link text-white" href="classes.php">Classes</a>
+                <a class="nav-link text-white" href="projects.php">Projetos</a>
               </li>
-              <li class="nav-item">
-                <a class="nav-link text-white" href="projects.php">Projects</a>
-              </li>
+
             <?php } ?>
             <!--https://celke.com.br/artigo/como-usar-funcao-empty-e-isset-no-php#:~:text=Ela%20serve%20para%20saber%20se,uma%20vari%C3%A1vel%20n%C3%A3o%20for%20vazia.&text=Exemplo%20de%20isset%20e%20empty%20usado%20para%20validar%20um%20formul%C3%A1rio.-->
             <!-- Verifica se NÃO tem um usuario na sessao -->
             <?php if (!isset($_SESSION['logado'])) { ?>
               <li class="nav-item">
-                <a class="nav-link text-white" href="login.php">Sign In</a>
+                <a class="nav-link text-white" href="login.php">Entrar</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link text-white" href="register.php">Register</a>
+                <a class="nav-link text-white" href="register.php">Cadastrar</a>
               </li>
             <?php } ?>
             <!-- Verifica se tem um usuario na sessao -->
             <?php if (isset($_SESSION['logado'])) { ?>
               <li class="nav-item">
-                <a class="nav-link text-white" href="contact.php">Contact</a>
+                <a class="nav-link text-white" href="contact.php">Contato</a>
               </li>
             <?php } ?>
           </ul>
@@ -96,11 +94,11 @@ include('connection.php');
       $resultado = mysqli_query($conexao, $consulta);
       $dados = mysqli_fetch_array($resultado);
     ?>
-      <h1>Welcome, <?php echo  $dados['nome']; ?> !</h1>
+      <h1>Bem-vindo, <?php echo  $dados['nome']; ?> !</h1>
     <?php } else { ?>
-      <h1 class="display-2">Don't have an account yet?</h1>
-      <a href="login.php"><button type="button" class="btn btn-outline-light btn-lg">Sign In</button></a>
-      <a href="register.php"><button type="button" class="btn btn-light btn-lg">Register</button></a>
+      <h1 class="display-2">Não tem uma conta ainda?</h1>
+      <a href="login.php"><button type="button" class="btn btn-outline-light btn-lg">Entrar</button></a>
+      <a href="register.php"><button type="button" class="btn btn-light btn-lg">Cadastrar</button></a>
     <?php } ?>
   </div>
 
@@ -109,8 +107,8 @@ include('connection.php');
   <div class="container">
     <div class="row justify-content-center text-center">
       <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
-        <h1 class="mt-4">WHAT WILL YOU SEE HERE?</h1>
-        <p class="lead">In FindJobs you'll find projects to enter in freelancer world!</p>
+        <h1 class="mt-4">O que você verá aqui?</h1>
+        <p class="lead">Na FindJobs você encontrará projetos para entrar no mundo freelancer!</p>
       </div>
       <div class="container-fluid padding" align="center">
         <div class="row justify-content-center">
@@ -153,7 +151,7 @@ include('connection.php');
                     <hr>
                     <p class="card-text"><?= $dados['descricao'] ?></p>
 
-                    <a data-toggle="modal" data-target="#modalProject"><button type="button" class="btn btn-outline-dark btn-lg">I'm Interested</button></a>
+                    <a data-toggle="modal" data-target="#modalProject"><button type="button" class="btn btn-outline-dark btn-lg">Estou interessado</button></a>
 
 
                   </div>
@@ -185,30 +183,29 @@ include('connection.php');
         </div>
         <div class="col-12">
           <a <?php if (isset($_SESSION['logado'])) { ?> href="projects.php" <?php } else { ?> href="login.php" <?php } ?>>
-            <button type="button" class="btn btn-outline-dark btn-lg">See Projects</button>
+            <button type="button" class="btn btn-outline-dark btn-lg">Veja todos projetos</button>
           </a>
         </div>
         <div class="modal fade" id="modalProject" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
           <div class="modal-dialog" role="document">
             <div class="modal-content col-12">
               <div class="modal-header">
-                <h4 class="modal-title" id="myModalLabel">Wanna join in a project?</h4>
+                <h4 class="modal-title" id="myModalLabel">Quer participar de um projeto?</h4>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
               </div>
               <div class="modal-body">
                 <form action="">
                   <div class="form-group">
-                    <p>By entering a project you agree to all terms.</p>
-                    <p>Now it's up to you, you need to inform the client by email about your interest in the project.</p>
-                    <p>The project owner may or may not accept you in the project.</p>
-                    <p>Good luck to you🚀</p>
+                    <p>Ao entrar em um projeto, você concorda com todos os termos.</p>
+                    <p>Agora cabe a você informar o cliente por e-mail sobre o seu interesse no projeto. O proprietário do projeto pode ou não aceitar você no projeto.</p>
+                    <p>Boa sorte 🚀</p>
                     <hr>
 
-                    <button type="button" onclick="enviarEmail('<?= $email_cliente ?>', '<?= $nome_cliente ?>', '<?= $titulo_projeto ?>', '<?= $nome_freela ?>', '<?= $profissao_freela ?>')" class="btn btn-outline-dark btn-md mb-3">Send email for <?php echo $nome_cliente ?>
+                    <button type="button" onclick="enviarEmail('<?= $email_cliente ?>', '<?= $nome_cliente ?>', '<?= $titulo_projeto ?>', '<?= $nome_freela ?>', '<?= $profissao_freela ?>')" class="btn btn-outline-dark btn-md mb-3">Enviar email para <?php echo $nome_cliente ?>
                     </button>
 
                     <label class="active">
-                      <input type="checkbox" autocomplete="off" required="required"> I have read and accept the <span class="text-info" style="text-decoration: underline; cursor: pointer;"><a data-toggle="modal" data-target="#myModal">Terms of Use</a></span>
+                      <input type="checkbox" autocomplete="off" required="required"> Eu li e aceito os <span class="text-info" style="text-decoration: underline; cursor: pointer;"><a data-toggle="modal" data-target="#myModal">Termos de uso</a></span>
                     </label>
                   </div>
                 </form>
@@ -241,8 +238,8 @@ include('connection.php');
     <div class="container padding" align="center">
       <div class="row text-center justify-content-center" style="width: 100%;">
         <div class="col-12">
-          <h1>WHAT DO WE HAVE TO OFFER?</h1>
-          <P class="lead">Need to prepare for your future job or project? We have Starter course for you :)</P>
+          <h1>O QUE TEMOS A OFERECER ?</h1>
+          <P class="lead">Precisa se preparar para seu futuro trabalho ou projeto? Temos curso para você aprimorar suas habilidades.</P>
         </div>
         <div class="embed-responsive embed-responsive-16by9 col-md-5 col-xl-3 m-2">
           <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/qJaA5VrtN0c" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
@@ -255,7 +252,7 @@ include('connection.php');
         </div>
         <div class="col-12">
           <a <?php if (isset($_SESSION['logado'])) { ?> href="classes.php" <?php } else { ?> href="login.php" <?php } ?>>
-            <button type="button" class="btn btn-outline-dark btn-lg">Access All Content</button>
+            <button type="button" class="btn btn-outline-dark btn-lg">Acessar todo conteúdo</button>
           </a>
         </div>
       </div>
@@ -264,8 +261,8 @@ include('connection.php');
     <div class="container">
       <div class="row text-center justify-content-center">
         <div class="col-12">
-          <h1>Opinions</h1>
-          <P class="lead">See the opinion of people using the platform.</P>
+          <h1>Opniões</h1>
+          <P class="lead">Veja as opniões de quem estão utilizando a nossa plataforma.</P>
         </div>
         <div class="container-fluid padding" align="center">
           <div class="row justify-content-center">
@@ -292,7 +289,7 @@ include('connection.php');
         </div>
         <div class="col-12">
           <?php if (isset($_SESSION['logado'])) { ?>
-            <a data-toggle="modal" data-target="#modalRate"><button type="button" class="btn btn-outline-dark btn-lg">Leave Your Review</button></a>
+            <a data-toggle="modal" data-target="#modalRate"><button type="button" class="btn btn-outline-dark btn-lg">Deixe sua opnião</button></a>
           <?php } ?>
         </div>
         <div class="modal fade" id="modalRate" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
