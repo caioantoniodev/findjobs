@@ -29,10 +29,10 @@ session_start();
         <div class="collapse navbar-collapse" id="navbarResponsive">
           <ul class="navbar-nav ml-auto text-center">
             <li class="nav-item active">
-              <a class="nav-link text-white" href="index.php">Home</a>
+              <a class="nav-link text-white" href="index.php">Tela Inicial</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link text-white" href="register.php">Register</a>
+              <a class="nav-link text-white" href="register.php">Cadastrar</a>
             </li>
           </ul>
         </div>
@@ -43,37 +43,50 @@ session_start();
   <!-- End Navigation Bar -->
 
   <div class="container">
-    <h1 class="display-4 mt-4">Sign in to your account</h1>
+    <h1 class="display-4 mt-4">Faça login em sua conta</h1>
     <hr>
-    <h6 class="text-muted">fill in the fields correctly</h6>
+    <h6 class="text-muted">Preencha todos os campos corretamente</h6>
 
     <form class="mt-4" action="login_process.php" method="POST">
       <div class="form-group">
         <label for="email">E-mail</label>
-        <input class="form-control" type="email" name="email" id="email" placeholder="youremail@email.com" required="required">
+        <input class="form-control" type="email" name="email" id="email" placeholder="email@email.com" required="required">
       </div>
       <div class="form-group">
-        <label for="senha">Password</label>
-        <input class="form-control" type="password" name="senha" id="senha" placeholder="Your Password" required="required">
-        <a class="p-1" href="#">Forgot your password?</a>
+        <label for="senha">Senha</label>
+        <input class="form-control" type="password" name="senha" id="senha" placeholder="Sua senha" required="required">
+        <a class="p-1" href="#">Esqueceu sua senha?</a>
       </div>
-      <button type="submit" class="btn btn-info mb-3">Sign In</button>
+      <button type="submit" class="btn btn-info mb-3">Entrar</button>
     </form>
   </div>
 
   <!---Se mal sucedido--->
   <?php
-  if (isset($_SESSION['campos_vazios'])) {
-    echo "<script>alert('ERROR: Fill in all the fields.');</script>";
-  }
-  unset($_SESSION['campos_vazios']);
-  ?>
+    if (isset($_SESSION['campos_vazios'])) {
+      echo '<div class="alert alert-danger fixed-top m-3 " style="transition: .1s ">
+      <button type="button" class="close" data-dismiss="alert">&times;</button>
+      <h4 class="alert-heading">Erro!</h4>
+      Preencha todos os campos.</div>';
+    }
+    unset($_SESSION['campos_vazios']);
 
-  <?php
-  if (isset($_SESSION['mal_sucedido'])) {
-    echo "<script>alert('ERROR: Invalid email or password');</script>";
-  }
-  unset($_SESSION['mal_sucedido']);
+    if (isset($_SESSION['mal_sucedido'])) {
+      echo '<div class="alert alert-danger fixed-top m-3 " style="transition: .1s ">
+      <button type="button" class="close" data-dismiss="alert">&times;</button>
+      <h4 class="alert-heading">Erro!</h4>
+      O Email ou senha inseridos são inválidos.</div>';
+    }
+    unset($_SESSION['mal_sucedido']);
+
+    // MSG CRIAR CONTA
+    if (isset($_SESSION['bem_sucedido'])) {
+      echo '<div class="alert alert-success fixed-top m-3" style="transition: .6s ease-in">
+      <button type="button" class="close" data-dismiss="alert">&times;</button>
+      <h4 class="alert-heading">Sucesso!</h4>
+      Sua conta foi criada.</div>';
+    }
+    unset($_SESSION['bem_sucedido']);
   ?>
 
 
