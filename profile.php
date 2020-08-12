@@ -396,7 +396,7 @@ $dadosRS = mysqli_fetch_assoc($resultado);
     echo '<div class="alert alert-success fixed-top m-3" style="transition: .6s ease-in">
     <button type="button" class="close" data-dismiss="alert">&times;</button>
     <h4 class="alert-heading">Sucesso!</h4>
-    Project created with sucess.</div>';
+    Projeto criado com sucesso.</div>';
   }
   unset($_SESSION['criar_sucedido']);
 

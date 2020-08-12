@@ -129,21 +129,30 @@
       <!---Se mal sucedido--->
       <?php
           if (isset($_SESSION['campos_vazios'])) {
-              echo "<script>alert('ERRO: Preencha todos os campos.');</script>";
+            echo '<div class="alert alert-danger fixed-top m-3 " style="transition: .1s ">
+            <button type="button" class="close" data-dismiss="alert">&times;</button>
+            <h4 class="alert-heading">Erro!</h4>
+            Preencha todos os campos.</div>';
           }
           unset($_SESSION['campos_vazios']);
       ?>
 
       <?php
           if (isset($_SESSION['mal_sucedido'])) {
-              echo "<script>alert('ERRO: Preencha todos os campos.');</script>";
+            echo '<div class="alert alert-danger fixed-top m-3 " style="transition: .1s ">
+            <button type="button" class="close" data-dismiss="alert">&times;</button>
+            <h4 class="alert-heading">Erro!</h4>
+            Não foi possível criar sua conta.</div>';
           }
           unset($_SESSION['mal_sucedido']);
       ?>
 
       <?php
           if (isset($_SESSION['cpf_existente'])) {
-              echo "<script>alert('ERRO: Já existe uma conta que utiliza esse CPF.');</script>";
+            echo '<div class="alert alert-danger fixed-top m-3 " style="transition: .1s ">
+            <button type="button" class="close" data-dismiss="alert">&times;</button>
+            <h4 class="alert-heading">Erro!</h4>
+            Já existe uma conta que utiliza esse CPF.</div>';
           }
           unset($_SESSION['cpf_existente']);
       ?>
