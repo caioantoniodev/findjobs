@@ -31,7 +31,7 @@
             <li class="nav-item active">
               <a class="nav-link text-white" href="index.php">Home</a>
             </li>
-              <a class="nav-link text-white" href="login.php">Sign In</a>
+              <a class="nav-link text-white" href="login.php">Entrar</a>
             </li>
           </ul>
         </div>
@@ -42,15 +42,15 @@
   <!-- End Navigation Bar -->
 
   <div class="container">
-    <h1 class="display-4 mt-4">Register your account</h1>
+    <h1 class="display-4 mt-4">Crir sua conta</h1>
     <hr>
-    <h6 class="text-muted">Fill in the fields correctly</h6>
+    <h6 class="text-muted">Preencha todos os campos corretamente</h6>
 
     <form class="mt-3" action="register_process.php" method="POST" enctype='multipart/form-data'>
-      <h6>Personal data</h6>
+      <h6>Dados pessoais</h6>
       <div class="form-row">
         <div class="form-group col-md-6">
-          <input class="form-control" name="nome" type="text" id="name" placeholder="Your Name" onkeypress="return ApenasLetras(event,this);" required="required">
+          <input class="form-control" name="nome" type="text" id="name" placeholder="Seu Nome" onkeypress="return ApenasLetras(event,this);" required="required">
         </div>
         <div class="form-group col-md-6">
           <input class="form-control"  name="nascimento" type="date" id="born" required="required">
@@ -61,12 +61,12 @@
           <input class="form-control" name="cpf" type="text" id="cpf" placeholder="000.000.000-00" onkeypress="$(this).mask('000.000.000-00');" required="required">
         </div>
         <div class="form-group col-md-6">
-          <input class="form-control" name="profissao" type="text" id="prof" placeholder="Profession" onkeypress="return ApenasLetras(event,this);" required="required">
+          <input class="form-control" name="profissao" type="text" id="prof" placeholder="Profissão" onkeypress="return ApenasLetras(event,this);" required="required">
         </div>
       </div>
       <div class="form-row">
         <div class="form-group col-md-6">
-          <input class="form-control" name="email" type="email" id="email" placeholder="youremail@email.com" onkeypress="return ValidaEmail(event,this);" required="required">
+          <input class="form-control" name="email" type="email" id="email" placeholder="seuemail@email.com" onkeypress="return ValidaEmail(event,this);" required="required">
         </div>
         <div class="form-group col-md-6">
           <input class="form-control" name="telefone" type="text" id="nbr" placeholder="(00)00000-0000" required="required" maxlength="13" onkeypress="$(this).mask('(00) 00000-0009')">
@@ -74,8 +74,8 @@
       </div>
       <div class="form-row">
         <div class="form-group col-md-6">
-          <input class="form-control" name="senha" type="password" id="pass" placeholder="Your Password" required="required">
-          <small class="text-muted">Mininal lenght: 8 characters</small>
+          <input class="form-control" name="senha" type="password" id="pass" placeholder="Sua Senha" required="required">
+          <small class="text-muted">Mínimo: 8 caracteres</small>
         </div>
         <!-- <div class="form-group col-md-6">
           <input class="form-control" type="password" id="pass" placeholder="Confirm Your Password" required="required">
@@ -84,22 +84,22 @@
       </div>
       <hr>
       <div class="form-group">
-        <label for="exp">Select your experience</label>
+        <label for="exp">Selecione sua experiência</label>
         <select class="form-control" name="exp" id="exp">
-          <option value="Sem experiência">Without experience</option>
-          <option value="Iniciante">Rookie</option>
-          <option value="Intermediario">Intermedian</option>
-          <option value="Experiente">Experient</option>
+          <option value="Sem experiência">Sem experiência</option>
+          <option value="Iniciante">Iniciante</option>
+          <option value="Intermediario">Intermediário</option>
+          <option value="Experiente">Experiente</option>
         </select>
       </div>
       <div class="form-group">
-        <label for="image">Select a image for your profile</label>
+        <label for="image">Selecione a imagem do seu perfil</label>
         <input class="form-control" name="imagem" type="file" id="image">
-        <small class="text-muted">Max. size: 3MB</small>
+        <small class="text-muted">Tamanho máximo: 3MB</small>
       </div>
       <div class="form-group">
         <label class="active">
-          <input type="checkbox" autocomplete="off" required="required"> I have read and accept the <span class="text-info" style="text-decoration: underline; cursor: pointer;"><a data-toggle="modal" data-target="#myModal">Terms of Use</a></span>
+          <input type="checkbox" autocomplete="off" required="required"> Eu li e aceito os <span class="text-info" style="text-decoration: underline; cursor: pointer;"><a data-toggle="modal" data-target="#myModal">Termos de uso</a></span>
         </label>
       </div>
       <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
@@ -122,40 +122,40 @@
         </div>
       </div>
 
-      <button type="submit" class="btn btn-info mb-3">Register</button>
+      <button type="submit" class="btn btn-info mb-3">Registrar</button>
     </form>
   </div>
 
-      <!---Se mal sucedido--->
-      <?php
-          if (isset($_SESSION['campos_vazios'])) {
-            echo '<div class="alert alert-danger fixed-top m-3 " style="transition: .1s ">
-            <button type="button" class="close" data-dismiss="alert">&times;</button>
-            <h4 class="alert-heading">Erro!</h4>
-            Preencha todos os campos.</div>';
-          }
-          unset($_SESSION['campos_vazios']);
-      ?>
+  <!---Se mal sucedido--->
+  <?php
+      if (isset($_SESSION['campos_vazios'])) {
+        echo '<div class="alert alert-danger fixed-top m-3 " style="transition: .1s ">
+        <button type="button" class="close" data-dismiss="alert">&times;</button>
+        <h4 class="alert-heading">Erro!</h4>
+        Preencha todos os campos.</div>';
+      }
+      unset($_SESSION['campos_vazios']);
+  ?>
 
-      <?php
-          if (isset($_SESSION['mal_sucedido'])) {
-            echo '<div class="alert alert-danger fixed-top m-3 " style="transition: .1s ">
-            <button type="button" class="close" data-dismiss="alert">&times;</button>
-            <h4 class="alert-heading">Erro!</h4>
-            Não foi possível criar sua conta.</div>';
-          }
-          unset($_SESSION['mal_sucedido']);
-      ?>
+  <?php
+      if (isset($_SESSION['mal_sucedido'])) {
+        echo '<div class="alert alert-danger fixed-top m-3 " style="transition: .1s ">
+        <button type="button" class="close" data-dismiss="alert">&times;</button>
+        <h4 class="alert-heading">Erro!</h4>
+        Não foi possível criar sua conta.</div>';
+      }
+      unset($_SESSION['mal_sucedido']);
+  ?>
 
-      <?php
-          if (isset($_SESSION['cpf_existente'])) {
-            echo '<div class="alert alert-danger fixed-top m-3 " style="transition: .1s ">
-            <button type="button" class="close" data-dismiss="alert">&times;</button>
-            <h4 class="alert-heading">Erro!</h4>
-            Já existe uma conta que utiliza esse CPF.</div>';
-          }
-          unset($_SESSION['cpf_existente']);
-      ?>
+  <?php
+      if (isset($_SESSION['cpf_existente'])) {
+        echo '<div class="alert alert-danger fixed-top m-3 " style="transition: .1s ">
+        <button type="button" class="close" data-dismiss="alert">&times;</button>
+        <h4 class="alert-heading">Erro!</h4>
+        Já existe uma conta que utiliza esse CPF.</div>';
+      }
+      unset($_SESSION['cpf_existente']);
+  ?>
 
 
   <button onclick="backToTop()" id="btnTop"><i class="fas fa-arrow-up"></i></button>

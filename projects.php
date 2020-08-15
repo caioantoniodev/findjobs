@@ -37,19 +37,19 @@ if (!isset($_SESSION['logado'])) {
             <li class="nav-item dropdown">
               <a class="nav-link text-white" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" href="#"><i class="fas fa-user-circle"></i></a>
               <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <a href="profile.php" class="dropdown-item">Profile</a>
+                <a href="profile.php" class="dropdown-item">Perfil</a>
                 <div class="dropdown-divider"></div>
-                <a href="sair.php" class="dropdown-item"><i class="fas fa-sign-out-alt"></i> Log Out</a>
+                <a href="sair.php" class="dropdown-item"><i class="fas fa-sign-out-alt"></i>Sair</a>
               </div>
             </li>
             <li class="nav-item active">
               <a class="nav-link text-white" href="index.php">Home</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link text-white" href="classes.php">Classes</a>
+              <a class="nav-link text-white" href="classes.php">Aulas</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link text-white" href="contact.php">Contact</a>
+              <a class="nav-link text-white" href="contact.php">Contato</a>
             </li>
           </ul>
         </div>
@@ -62,8 +62,8 @@ if (!isset($_SESSION['logado'])) {
   <div class="container">
     <div class="row justify-content-center text-center">
       <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
-        <h1 class="mt-4">WELCOME TO THE PROJECTS AREA!</h1>
-        <p class="lead">Here you'll find several project options to join.</p>
+        <h1 class="mt-4">BEM VINDO A ÁREA DE PROJETOS!</h1>
+        <p class="lead">Aqui você encontrará várias opções de projeto para ingressar.</p>
         <hr>
         <div class="col-12">
           <a href="create.php"><button type="button" class="btn btn-outline-dark btn-lg">Create a Project</button></a>
@@ -111,7 +111,7 @@ if (!isset($_SESSION['logado'])) {
                   <hr>
                   <p class="card-text"><?= $dados['descricao'] ?></p>
                   <a data-toggle="modal" data-target="#modalProject">
-                    <button type="button" class="btn btn-outline-dark btn-lg">I'm Interested</button>
+                    <button type="button" class="btn btn-outline-dark btn-lg">Tenho interesse</button>
                   </a>
 
               </div>
@@ -130,17 +130,16 @@ if (!isset($_SESSION['logado'])) {
             <div class="modal-body">
               <form action="">
                 <div class="form-group">
-                  <p>By entering a project you agree to all terms.</p>
-                  <p>Now it's up to you, you need to inform the client by email about your interest in the project.</p>
-                  <p>The project owner may or may not accept you in the project.</p>
-                  <p>Good luck to you🚀</p>
+                  <p>Ao entrar em um projeto, você concorda com todos os termos.</p>
+                  <p>Agora cabe a você informar o cliente por e-mail sobre o seu interesse no projeto. O proprietário do projeto pode ou não aceitar você no projeto.</p>
+                  <p>Boa sorte 🚀</p>
                   <hr>
 
                   <button type="button" onclick="enviarEmail('<?= $email_cliente ?>', '<?= $nome_cliente ?>', '<?= $titulo_projeto ?>', '<?= $nome_freela ?>', '<?= $profissao_freela ?>')" class="btn btn-outline-dark btn-md mb-3">Send email for <?php echo $nome_cliente ?>
                   </button>
 
                   <label class="active">
-                    <input type="checkbox" autocomplete="off" required="required"> I have read and accept the <span class="text-info" style="text-decoration: underline; cursor: pointer;"><a data-toggle="modal" data-target="#myModal">Terms of Use</a></span>
+                    <input type="checkbox" autocomplete="off" required="required"> Eu li e aceito os <span class="text-info" style="text-decoration: underline; cursor: pointer;"><a data-toggle="modal" data-target="#myModal">Termos de uso</a></span>
                   </label>
                 </div>
               </form>

@@ -36,19 +36,19 @@ if (!isset($_SESSION['logado'])) {
             <li class="nav-item dropdown">
               <a class="nav-link text-white" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" href="#"><i class="fas fa-user-circle"></i></a>
               <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <a href="profile.php" class="dropdown-item">Profile</a>
+                <a href="profile.php" class="dropdown-item">Perfil</a>
                 <div class="dropdown-divider"></div>
-                <a href="sair.php" class="dropdown-item"><i class="fas fa-sign-out-alt"></i> Log Out</a>
+                <a href="sair.php" class="dropdown-item"><i class="fas fa-sign-out-alt"></i>Sair</a>
               </div>
             </li>
             <li class="nav-item active">
               <a class="nav-link text-white" href="index.php">Home</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link text-white" href="projects.php">Projects</a>
+              <a class="nav-link text-white" href="projects.php">Projetos</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link text-white" href="contact.php">Contact</a>
+              <a class="nav-link text-white" href="contact.php">Contato</a>
             </li>
           </ul>
         </div>
@@ -61,8 +61,10 @@ if (!isset($_SESSION['logado'])) {
   <div class="container padding" align="center">
     <div class="row text-center justify-content-center" style="width: 100%;">
       <div class="col-12">
-        <h1 class="mt-4">WELCOME TO THE CLASSES AREA!</h1>
-        <p class="lead">If you need to remember or learn new things access the videos available.</p>
+        <h1 class="mt-4">BEM VINDO A ÁREA DE AULAS!</h1>
+        <p class="lead">Se você está precisando relembrar alguma coisa ou aprender uma nova stack
+          você está no lugar certo.
+        </p>
         <hr>
       </div>
 
