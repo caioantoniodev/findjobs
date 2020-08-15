@@ -50,6 +50,10 @@ include('connection.php');
                 <a class="nav-link text-white" href="projects.php">Projetos</a>
               </li>
 
+              <li class="nav-item">
+                <a class="nav-link text-white" href="contact.php">Contato</a>
+              </li>
+
             <?php } ?>
             <!--https://celke.com.br/artigo/como-usar-funcao-empty-e-isset-no-php#:~:text=Ela%20serve%20para%20saber%20se,uma%20vari%C3%A1vel%20n%C3%A3o%20for%20vazia.&text=Exemplo%20de%20isset%20e%20empty%20usado%20para%20validar%20um%20formul%C3%A1rio.-->
             <!-- Verifica se NÃO tem um usuario na sessao -->
@@ -62,11 +66,6 @@ include('connection.php');
               </li>
             <?php } ?>
             <!-- Verifica se tem um usuario na sessao -->
-            <?php if (isset($_SESSION['logado'])) { ?>
-              <li class="nav-item">
-                <a class="nav-link text-white" href="contact.php">Contato</a>
-              </li>
-            <?php } ?>
           </ul>
         </div>
       </div>
@@ -312,10 +311,10 @@ include('connection.php');
 
                 <form action="evaluation_process.php" method="POST">
                   <div class="form-group">
-                    <input class="form-control" type="text" name="nome_completo" id="name" placeholder="Your Name" value="<?= $info_pessoais['nome'] ?>" onkeypress="return ApenasLetras(event,this);" required="required">
+                    <input class="form-control" type="text" name="nome_completo" id="name" placeholder="Seu nome" value="<?= $info_pessoais['nome'] ?>" onkeypress="return ApenasLetras(event,this);" required="required">
                   </div>
                   <div class="form-group">
-                    <input class="form-control" type="text" name="profissao" id="prof" placeholder="Profession" value="<?= $info_pessoais['profissao'] ?>" onkeypress="return ApenasLetras(event,this);" required="required">
+                    <input class="form-control" type="text" name="profissao" id="prof" placeholder="Profissão" value="<?= $info_pessoais['profissao'] ?>" onkeypress="return ApenasLetras(event,this);" required="required">
                   </div>
                   <div class="form-group">
                     <textarea id="desc" rows="5" name="opniao" placeholder="Sua opnião" required="required" style="width: 100%;"></textarea>
