@@ -42,7 +42,7 @@
   <!-- End Navigation Bar -->
 
   <div class="container">
-    <h1 class="display-4 mt-4">Crir sua conta</h1>
+    <h1 class="display-4 mt-4">Criar sua conta</h1>
     <hr>
     <h6 class="text-muted">Preencha todos os campos corretamente</h6>
 
@@ -66,7 +66,7 @@
       </div>
       <div class="form-row">
         <div class="form-group col-md-6">
-          <input class="form-control" name="email" type="email" id="email" placeholder="seuemail@email.com" onkeypress="return ValidaEmail(event,this);" required="required">
+          <input class="form-control" name="email" type="email" id="email" placeholder="seuemail@email.com" required="required">
         </div>
         <div class="form-group col-md-6">
           <input class="form-control" name="telefone" type="text" id="nbr" placeholder="(00)00000-0000" required="required" maxlength="13" onkeypress="$(this).mask('(00) 00000-0009')">
