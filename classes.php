@@ -36,19 +36,19 @@ if (!isset($_SESSION['logado'])) {
             <li class="nav-item dropdown">
               <a class="nav-link text-white" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" href="#"><i class="fas fa-user-circle"></i></a>
               <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <a href="profile.php" class="dropdown-item">Profile</a>
+                <a href="profile.php" class="dropdown-item">Perfil</a>
                 <div class="dropdown-divider"></div>
-                <a href="sair.php" class="dropdown-item"><i class="fas fa-sign-out-alt"></i> Log Out</a>
+                <a href="sair.php" class="dropdown-item"><i class="fas fa-sign-out-alt"></i>Sair</a>
               </div>
             </li>
             <li class="nav-item active">
               <a class="nav-link text-white" href="index.php">Home</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link text-white" href="projects.php">Projects</a>
+              <a class="nav-link text-white" href="projects.php">Projetos</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link text-white" href="contact.php">Contact</a>
+              <a class="nav-link text-white" href="contact.php">Contato</a>
             </li>
           </ul>
         </div>
