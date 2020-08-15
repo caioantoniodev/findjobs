@@ -1,5 +1,5 @@
 <h1 align="center">
-  TCC do curso técnico de informática cpdb 2020
+TCC of the cpdb 2020 computer technician course
 </h1>
 
 <p align="center">
