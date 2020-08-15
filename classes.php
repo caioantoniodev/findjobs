@@ -61,8 +61,10 @@ if (!isset($_SESSION['logado'])) {
   <div class="container padding" align="center">
     <div class="row text-center justify-content-center" style="width: 100%;">
       <div class="col-12">
-        <h1 class="mt-4">WELCOME TO THE CLASSES AREA!</h1>
-        <p class="lead">If you need to remember or learn new things access the videos available.</p>
+        <h1 class="mt-4">BEM VINDO A ÁREA DE AULAS!</h1>
+        <p class="lead">Se você está precisando relembrar alguma coisa ou aprender uma nova stack
+          você está no lugar certo.
+        </p>
         <hr>
       </div>
 
