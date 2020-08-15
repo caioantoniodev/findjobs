@@ -1,5 +1,5 @@
 <h1 align="center">
-    FINDJOBS
+  TCC do curso técnico de informática cpdb 2020
 </h1>
 
 <p align="center">
@@ -26,3 +26,9 @@ This project was developed with the following technologies:
 ## 💻 Project
 
 FindJobs is a platform for freelancers to find projects and study
+
+## 👨🏻‍💻 Devs
+
+- [Caio Antonio Cichetti Roberto](https://github.com/caiocichetti/)
+- [Lucas Vinicius Bermudes](https://github.com/caiocichetti/)
+- [Matheus Germano da Costa](https://github.com/caiocichetti/)
