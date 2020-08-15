@@ -17,7 +17,7 @@ $cpfCliente = $_SESSION['cpf'];
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Criar projetos</title>
+  <title>Criar projeto</title>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
   <link href="css/create.css" rel="stylesheet">
   <link href="css/topo.css" rel="stylesheet">

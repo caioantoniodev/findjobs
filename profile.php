@@ -29,7 +29,7 @@ $dadosRS = mysqli_fetch_assoc($resultado);
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Profile</title>
+  <title>Perfil</title>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
   <link href="css/profile.css" rel="stylesheet">
   <link href="css/topo.css" rel="stylesheet">
@@ -53,13 +53,13 @@ $dadosRS = mysqli_fetch_assoc($resultado);
               <a class="nav-link text-white" href="index.php">Home</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link text-white" href="classes.php">Classes</a>
+              <a class="nav-link text-white" href="classes.php">Aulas</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link text-white" href="projects.php">Projects</a>
+              <a class="nav-link text-white" href="projects.php">Projetos</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link text-white" href="contact.php">Contact</a>
+              <a class="nav-link text-white" href="contact.php">Contato</a>
             </li>
             <li class="nav-item">
               <abbr title="Log Out"><a class="nav-link text-white" href="sair.php"><i class="fas fa-sign-out-alt"></i></a></abbr>
@@ -84,25 +84,25 @@ $dadosRS = mysqli_fetch_assoc($resultado);
           <div class="modal-dialog" role="document">
             <div class="modal-content col-12">
               <div class="modal-header">
-                <h4 class="modal-title" id="myModalLabel">Edit Profile</h4>
+                <h4 class="modal-title" id="myModalLabel">Editar seu perfil</h4>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
               </div>
               <div class="modal-body">
                 <form action="profile_update.php" method="POST" enctype='multipart/form-data'>
                   <div class="form-group">
-                    <input class="form-control" type="text" name="nome" id="name" placeholder="Your Name" value="<?= $dados['nome'] ?>" onkeypress="return ApenasLetras(event,this);">
+                    <input class="form-control" type="text" name="nome" id="name" placeholder="Seu Nome" value="<?= $dados['nome'] ?>" onkeypress="return ApenasLetras(event,this);">
                   </div>
                   <div class="form-group">
-                    <input class="form-control" type="text" name="profissao" id="prof" placeholder="Profession" value="<?= $dados['profissao'] ?>" onkeypress="return ApenasLetras(event,this);">
+                    <input class="form-control" type="text" name="profissão" id="prof" placeholder="Profissão" value="<?= $dados['profissao'] ?>" onkeypress="return ApenasLetras(event,this);">
                   </div>
                   <div class="form-group">
-                    <textarea id="desc" rows="5" placeholder="About You" name="sobre" required="required" style="width: 100%;"><?= $dados['sobre'] ?></textarea>
+                    <textarea id="desc" rows="5" placeholder="Biografia" name="sobre" required="required" style="width: 100%;"><?= $dados['sobre'] ?></textarea>
                   </div>
                   <div class="form-group">
                     <input class="form-control" type="text" id="nbr" name="tel" placeholder="(00)00000-0000" value="<?= $dados['telefone'] ?>" required="required" maxlength="13" onkeypress="$(this).mask('(00) 00000-0009')">
                   </div>
                   <hr>
-                  <h6>Social Media:</h6>
+                  <h6>Redes sociais:</h6>
                   <div class="form-row justify-content-center">
                     <a class="social-media mr-2" href="#"><i class="fab fa-github"></i></a>
                     <div class="form-group">
@@ -136,7 +136,7 @@ $dadosRS = mysqli_fetch_assoc($resultado);
                   </div>
                   <hr>
                   <div class="form-group">
-                    <label for="exp">Select your experience</label>
+                    <label for="exp">Selecione sua experiência:</label>
 
                     <?php $experienciaUser = $dados['experiencia']; ?>
 
@@ -146,7 +146,7 @@ $dadosRS = mysqli_fetch_assoc($resultado);
                                                       if ($experienciaUser == "Sem experiência") {
                                                       ?> selected="selected" <?php
                                                                             }
-                                                                              ?>>Without experience
+                                                                              ?>>Sem experiência
                       </option>
 
 
@@ -154,29 +154,29 @@ $dadosRS = mysqli_fetch_assoc($resultado);
                                                 if ($experienciaUser == "Iniciante") {
                                                 ?> selected="selected" <?php
                                                                       }
-                                                                        ?>>Rookie
+                                                                        ?>>Iniciante
                       </option>
 
                       <option value="Intermediario" <?php
                                                     if ($experienciaUser == "Intermediario") {
                                                     ?> selected="selected" <?php
                                                                           }
-                                                                            ?>>Intermedian
+                                                                            ?>>Intermediário
                       </option>
 
                       <option value="Experiente" <?php
                                                   if ($experienciaUser == "Experiente") {
                                                   ?> selected="selected" <?php
                                                                         }
-                                                                          ?>>Experient
+                                                                          ?>>Experiente
                       </option>
 
                     </select>
                   </div>
                   <div class="form-group">
-                    <label for="image">Select a image for your profile</label>
+                    <label for="image">Selecione sua imagem de perfil:</label>
                     <input class="form-control" name="img" type="file" id="image">
-                    <small class="text-muted">Max. size: 3MB</small>
+                    <small class="text-muted">Tamanho máximo: 3MB</small>
                   </div>
                   <hr>
                   <div class="form-group">
@@ -188,7 +188,7 @@ $dadosRS = mysqli_fetch_assoc($resultado);
           </div>
         </div>
         <div class="border p-2">
-          <h6>About</h6>
+          <h6>Biografia</h6>
           <p><?= $dados['sobre'] ?></p>
           <div class="estrelas">
             <input type="radio" id="vazio" name="estrela" value="" checked>
@@ -210,7 +210,7 @@ $dadosRS = mysqli_fetch_assoc($resultado);
           </div>
         </div>
         <div class="col-12 social padding mt-2">
-          <h6>Social Media</h6>
+          <h6>Redes Sociais</h6>
 
           <?php if (!empty($dadosRS['github'])) { ?>
             <a href="<?= $dadosRS['github'] ?>" target="_blank">
@@ -239,7 +239,7 @@ $dadosRS = mysqli_fetch_assoc($resultado);
 
         if ($row['total'] >= 1) {
         ?>
-          <h3>Own Projects</h3>
+          <h3>Seus projetos</h3>
           <div class="container-fluid padding" align="center">
             <div class="row justify-content-center">
               <?php
@@ -283,7 +283,7 @@ $dadosRS = mysqli_fetch_assoc($resultado);
               <div class="modal-dialog" role="document">
                 <div class="modal-content col-12">
                   <div class="modal-header">
-                    <h4 class="modal-title" id="myModalLabel">Edit Project</h4>
+                    <h4 class="modal-title" id="myModalLabel">Editar projeto</h4>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                   </div>
 
@@ -293,36 +293,36 @@ $dadosRS = mysqli_fetch_assoc($resultado);
                         <input type="hidden" name="idProjeto" id="idProjeto">
 
                         <div class="form-group col-md-6">
-                          <input type="text" class="form-control" name= "titulo" value="" id="titulo" placeholder="Project Name">
+                          <input type="text" class="form-control" name= "titulo" value="" id="titulo" placeholder="Nome do projeto">
                         </div>
                         <div class="form-group col-md-6">
-                          <input type="text" class="form-control" name="lang" id="lang" placeholder="Language (c#, Java, etc.)">
+                          <input type="text" class="form-control" name="lang" id="lang" placeholder="Linguagem (c#, Java, etc.)">
                         </div>
                       </div>
                       <div class="form-group">
-                        <textarea name="desc" id="desc" rows="5" placeholder="Project Description" style="width: 100%;"></textarea>
+                        <textarea name="desc" id="desc" rows="5" placeholder="Descrição do projeto" style="width: 100%;"></textarea>
                       </div>
                       <div class="form-group">
-                        <input type="text" class="form-control" name="repo" id="repository" placeholder="Add your GitHub Repository">
+                        <input type="text" class="form-control" name="repo" id="repositório" placeholder="Adicione o repositório onde o código será hospedado">
                       </div>
                       <hr>
-                      <h6>Add a Participant</h6>
+                      <h6>Adicionar um freela</h6>
 
                       <div class="form-group">
-                        <small class="text-muted">Insert the participant's cpf</small>
+                        <small class="text-muted">Insira o cpf do freela</small>
                         <input class="form-control" type="text" name="cpfFreela" id="cpf" placeholder="000.000.000-00" maxlength=11>
                       </div>
 
                     <hr>
-                    <button type="submit" class="btn btn-outline-dark btn-md mb-3">Confirm</button>
+                    <button type="submit" class="btn btn-outline-dark btn-md mb-3">Atualizar</button>
                   </form>
                   <form action="project_delete.php" method="POST">
                     <input type="hidden" name="idProjetoDL" id="idProjetoDL">
-                    <button type="submit" class="btn btn-danger btn-md mb-3">Delete Project</button>
+                    <button type="submit" class="btn btn-danger btn-md mb-3">Fechar o projeto</button>
                   </form>
                   </div>
                   <label class="active">
-                      <input type="checkbox" autocomplete="off" required="required"> I have read and accept the <span class="text-info" style="text-decoration: underline; cursor: pointer;"><a data-toggle="modal" data-target="#myModal">Terms of Use</a></span>
+                    <input type="checkbox" autocomplete="off" required="required"> Eu li e aceito os <span class="text-info" style="text-decoration: underline; cursor: pointer;"><a data-toggle="modal" data-target="#myModal">Termos de uso</a></span>
                   </label>
                 </div>
               </div>
@@ -356,7 +356,7 @@ $dadosRS = mysqli_fetch_assoc($resultado);
 
           if ($row['total'] >= 1) {
           ?>
-            <h3 class="mt-5">Participating</h3>
+            <h3 class="mt-5">Projetos que você está desenvolvendo</h3>
             <div class="container-fluid padding" align="center">
               <div class="row justify-content-center">
 
@@ -378,7 +378,7 @@ $dadosRS = mysqli_fetch_assoc($resultado);
                       <h6 class="card-subtitle text-muted mb-3"><?= $meuFreela['linguagem'] ?></h6>
                       <hr>
                       <p class="card-text"><?= $meuFreela['descricao'] ?>.</p>
-                      <a href="<?= $meuFreela['repositorio'] ?>"><button type="button" class="btn btn-outline-dark btn-lg">See Repository</button></a>
+                      <a href="<?= $meuFreela['repositorio'] ?>"><button type="button" class="btn btn-outline-dark btn-lg">Veja o repositório</button></a>
                     </div>
                   </div>
 
