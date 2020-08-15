@@ -5,8 +5,7 @@
 <p align="center">
   <a href="#-Technology">Technology</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
   <a href="#-Project">Project</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-  <a href="#-layout">Layout</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-  <a href="#memo-licence">License</a>
+  <a href="#-Devs">Developers</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
 </p>
 
 <p align="center">
@@ -20,9 +19,9 @@
 
 This project was developed with the following technologies:
 
-- [PHP](https://nodejs.org/en/)
-- [BOOSTRAP 4](https://reactjs.org)
-- [MYSQL](https://facebook.github.io/react-native/)
+- [PHP](https://www.php.net/)
+- [BOOSTRAP 4](https://getbootstrap.com/)
+- [MYSQL](https://www.mysql.com/)
 
 ## 💻 Project
 
