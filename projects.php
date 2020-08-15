@@ -14,7 +14,7 @@ if (!isset($_SESSION['logado'])) {
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Projects</title>
+  <title>Projetos</title>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
   <link href="css/projects.css" rel="stylesheet">
   <link href="css/topo.css" rel="stylesheet">
@@ -66,7 +66,7 @@ if (!isset($_SESSION['logado'])) {
         <p class="lead">Aqui você encontrará várias opções de projeto para ingressar.</p>
         <hr>
         <div class="col-12">
-          <a href="create.php"><button type="button" class="btn btn-outline-dark btn-lg">Create a Project</button></a>
+          <a href="create.php"><button type="button" class="btn btn-outline-dark btn-lg">Criar um projeto</button></a>
         </div>
       </div>
       <div class="container-fluid padding" align="center">
@@ -124,7 +124,7 @@ if (!isset($_SESSION['logado'])) {
         <div class="modal-dialog" role="document">
           <div class="modal-content col-12">
             <div class="modal-header">
-              <h4 class="modal-title" id="myModalLabel">Wanna join in a project?</h4>
+              <h4 class="modal-title" id="myModalLabel">Quer participar de um projeto?</h4>
               <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
             </div>
             <div class="modal-body">

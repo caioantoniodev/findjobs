@@ -13,7 +13,7 @@ if (!isset($_SESSION['logado'])) {
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Classes</title>
+  <title>Aulas</title>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
   <link href="css/projects.css" rel="stylesheet">
   <link href="css/topo.css" rel="stylesheet">
@@ -99,7 +99,7 @@ if (!isset($_SESSION['logado'])) {
       <!--Recommended Channels-->
       <div class="col-12">
         <hr>
-        <h4 class="mt-4">RECOMMENDED CHANNELS</h4>
+        <h4 class="mt-4">Não encontrou o conteúdo aqui, temos alguns canais legais para você acessar</h4>
       </div>
 
       <div class="embed-responsive embed-responsive-16by9 col-md-5 col-xl-3 m-2">

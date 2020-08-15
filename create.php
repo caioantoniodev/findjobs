@@ -17,7 +17,7 @@ $cpfCliente = $_SESSION['cpf'];
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Create Project</title>
+  <title>Criar projeto</title>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
   <link href="css/create.css" rel="stylesheet">
   <link href="css/topo.css" rel="stylesheet">
@@ -40,22 +40,22 @@ $cpfCliente = $_SESSION['cpf'];
             <li class="nav-item dropdown">
               <a class="nav-link text-white" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" href="#"><i class="fas fa-user-circle"></i></a>
               <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <a href="profile.php" class="dropdown-item">Profile</a>
+                <a href="profile.php" class="dropdown-item">Perfil</a>
                 <div class="dropdown-divider"></div>
-                <a href="sair.php" class="dropdown-item"><i class="fas fa-sign-out-alt"></i> Log Out</a>
+                <a href="sair.php" class="dropdown-item"><i class="fas fa-sign-out-alt"></i>Sair</a>
               </div>
             </li>
             <li class="nav-item active">
               <a class="nav-link text-white" href="index.php">Home</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link text-white" href="classes.php">Classes</a>
+              <a class="nav-link text-white" href="classes.php">Aulas</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link text-white" href="projects.php">Projects</a>
+              <a class="nav-link text-white" href="projects.php">Projetos</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link text-white" href="contact.php">Contact</a>
+              <a class="nav-link text-white" href="contact.php">Contato</a>
             </li>
           </ul>
         </div>
@@ -66,16 +66,16 @@ $cpfCliente = $_SESSION['cpf'];
   <!-- End Navigation Bar -->
 
   <div class="container">
-    <h1 class="display-5 mt-4">Create a project for developers participate and help you.</h1>
+    <h1 class="display-5 mt-4">Crie um projeto para que os desenvolvedores cadastrados possam ajudar você.</h1>
     <hr>
-    <h6 class="text-muted">Fill in the data correctly and accept the terms to generate a project</h6>
+    <h6 class="text-muted">Preencha os dados corretamente e aceite os termos para gerar um projeto</h6>
     <form class="mt-5" action="create_pj_process.php" method="POST" enctype='multipart/form-data'>
       <div class="form-row">
         <div class="form-group col-md-6">
-          <input type="text" class="form-control" name="nome_projeto" id="projectName" placeholder="Project Name" required="required">
+          <input type="text" class="form-control" name="nome_projeto" id="projectName" placeholder="Nome do projeto" required="required">
         </div>
         <div class="form-group col-md-6">
-          <input type="text" class="form-control" name="lang" id="lang" placeholder="Language (c#, Java, etc.)" required="required">
+          <input type="text" class="form-control" name="lang" id="lang" placeholder="Linguagem (c#, Java, etc.)" required="required">
         </div>
       </div>
       <div class="form-row">
@@ -85,7 +85,7 @@ $cpfCliente = $_SESSION['cpf'];
         </div>
       </div>
       <div class="form-group">
-        <textarea id="desc" rows="5" name="descricao" placeholder="Project Description" required="required" style="width: 100%;"></textarea>
+        <textarea id="desc" rows="5" name="descricao" placeholder="Descrição do projeto" required="required" style="width: 100%;"></textarea>
       </div>
       <div class="form-row">
         <div class="form-group col-md-6">
@@ -94,24 +94,24 @@ $cpfCliente = $_SESSION['cpf'];
         <div class="form-group col-md-6">
           <select class="form-control" name="fPagamento" id="payment">
             <option value="Paypal">Paypal</option>
-            <option value="Boleto Bancário">Bank Slip</option>
-            <option value="Cartão de Credito">Credit Card</option>
+            <option value="Boleto Bancário">Boleto</option>
+            <option value="Cartão de Credito">Cartão de crédito</option>
           </select>
         </div>
       </div>
       <!--Input invisivel que passa o cpf do cliente para a pagina que processa que os dados-->
       <input type="hidden" name="cpfCliente" value="<?= $cpfCliente ?>" />
       <div class="form-group">
-        <label for="image">Select a image for your project</label>
+        <label for="image">Selecione uma imagem para o seu projeto</label>
         <input class="form-control" name="imagem" type="file" id="image">
         <small class="text-muted">Max. size: 3MB</small>
       </div>
       <div class="form-group">
         <label class="active">
-          <input type="checkbox" autocomplete="off" required="required"> I have read and accept the <span class="text-info" style="text-decoration: underline; cursor: pointer;"><a data-toggle="modal" data-target="#myModal">Terms of Use</a></span>
+          <input type="checkbox" autocomplete="off" required="required"> Eu li e aceito os <span class="text-info" style="text-decoration: underline; cursor: pointer;"><a data-toggle="modal" data-target="#myModal">Termos de uso</a></span>
         </label>
       </div>
-      <button type="submit" class="btn btn-info mb-3">Confirm</button>
+      <button type="submit" class="btn btn-info mb-3">Criar</button>
       <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
         <div class="modal-dialog" role="document">
           <div class="modal-content col-12">

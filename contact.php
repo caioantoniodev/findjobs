@@ -13,7 +13,7 @@ if (!isset($_SESSION['logado'])) {
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Contact</title>
+  <title>Contato</title>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
   <link href="css/style.css" rel="stylesheet">
   <link href="css/topo.css" rel="stylesheet">
