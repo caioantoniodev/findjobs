@@ -99,7 +99,7 @@ if (!isset($_SESSION['logado'])) {
       <!--Recommended Channels-->
       <div class="col-12">
         <hr>
-        <h4 class="mt-4">RECOMMENDED CHANNELS</h4>
+        <h4 class="mt-4">Não encontrou o conteúdo aqui, temos alguns canais legais para você acessar</h4>
       </div>
 
       <div class="embed-responsive embed-responsive-16by9 col-md-5 col-xl-3 m-2">
