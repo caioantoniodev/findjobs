@@ -126,36 +126,36 @@
     </form>
   </div>
 
-      <!---Se mal sucedido--->
-      <?php
-          if (isset($_SESSION['campos_vazios'])) {
-            echo '<div class="alert alert-danger fixed-top m-3 " style="transition: .1s ">
-            <button type="button" class="close" data-dismiss="alert">&times;</button>
-            <h4 class="alert-heading">Erro!</h4>
-            Preencha todos os campos.</div>';
-          }
-          unset($_SESSION['campos_vazios']);
-      ?>
+  <!---Se mal sucedido--->
+  <?php
+      if (isset($_SESSION['campos_vazios'])) {
+        echo '<div class="alert alert-danger fixed-top m-3 " style="transition: .1s ">
+        <button type="button" class="close" data-dismiss="alert">&times;</button>
+        <h4 class="alert-heading">Erro!</h4>
+        Preencha todos os campos.</div>';
+      }
+      unset($_SESSION['campos_vazios']);
+  ?>
 
-      <?php
-          if (isset($_SESSION['mal_sucedido'])) {
-            echo '<div class="alert alert-danger fixed-top m-3 " style="transition: .1s ">
-            <button type="button" class="close" data-dismiss="alert">&times;</button>
-            <h4 class="alert-heading">Erro!</h4>
-            Não foi possível criar sua conta.</div>';
-          }
-          unset($_SESSION['mal_sucedido']);
-      ?>
+  <?php
+      if (isset($_SESSION['mal_sucedido'])) {
+        echo '<div class="alert alert-danger fixed-top m-3 " style="transition: .1s ">
+        <button type="button" class="close" data-dismiss="alert">&times;</button>
+        <h4 class="alert-heading">Erro!</h4>
+        Não foi possível criar sua conta.</div>';
+      }
+      unset($_SESSION['mal_sucedido']);
+  ?>
 
-      <?php
-          if (isset($_SESSION['cpf_existente'])) {
-            echo '<div class="alert alert-danger fixed-top m-3 " style="transition: .1s ">
-            <button type="button" class="close" data-dismiss="alert">&times;</button>
-            <h4 class="alert-heading">Erro!</h4>
-            Já existe uma conta que utiliza esse CPF.</div>';
-          }
-          unset($_SESSION['cpf_existente']);
-      ?>
+  <?php
+      if (isset($_SESSION['cpf_existente'])) {
+        echo '<div class="alert alert-danger fixed-top m-3 " style="transition: .1s ">
+        <button type="button" class="close" data-dismiss="alert">&times;</button>
+        <h4 class="alert-heading">Erro!</h4>
+        Já existe uma conta que utiliza esse CPF.</div>';
+      }
+      unset($_SESSION['cpf_existente']);
+  ?>
 
 
   <button onclick="backToTop()" id="btnTop"><i class="fas fa-arrow-up"></i></button>
