@@ -9,8 +9,8 @@ TCC of the cpdb 2020 computer technician course
 </p>
 
 <p align="center">
-  <img alt="php-current (scoped with tag, custom registry)" src="https://img.shields.io/badge/PHP-7.4.7-blue?style=flat-square&color=7159c1&labelColor=000000" /> 
-  <img alt="php-current (scoped with tag, custom registry)" src="https://img.shields.io/badge/BOOTSTRAP-4-blue?style=flat-square&color=7159c1&labelColor=000000" /> 
+  <img alt="php-current (scoped with tag, custom registry)" src="https://img.shields.io/badge/PHP-7.4.7-blue?style=flat-square&color=00cec9&labelColor=000000" /> 
+  <img alt="php-current (scoped with tag, custom registry)" src="https://img.shields.io/badge/BOOTSTRAP-4-blue?style=flat-square&color=00cec9&labelColor=000000" /> 
 </p>
 
 <p align="center">
