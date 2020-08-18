@@ -1,5 +1,5 @@
 <h1 align="center">
-TCC of the cpdb 2020 - FindJobs
+TCC of the CPDB 2020 - FindJobs
 </h1>
 
 <p align="center">
