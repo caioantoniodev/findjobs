@@ -13,6 +13,11 @@ TCC of the cpdb 2020 computer technician course
   <img alt="php-current (scoped with tag, custom registry)" src="https://img.shields.io/badge/BOOTSTRAP-4-blue?style=flat-square&color=7159c1&labelColor=000000" /> 
 </p>
 
+<p align="center">
+  <img alt="Tela" src=".github/telas.png" width="100%">
+</p>
+
+
 <br>
 
 ## 🚀 Technology
