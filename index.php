@@ -95,7 +95,7 @@ include('connection.php');
     ?>
       <h1>Bem-vindo, <?php echo  $dados['nome']; ?> !</h1>
     <?php } else { ?>
-      <h1 class="display-2">Não tem uma conta ainda?</h1>
+      <h1 class="display-2">Ainda não tem uma conta ?</h1>
       <a href="login.php"><button type="button" class="btn btn-outline-light btn-lg">Entrar</button></a>
       <a href="register.php"><button type="button" class="btn btn-light btn-lg">Cadastrar</button></a>
     <?php } ?>
