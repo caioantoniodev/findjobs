@@ -267,7 +267,7 @@ $dadosRS = mysqli_fetch_assoc($resultado);
 
               <?php } ?>
             <?php } else { ?>
-              <h4 class="mt-5">Você ainda não ingressou em nenhum grupo</h4>
+              <h4 class="mt-5">Você ainda não tem projetos</h4>
             <?php } ?>
 
             <div class="modal fade" id="modalEditProject" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
@@ -375,7 +375,7 @@ $dadosRS = mysqli_fetch_assoc($resultado);
           </div>
         <?php } ?>
       <?php } else { ?>
-        <h4 class="mt-5">Você ainda não ingressou em nenhum grupo</h4>
+        <h4 class="mt-5">Você não está participando de projetos</h4>
       <?php } ?>
     </div>
   </div>
