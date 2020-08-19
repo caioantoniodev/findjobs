@@ -236,13 +236,12 @@ $dadosRS = mysqli_fetch_assoc($resultado);
         $query = "SELECT COUNT(*) AS total FROM projetos WHERE cliente_cpf = '$cpf'";
         $resultado = mysqli_query($conexao, $query);
         $row = mysqli_fetch_assoc($resultado);
-
-        if ($row['total'] >= 1) {
         ?>
-          <h3>Seus projetos</h3>
-          <div class="container-fluid padding" align="center">
-            <div class="row justify-content-center">
-              <?php
+        <h3 class="mt-5">Seus projetos</h3>
+        <div class="container-fluid padding" align="center">
+          <div class="row justify-content-center">
+            <?php
+            if ($row['total'] >= 1) {
               // listando projetos  desse usuário
               $consulta = "SELECT * FROM usuarios, projetos WHERE usuarios.cpf = projetos.cliente_cpf AND usuarios.cpf = $cpf;";
 
@@ -251,7 +250,7 @@ $dadosRS = mysqli_fetch_assoc($resultado);
 
               // utilizo o while para percorrer cada card de do html e add as infos do bd
               while ($projetos = mysqli_fetch_assoc($resultado)) {
-              ?>
+            ?>
 
 
                 <div class="card m-3" style="width: 21rem;height: auto;">
@@ -261,31 +260,24 @@ $dadosRS = mysqli_fetch_assoc($resultado);
                     <h6 class="card-subtitle text-muted mb-3"><?= $projetos['linguagem'] ?></h6>
                     <hr>
                     <p class="card-text"><?= $projetos['descricao'] ?></p>
-                    <button
-                      type="button"
-                      class="btn btn-outline-dark btn-lg"
-                      data-toggle="modal" data-target="#modalEditProject"
-                      data-id="<?= $projetos['idprojetos'] ?>"
-                      data-titulo="<?= $projetos['titulo'] ?>"
-                      data-descricao="<?= $projetos['descricao'] ?>"
-                      data-linguagem="<?= $projetos['linguagem'] ?>"
-                      data-repositorio="<?= $projetos['repositorio'] ?>"
-                      data-freela="<?= $projetos['cpffreela'] ?>">Editar
+                    <button type="button" class="btn btn-outline-dark btn-lg" data-toggle="modal" data-target="#modalEditProject" data-id="<?= $projetos['idprojetos'] ?>" data-titulo="<?= $projetos['titulo'] ?>" data-descricao="<?= $projetos['descricao'] ?>" data-linguagem="<?= $projetos['linguagem'] ?>" data-repositorio="<?= $projetos['repositorio'] ?>" data-freela="<?= $projetos['cpffreela'] ?>">Editar
                     </button>
                   </div>
                 </div>
 
               <?php } ?>
+            <?php } else { ?>
+              <h4 class="mt-5">Você ainda não ingressou em nenhum grupo</h4>
             <?php } ?>
 
             <div class="modal fade" id="modalEditProject" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-            <form action="project_update.php" method="POST">
-              <div class="modal-dialog" role="document">
-                <div class="modal-content col-12">
-                  <div class="modal-header">
-                    <h4 class="modal-title" id="myModalLabel">Editar projeto</h4>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                  </div>
+              <form action="project_update.php" method="POST">
+                <div class="modal-dialog" role="document">
+                  <div class="modal-content col-12">
+                    <div class="modal-header">
+                      <h4 class="modal-title" id="myModalLabel">Editar projeto</h4>
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    </div>
 
                     <div class="modal-body">
                       <div class="form-row">
@@ -293,7 +285,7 @@ $dadosRS = mysqli_fetch_assoc($resultado);
                         <input type="hidden" name="idProjeto" id="idProjeto">
 
                         <div class="form-group col-md-6">
-                          <input type="text" class="form-control" name= "titulo" value="" id="titulo" placeholder="Nome do projeto">
+                          <input type="text" class="form-control" name="titulo" value="" id="titulo" placeholder="Nome do projeto">
                         </div>
                         <div class="form-group col-md-6">
                           <input type="text" class="form-control" name="lang" id="lang" placeholder="Linguagem (c#, Java, etc.)">
@@ -313,81 +305,82 @@ $dadosRS = mysqli_fetch_assoc($resultado);
                         <input class="form-control" type="text" name="cpfFreela" id="cpf" placeholder="000.000.000-00" maxlength=11>
                       </div>
 
-                    <hr>
-                    <button type="submit" class="btn btn-outline-dark btn-md mb-3">Atualizar</button>
-                  </form>
-                  <form action="project_delete.php" method="POST">
-                    <input type="hidden" name="idProjetoDL" id="idProjetoDL">
-                    <button type="submit" class="btn btn-danger btn-md mb-3">Fechar o projeto</button>
-                  </form>
-                  </div>
-                  <label class="active">
-                    <input type="checkbox" autocomplete="off" required="required"> Eu li e aceito os <span class="text-info" style="text-decoration: underline; cursor: pointer;"><a data-toggle="modal" data-target="#myModal">Termos de uso</a></span>
-                  </label>
-                </div>
-              </div>
+                      <hr>
+                      <button type="submit" class="btn btn-outline-dark btn-md mb-3">Atualizar</button>
+              </form>
+              <form action="project_delete.php" method="POST">
+                <input type="hidden" name="idProjetoDL" id="idProjetoDL">
+                <button type="submit" class="btn btn-danger btn-md mb-3">Fechar o projeto</button>
+              </form>
             </div>
+            <label class="active">
+              <input type="checkbox" autocomplete="off" required="required"> Eu li e aceito os <span class="text-info" style="text-decoration: underline; cursor: pointer;"><a data-toggle="modal" data-target="#myModal">Termos de uso</a></span>
+            </label>
+          </div>
+        </div>
+      </div>
 
-            <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-              <div class="modal-dialog" role="document">
-                <div class="modal-content col-12">
-                  <div class="modal-header">
-                    <h4 class="modal-title" id="myModalLabel">Termos de Uso FindJobs</h4>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                  </div>
-                  <div class="modal-body">
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla viverra, orci aliquam hendrerit malesuada, odio magna ultricies felis, quis laoreet lectus dolor et sem. Morbi suscipit, eros non eleifend varius, velit magna ullamcorper lorem, nec mollis lacus ipsum non orci. Integer ut blandit massa, sed fermentum ipsum. Maecenas sit amet justo id ligula ullamcorper dignissim. Proin sed sollicitudin est. Morbi feugiat et nisi ut iaculis. Donec id ipsum finibus, tincidunt velit non, tincidunt quam. Nullam et nisl ut nisi interdum malesuada eget in odio. Sed fermentum, arcu eu cursus egestas, quam risus mattis tortor, dictum egestas tellus lorem vitae nulla. Sed auctor cursus finibus. Curabitur tincidunt fringilla mauris, ac laoreet ex tincidunt sit amet. Duis mollis nec mi sit amet eleifend. Sed eu purus augue. Aliquam at mi facilisis sapien blandit luctus ac in est. Mauris non risus sem.</p>
-
-                    <p>Fusce ut nibh rutrum, interdum enim ac, pulvinar odio. Nunc id est interdum, sodales sem ut, accumsan tortor. Mauris id eleifend nibh, venenatis egestas magna. Ut convallis volutpat ligula, sit amet lacinia nisl lobortis id. Nunc sollicitudin diam tellus, ac maximus ligula vehicula dictum. Nam et tincidunt sem. Vivamus faucibus sem eget urna vulputate dignissim. Duis metus lacus, pretium vitae nulla ullamcorper, lacinia fringilla leo. Pellentesque vitae magna facilisis libero scelerisque lacinia dictum id massa. Integer a eros mi. In quis sem turpis. Quisque vel dolor in lacus tristique vehicula.</p>
-
-                    <p>Mauris congue justo tempus erat finibus, quis vestibulum urna aliquet. Phasellus porttitor, enim vitae ullamcorper ultrices, nibh magna hendrerit dui, sed sodales mi tellus sed sem. Nam justo dolor, porta sed ante ac, ullamcorper iaculis justo. Donec in nulla sapien. Morbi quis placerat orci, sed dictum orci. Aenean efficitur lectus in magna blandit suscipit. Phasellus nisi eros, accumsan et aliquet sed, tristique at nulla. Suspendisse viverra odio ultricies augue lobortis vulputate. Proin a lacus vitae dui porttitor ultrices. Vestibulum sed venenatis eros. Maecenas porta hendrerit magna nec cursus. Phasellus vulputate euismod molestie. Fusce varius, libero vel luctus pellentesque, ligula nulla consequat ex, a consectetur purus enim sit amet massa. Proin enim neque, laoreet nec tellus ut, iaculis ultricies nisl.</p>
-
-                    <p>Duis interdum egestas nisi. Maecenas non pharetra arcu. Suspendisse vulputate eget eros vitae sodales. Aenean libero risus, accumsan ut vulputate tristique, accumsan quis magna. Mauris non egestas diam. Maecenas fringilla elit nisl, vel eleifend massa blandit vitae. Cras placerat justo imperdiet justo consequat, quis condimentum erat ornare. Integer porta urna ullamcorper velit tempor, ultricies vestibulum felis pulvinar. Fusce nec nisl a dolor feugiat bibendum non sed velit. Praesent ullamcorper ac orci vitae luctus. Curabitur mattis, purus vel dapibus finibus, lorem nibh tristique sapien, quis fermentum enim est sit amet tellus. Donec quis aliquet nisi. Etiam egestas metus at nunc eleifend ultrices. Integer eget finibus neque, ut ultrices ligula. Vivamus malesuada sem quis sapien mollis, ac dapibus elit commodo. Vivamus placerat massa a eros posuere, et sodales libero pulvinar.</p>
-                  </div>
-                </div>
-              </div>
+      <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content col-12">
+            <div class="modal-header">
+              <h4 class="modal-title" id="myModalLabel">Termos de Uso FindJobs</h4>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
             </div>
+            <div class="modal-body">
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla viverra, orci aliquam hendrerit malesuada, odio magna ultricies felis, quis laoreet lectus dolor et sem. Morbi suscipit, eros non eleifend varius, velit magna ullamcorper lorem, nec mollis lacus ipsum non orci. Integer ut blandit massa, sed fermentum ipsum. Maecenas sit amet justo id ligula ullamcorper dignissim. Proin sed sollicitudin est. Morbi feugiat et nisi ut iaculis. Donec id ipsum finibus, tincidunt velit non, tincidunt quam. Nullam et nisl ut nisi interdum malesuada eget in odio. Sed fermentum, arcu eu cursus egestas, quam risus mattis tortor, dictum egestas tellus lorem vitae nulla. Sed auctor cursus finibus. Curabitur tincidunt fringilla mauris, ac laoreet ex tincidunt sit amet. Duis mollis nec mi sit amet eleifend. Sed eu purus augue. Aliquam at mi facilisis sapien blandit luctus ac in est. Mauris non risus sem.</p>
+
+              <p>Fusce ut nibh rutrum, interdum enim ac, pulvinar odio. Nunc id est interdum, sodales sem ut, accumsan tortor. Mauris id eleifend nibh, venenatis egestas magna. Ut convallis volutpat ligula, sit amet lacinia nisl lobortis id. Nunc sollicitudin diam tellus, ac maximus ligula vehicula dictum. Nam et tincidunt sem. Vivamus faucibus sem eget urna vulputate dignissim. Duis metus lacus, pretium vitae nulla ullamcorper, lacinia fringilla leo. Pellentesque vitae magna facilisis libero scelerisque lacinia dictum id massa. Integer a eros mi. In quis sem turpis. Quisque vel dolor in lacus tristique vehicula.</p>
+
+              <p>Mauris congue justo tempus erat finibus, quis vestibulum urna aliquet. Phasellus porttitor, enim vitae ullamcorper ultrices, nibh magna hendrerit dui, sed sodales mi tellus sed sem. Nam justo dolor, porta sed ante ac, ullamcorper iaculis justo. Donec in nulla sapien. Morbi quis placerat orci, sed dictum orci. Aenean efficitur lectus in magna blandit suscipit. Phasellus nisi eros, accumsan et aliquet sed, tristique at nulla. Suspendisse viverra odio ultricies augue lobortis vulputate. Proin a lacus vitae dui porttitor ultrices. Vestibulum sed venenatis eros. Maecenas porta hendrerit magna nec cursus. Phasellus vulputate euismod molestie. Fusce varius, libero vel luctus pellentesque, ligula nulla consequat ex, a consectetur purus enim sit amet massa. Proin enim neque, laoreet nec tellus ut, iaculis ultricies nisl.</p>
+
+              <p>Duis interdum egestas nisi. Maecenas non pharetra arcu. Suspendisse vulputate eget eros vitae sodales. Aenean libero risus, accumsan ut vulputate tristique, accumsan quis magna. Mauris non egestas diam. Maecenas fringilla elit nisl, vel eleifend massa blandit vitae. Cras placerat justo imperdiet justo consequat, quis condimentum erat ornare. Integer porta urna ullamcorper velit tempor, ultricies vestibulum felis pulvinar. Fusce nec nisl a dolor feugiat bibendum non sed velit. Praesent ullamcorper ac orci vitae luctus. Curabitur mattis, purus vel dapibus finibus, lorem nibh tristique sapien, quis fermentum enim est sit amet tellus. Donec quis aliquet nisi. Etiam egestas metus at nunc eleifend ultrices. Integer eget finibus neque, ut ultrices ligula. Vivamus malesuada sem quis sapien mollis, ac dapibus elit commodo. Vivamus placerat massa a eros posuere, et sodales libero pulvinar.</p>
             </div>
           </div>
-          <?php
-          $query = "SELECT COUNT(*) AS total FROM projetos WHERE cpffreela = '$cpf'";
-          $resultado = mysqli_query($conexao, $query);
-          $row = mysqli_fetch_assoc($resultado);
-
-          if ($row['total'] >= 1) {
-          ?>
-            <h3 class="mt-5">Projetos que você está desenvolvendo</h3>
-            <div class="container-fluid padding" align="center">
-              <div class="row justify-content-center">
-
-                <?php
-                // listando projetos  desse usuário
-                $consulta = "SELECT * FROM usuarios, projetos WHERE usuarios.cpf = projetos.cliente_cpf AND projetos.cpffreela = $cpf";
-
-                // recebo o resutado da querie na variavel $resultado
-                $resultado = mysqli_query($conexao, $consulta);
-
-                // utilizo o while para percorrer cada card de do html e add as infos do bd
-                while ($meuFreela = mysqli_fetch_assoc($resultado)) {
-                ?>
-
-                  <div class="card m-3" style="width: 21rem;height: auto;">
-                    <img src="img/delivery2.png" class="card-img-top p-5" alt="">
-                    <div class="card-body h-100">
-                      <h5 class="card-title mb-1"><?= $meuFreela['titulo'] ?></h5>
-                      <h6 class="card-subtitle text-muted mb-3"><?= $meuFreela['linguagem'] ?></h6>
-                      <hr>
-                      <p class="card-text"><?= $meuFreela['descricao'] ?>.</p>
-                      <a href="<?= $meuFreela['repositorio'] ?>"><button type="button" class="btn btn-outline-dark btn-lg">Veja o repositório</button></a>
-                    </div>
-                  </div>
-
-                <?php } ?>
-              <?php } ?>
-              </div>
-            </div>
+        </div>
       </div>
     </div>
+  </div>
+  <?php
+  $query = "SELECT COUNT(*) AS total FROM projetos WHERE cpffreela = '$cpf'";
+  $resultado = mysqli_query($conexao, $query);
+  $row = mysqli_fetch_assoc($resultado);
+
+  ?>
+  <h3 class="mt-5">Projetos que você está desenvolvendo</h3>
+  <div class="container-fluid padding" align="center">
+    <div class="row justify-content-center">
+
+      <?php
+      if ($row['total'] >= 1) {
+        // listando projetos  desse usuário
+        $consulta = "SELECT * FROM usuarios, projetos WHERE usuarios.cpf = projetos.cliente_cpf AND projetos.cpffreela = $cpf";
+
+        // recebo o resutado da querie na variavel $resultado
+        $resultado = mysqli_query($conexao, $consulta);
+
+        // utilizo o while para percorrer cada card de do html e add as infos do bd
+        while ($meuFreela = mysqli_fetch_assoc($resultado)) {
+      ?>
+
+          <div class="card m-3" style="width: 21rem;height: auto;">
+            <img src="img/delivery2.png" class="card-img-top p-5" alt="">
+            <div class="card-body h-100">
+              <h5 class="card-title mb-1"><?= $meuFreela['titulo'] ?></h5>
+              <h6 class="card-subtitle text-muted mb-3"><?= $meuFreela['linguagem'] ?></h6>
+              <hr>
+              <p class="card-text"><?= $meuFreela['descricao'] ?>.</p>
+              <a href="<?= $meuFreela['repositorio'] ?>"><button type="button" class="btn btn-outline-dark btn-lg">Veja o repositório</button></a>
+            </div>
+          </div>
+        <?php } ?>
+      <?php } else { ?>
+        <h4 class="mt-5">Você ainda não ingressou em nenhum grupo</h4>
+      <?php } ?>
+    </div>
+  </div>
+  </div>
+  </div>
   </div>
 
   <?php
