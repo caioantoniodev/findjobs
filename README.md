@@ -25,7 +25,7 @@ TCC of the CPDB 2020 - FindJobs
 This project was developed with the following technologies:
 
 - [PHP](https://www.php.net/)
-- [BOOSTRAP 4](https://getbootstrap.com/)
+- [BOOTSRAP 4](https://getbootstrap.com/)
 - [MYSQL](https://www.mysql.com/)
 
 ## 💻 Project
