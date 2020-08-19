@@ -251,8 +251,6 @@ $dadosRS = mysqli_fetch_assoc($resultado);
               // utilizo o while para percorrer cada card de do html e add as infos do bd
               while ($projetos = mysqli_fetch_assoc($resultado)) {
             ?>
-
-
                 <div class="card m-3" style="width: 21rem;height: auto;">
                   <img src="<?= $projetos['imgurl'] ?>" class="card-img-top p-5" alt="">
                   <div class="card-body h-100">
@@ -267,7 +265,7 @@ $dadosRS = mysqli_fetch_assoc($resultado);
 
               <?php } ?>
             <?php } else { ?>
-              <h4 class="mt-5">Você ainda não tem projetos</h4>
+              <h4 class="mt-5 text-muted">Você ainda não tem projetos</h4>
             <?php } ?>
 
             <div class="modal fade" id="modalEditProject" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
@@ -350,7 +348,6 @@ $dadosRS = mysqli_fetch_assoc($resultado);
   <h3 class="mt-5">Projetos que você está desenvolvendo</h3>
   <div class="container-fluid padding" align="center">
     <div class="row justify-content-center">
-
       <?php
       if ($row['total'] >= 1) {
         // listando projetos  desse usuário
@@ -375,14 +372,13 @@ $dadosRS = mysqli_fetch_assoc($resultado);
           </div>
         <?php } ?>
       <?php } else { ?>
-        <h4 class="mt-5">Você não está participando de projetos</h4>
+        <h4 class="mt-5 text-muted">Você não está participando de projetos</h4>
       <?php } ?>
     </div>
   </div>
   </div>
   </div>
   </div>
-
   <?php
   // MSG CRIAR PROJETO
   if (isset($_SESSION['criar_sucedido'])) {
