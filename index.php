@@ -311,10 +311,10 @@ include('connection.php');
 
                 <form action="evaluation_process.php" method="POST">
                   <div class="form-group">
-                    <input class="form-control" type="text" name="nome_completo" id="name" placeholder="Seu nome" value="<?= $info_pessoais['nome'] ?>" onkeypress="return ApenasLetras(event,this);" required="required">
+                    <input class="form-control" type="text" name="nome_completo" id="disabledTextInput" placeholder="Seu nome" value="<?= $info_pessoais['nome'] ?>" disabled >
                   </div>
                   <div class="form-group">
-                    <input class="form-control" type="text" name="profissao" id="prof" placeholder="Profissão" value="<?= $info_pessoais['profissao'] ?>" onkeypress="return ApenasLetras(event,this);" required="required">
+                    <input class="form-control" type="text" name="profissao" id="disabledTextInput" placeholder="Profissão" value="<?= $info_pessoais['profissao'] ?>" disabled >
                   </div>
                   <div class="form-group">
                     <textarea id="desc" rows="5" name="opniao" placeholder="Sua opnião" required="required" style="width: 100%;"></textarea>

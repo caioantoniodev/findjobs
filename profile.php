@@ -303,7 +303,7 @@ $dadosRS = mysqli_fetch_assoc($resultado);
                         <textarea name="desc" id="desc" rows="5" placeholder="Descrição do projeto" style="width: 100%;"></textarea>
                       </div>
                       <div class="form-group">
-                        <input type="text" class="form-control" name="repo" id="repositório" placeholder="Adicione o repositório onde o código será hospedado">
+                        <input type="text" class="form-control" name="repo" id="repo" placeholder="Adicione o repositório onde o código será hospedado">
                       </div>
                       <hr>
                       <h6>Adicionar um freela</h6>
@@ -451,6 +451,25 @@ $dadosRS = mysqli_fetch_assoc($resultado);
   }
   unset($_SESSION['delete_error']);
 
+  // MSG ATUALIZAR PROFILE
+  if (isset($_SESSION['update_sucedidopf'])) {
+    echo '<div class="alert alert-success fixed-top m-3 " style="transition: .6s ease-in ">
+    <button type="button" class="close" data-dismiss="alert">&times;</button>
+    <h4 class="alert-heading">Sucesso!</h4>
+    Perfil atualizado com sucesso.</div>';
+  }
+  unset($_SESSION['update_sucedidopf']);
+
+  if (isset($_SESSION['update_errorpf'])) {
+    echo '<div class="alert alert-danger fixed-top m-3 " style="transition: .1s ">
+    <button type="button" class="close" data-dismiss="alert">&times;</button>
+    <h4 class="alert-heading">Erro!</h4>
+    Perfil não atualizado.</div>';
+  }
+  unset($_SESSION['update_errorpf']);
+
+
+
   // MSG FREELANCER NÂO ENCONTRADO
   if (isset($_SESSION['freelaNa'])) {
     echo '<div class="alert alert-danger fixed-top m-3 " style="transition: .18s ease-out">
@@ -491,7 +510,7 @@ $dadosRS = mysqli_fetch_assoc($resultado);
       modal.find('#titulo').val(titulo);
       modal.find('#desc').val(descricao);
       modal.find('#lang').val(linguagem);
-      modal.find('#repository').val(repositorio);
+      modal.find('#repo').val(repositorio);
       modal.find('#cpf').val(freela);
     });
   </script>
