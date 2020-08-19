@@ -72,9 +72,9 @@ if (empty($_FILES['img']['name'])) {
 }
 
 if (mysqli_query($conexao, $sql) && mysqli_query($conexao, $sql2) && mysqli_query($conexao, $cons)) {
-  $_SESSION['update_sucedido'] = TRUE;
+  $_SESSION['update_sucedidopf'] = TRUE;
 } else {
-  $_SESSION['update_error'] = TRUE;
+  $_SESSION['update_errorpf'] = TRUE;
 }
 
 header('Location: profile.php');
