@@ -93,7 +93,7 @@ $dadosRS = mysqli_fetch_assoc($resultado);
                     <input class="form-control" type="text" name="nome" id="name" placeholder="Seu Nome" value="<?= $dados['nome'] ?>" onkeypress="return ApenasLetras(event,this);">
                   </div>
                   <div class="form-group">
-                    <input class="form-control" type="text" name="profissao" id="prof" placeholder="Profissão" value="<?= $dados['profissao'] ?>" onkeypress="return ApenasLetras(event,this);">
+                    <input class="form-control" type="text" name="profissao" id="prof" placeholder="Profissão" value=' <?php if(isset($dados['profissao'])) {  echo $dados['profissao']; } ?>' onkeypress="return ApenasLetras(event,this);">
                   </div>
                   <div class="form-group">
                     <textarea id="desc" rows="5" placeholder="Biografia" name="sobre" required="required" style="width: 100%;"><?= $dados['sobre'] ?></textarea>
@@ -189,7 +189,9 @@ $dadosRS = mysqli_fetch_assoc($resultado);
         </div>
         <div class="border p-2">
           <h6>Biografia</h6>
-          <p><?= $dados['sobre'] ?></p>
+          <?php if (isset($dados['sobre'])) { ?>
+            <p><?= $dados['sobre'] ?></p>
+          <?php } ?>
           <div class="estrelas">
             <input type="radio" id="vazio" name="estrela" value="" checked>
 
