@@ -57,7 +57,7 @@ if (!isset($_SESSION['logado'])) {
       <div class="row welcome text-center" align="center">
         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
           <h1 class="mt-4">SOBRE NÓS / ALGUM PROBLEMA?</h1>
-          <p class="lead">Meet us or contact us to solve your problem!</p>
+          <p class="lead">Encontre-nos ou contacte-nos para resolver o seu problema!</p>
           <hr>
         </div>
       </div>
