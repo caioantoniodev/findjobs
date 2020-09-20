@@ -33,19 +33,19 @@ if (!isset($_SESSION['logado'])) {
             <li class="nav-item dropdown">
               <a class="nav-link text-white" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" href="#"><i class="fas fa-user-circle"></i></a>
               <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <a href="profile.php" class="dropdown-item">Profile</a>
+                <a href="profile.php" class="dropdown-item">Perfil</a>
                 <div class="dropdown-divider"></div>
-                <a href="sair.php" class="dropdown-item"><i class="fas fa-sign-out-alt"></i> Log Out</a>
+                <a href="sair.php" class="dropdown-item"><i class="fas fa-sign-out-alt"></i>Sair</a>
               </div>
             </li>
             <li class="nav-item active">
               <a class="nav-link text-white" href="index.php">Home</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link text-white" href="classes.php">Classes</a>
+              <a class="nav-link text-white" href="classes.php">Aulas</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link text-white" href="projects.php">Projects</a>
+              <a class="nav-link text-white" href="projects.php">Projetos</a>
             </li>
           </ul>
         </div>
@@ -56,8 +56,8 @@ if (!isset($_SESSION['logado'])) {
     <div class="container-fluid">
       <div class="row welcome text-center" align="center">
         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
-          <h1 class="mt-4">ABOUT US/SOME PROBLEM?</h1>
-          <p class="lead">Meet us or contact us to solve your problem!</p>
+          <h1 class="mt-4">SOBRE NÓS / ALGUM PROBLEMA?</h1>
+          <p class="lead">Encontre-nos ou contacte-nos para resolver o seu problema!</p>
           <hr>
         </div>
       </div>
