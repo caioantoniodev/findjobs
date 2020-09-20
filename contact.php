@@ -42,10 +42,10 @@ if (!isset($_SESSION['logado'])) {
               <a class="nav-link text-white" href="index.php">Home</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link text-white" href="classes.php">Classes</a>
+              <a class="nav-link text-white" href="classes.php">Aulas</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link text-white" href="projects.php">Projects</a>
+              <a class="nav-link text-white" href="projects.php">Projetos</a>
             </li>
           </ul>
         </div>
