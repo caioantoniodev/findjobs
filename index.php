@@ -241,7 +241,7 @@ include('connection.php');
                 sobre o projeto vigente, o freelancer/contratado por outro  lado não possui direitos sobre o produto final porém possui todos os direitos sobre
                 a sua parte do projeto que lhe foi designada. A FindJobs não se responsabiliza por quaisquer contratos feitos fora da plataforma, problemas e
                 contratempos que não estejam contabilizados dentro da plataforma, em caso de algum problema que esteja dentro da plataforma, favor contatar a empresa.
-                Em caso de dúvidas, reclamações ou sugestões enviar um e-mail para o SAC</p>
+                Em caso de dúvidas, reclamações ou sugestões enviar um e-mail para a nossa equipe.</p>
               </div>
             </div>
           </div>
