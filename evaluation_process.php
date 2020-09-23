@@ -2,8 +2,8 @@
 session_start();
 include_once("connection.php");
 
-if (empty($_POST['nome_completo']) || empty($_POST['profissao']) || empty($_POST['opniao']) || empty($_POST['estrela'])) {
-  $_SESSION['mal_sucedido'] = TRUE;
+if (empty($_POST['opniao']) || empty($_POST['estrela'])) {
+  $_SESSION['avmal_sucedido'] = TRUE;
   header('Location: index.php');
 } else {
   $opn = $_POST['opniao'];

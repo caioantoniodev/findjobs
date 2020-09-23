@@ -215,19 +215,19 @@ $dadosRS = mysqli_fetch_assoc($resultado);
           <h6>Redes Sociais</h6>
 
           <?php if (!empty($dadosRS['github'])) { ?>
-            <a href="<?= $dadosRS['github'] ?>" target="_blank">
+            <a target="_blank" href="https://github.com/<?= $dadosRS['github'] ?>" target="_blank">
               <i class="fab fa-github"></i>
             </a>
           <?php } ?>
 
           <?php if (!empty($dadosRS['twitter'])) { ?>
-            <a href="<?= $dadosRS['twitter'] ?>">
+            <a target="_blank" href="https://twitter.com/<?= $dadosRS['twitter'] ?>">
               <i class="fab fa-twitter"></i>
             </a>
           <?php } ?>
 
           <?php if (!empty($dadosRS['instagram'])) { ?>
-            <a href="<?= $dadosRS['instagram'] ?>">
+            <a target="_blank" href="https://www.instagram.com/<?= $dadosRS['instagram'] ?>">
               <i class="fab fa-instagram"></i>
             </a>
           <?php } ?>
