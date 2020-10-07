@@ -378,7 +378,7 @@ $dadosRS = mysqli_fetch_assoc($resultado);
       ?>
 
           <div class="card m-3" style="width: 21rem;height: auto;">
-            <img src="img/delivery2.png" class="card-img-top p-5" alt="">
+            <img src="<?= $meuFreela['imgurl'] ?>" class="card-img-top p-5" alt="">
             <div class="card-body h-100">
               <h5 class="card-title mb-1"><?= $meuFreela['titulo'] ?></h5>
               <h6 class="card-subtitle text-muted mb-3"><?= $meuFreela['linguagem'] ?></h6>
