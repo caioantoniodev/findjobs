@@ -92,35 +92,38 @@ if (!isset($_SESSION['logado'])) {
           ?>
             <!--Card do Projeto-->
             <?php
-                // guardando alguns valores que serão utilizados
-                // pegando informações referentes ao cliente
-                $nome_cliente = $dados['nome'];
-                $email_cliente = $dados['email'];
-                $titulo_projeto = $dados['titulo'];
-                $id_projeto = $dados['idprojetos'];
+            // guardando alguns valores que serão utilizados
+            // pegando informações referentes ao cliente
+            $nome_cliente = $dados['nome'];
+            $email_cliente = $dados['email'];
+            $titulo_projeto = $dados['titulo'];
+            $id_projeto = $dados['idprojetos'];
 
-                // Verifico se o projeto está em aberto
-                if ($dados['cpffreela'] == NULL || $dados['cpffreela'] == 0) {
+            // Verifico se o projeto está em aberto
+            if ($dados['cpffreela'] == NULL || $dados['cpffreela'] == 0) {
             ?>
-            <div class="card m-3" style="width: 21rem;height: auto;">
-              <img src="<?= $dados['imgurl'] ?>" class="card-img-top p-5" alt="">
-              <div class="card-body h-100">
+              <div class="card m-3" style="width: 21rem;height: auto;">
+                <img src="<?= $dados['imgurl'] ?>" class="card-img-top p-5" alt="">
+                <div class="card-body h-100">
 
                   <h5 class="card-title mb-1"><?= $dados['nome'] ?></h5>
                   <h6 class="card-subtitle text-muted mb-3"><?= $dados['linguagem'] ?></h6>
                   <hr>
                   <p class="card-text"><?= $dados['descricao'] ?></p>
                   <a data-toggle="modal" data-target="#modalProject">
-                    <button type="button" class="btn btn-outline-dark btn-lg">Tenho interesse</button>
+                    <button type="button" class="btn btn-outline-dark btn-lg" onclick="enviarEmail('<?= $email_cliente ?>', '<?= $nome_cliente ?>', '<?= $titulo_projeto ?>', '<?= $nome_freela ?>', '<?= $profissao_freela ?>')" class="btn btn-outline-dark btn-md mb-3">
+                      Entrar em contato
+                    </button>
                   </a>
 
+                </div>
               </div>
-            </div>
             <?php } ?>
           <?php } ?>
         </div>
       </div>
-      <div class="modal fade" id="modalProject" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+      <!-- FEATURE RETIRADA --!>
+      <!-- <div class="modal fade" id="modalProject" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
         <div class="modal-dialog" role="document">
           <div class="modal-content col-12">
             <div class="modal-header">
@@ -135,7 +138,7 @@ if (!isset($_SESSION['logado'])) {
                   <p>Boa sorte 🚀</p>
                   <hr>
 
-                  <button type="button" onclick="enviarEmail('<?= $email_cliente ?>', '<?= $nome_cliente ?>', '<?= $titulo_projeto ?>', '<?= $nome_freela ?>', '<?= $profissao_freela ?>')" class="btn btn-outline-dark btn-md mb-3">Enviar um email para <?php echo $nome_cliente ?>
+                  <button type="button"
                   </button>
 
                   <label class="active">
@@ -180,7 +183,7 @@ if (!isset($_SESSION['logado'])) {
             </div>
           </div>
         </div>
-      </div>
+      </div>-->
     </div>
   </div>
   </div>
@@ -195,6 +198,7 @@ if (!isset($_SESSION['logado'])) {
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
   <script src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
+  </script>
 </body>
 
 </html>
