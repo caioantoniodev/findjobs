@@ -275,7 +275,7 @@ include('connection.php');
     <div class="container">
       <div class="row text-center justify-content-center">
         <div class="col-12">
-          <h1>Opniões</h1>
+          <h1>Opiniões</h1>
           <P class="lead">Veja as opniões de quem estão utilizando a nossa plataforma.</P>
         </div>
         <div class="container-fluid padding" align="center">
