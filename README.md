@@ -35,5 +35,5 @@ FindJobs is a platform for freelancers to find projects and study
 ## 👨🏻‍💻 Devs
 
 - [Caio Antonio Cichetti Roberto](https://github.com/caiocichetti/)
-- [Lucas Vinicius Bermudes](https://github.com/LucasViniciusBermudes)
-- [Matheus Germano da Costa](https://github.com/MGermano27)
+- Lucas Vinicius Bermudes
+- Matheus Germano da Costa
