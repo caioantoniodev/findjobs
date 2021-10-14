@@ -31,9 +31,3 @@ This project was developed with the following technologies:
 ## 💻 Project
 
 FindJobs is a platform for freelancers to find projects and study
-
-## 👨🏻‍💻 Devs
-
-- [Caio Antonio Cichetti Roberto](https://github.com/caiocichetti/)
-- Lucas Vinicius Bermudes
-- Matheus Germano da Costa
